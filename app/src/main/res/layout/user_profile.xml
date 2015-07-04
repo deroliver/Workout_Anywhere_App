@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:scrollbars="none"
+    android:layout_weight="1"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="User's Name"
+            android:id="@+id/user_name_text_view"
+            android:layout_gravity="center_horizontal" />
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="25dp"
+            android:id="@+id/imageView"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/icon_profile" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/rundle_blue_hex" >
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dp"
+                android:text="Favorited Workouts"
+                android:textColor="#ffffff"
+                android:id="@+id/favorited_workouts_text_view" />
+
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:textColor="#ffffff"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="5dp"
+                android:background="#8d8d8d"
+                android:text="View All"
+                android:id="@+id/view_all_favorited_workouts_button" />
+        </TableRow>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"
+                android:text="Some Title For Some Workout Video"
+                android:id="@+id/recently_favorited_workout_video" />
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="50dp"
+                android:id="@+id/recently_favorited_workout_video_pic"
+                android:src="@drawable/youtube_icon" />
+        </LinearLayout>
+
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/rundle_blue_hex"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dp"
+                android:text="Favorited Meals"
+                android:textColor="#ffffff"
+                android:id="@+id/favorited_meals_text_view" />
+
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:textColor="#ffffff"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="5dp"
+                android:background="#8d8d8d"
+                android:text="View All"
+                android:id="@+id/view_all_favorited_meals_button" />
+        </TableRow>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:text="Some Title For Some Workout Video"
+                android:id="@+id/recently_favorited_meal_video" />
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="50dp"
+                android:id="@+id/imageView2"
+                android:src="@drawable/youtube_icon" />
+        </LinearLayout>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/rundle_blue_hex"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dp"
+                android:text="Recently Commented"
+                android:textColor="#ffffff"
+                android:id="@+id/favorited_meals_text_view" />
+
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:textColor="#ffffff"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="5dp"
+                android:background="#8d8d8d"
+                android:text="View All"
+                android:id="@+id/view_all_favorited_meals_button" />
+        </TableRow>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:text="Some Title For Some Workout Video"
+                android:id="@+id/textView2" />
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="50dp"
+                android:id="@+id/imageView2"
+                android:src="@drawable/youtube_icon" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

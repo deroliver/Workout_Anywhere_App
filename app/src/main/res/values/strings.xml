@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">WorkoutAnywhere</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="workout_tracker_button">Workout Tracker</string>
+    <string name="action_exit">Exit</string>
+</resources>
