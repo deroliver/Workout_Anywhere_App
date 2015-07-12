@@ -1,60 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+
+<ScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="5dp"
-    android:layout_marginRight="5dp">
+    android:scrollbars="none"
+    android:layout_weight="1"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/secondary_grey">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        android:text="Choose Your Workout Type"
-        android:textSize="@dimen/abc_text_size_large_material"
-        android:id="@+id/textView"
-        android:layout_gravity="center_horizontal" />
 
-    <Button
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:text="Beginner Workout"
-        android:id="@+id/button9"
-        android:layout_gravity="center_horizontal" />
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        tools:context=".MainActivity">
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:text="Intermediate Workout"
-        android:id="@+id/button10"
-        android:layout_gravity="center_horizontal" />
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_marginBottom="5dp">
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:text="Beast Workout"
-        android:id="@+id/button11"
-        android:layout_gravity="center_horizontal" />
+            <ImageButton
+                android:layout_width="0dp"
+                android:background="#0000"
+                android:layout_height="@dimen/button_height"
+                android:onClick="showBeginnerWorkouts"
+                android:layout_marginRight="5dp"
+                android:text="My Profile"
+                android:id="@+id/button"
+                android:layout_weight="1"
+                android:scaleType="centerInside"
+                android:src="@drawable/beginner_workouts_button" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:text="First Step"
-        android:id="@+id/button12"
-        android:layout_gravity="center_horizontal" />
+            <ImageButton
+                android:layout_width="0dp"
+                android:background="#0000"
+                android:layout_height="@dimen/button_height"
+                android:text="Choose a Workout"
+                android:layout_marginLeft="5dp"
+                android:onClick="showChooseAWorkout"
+                android:id="@+id/button2"
+                android:layout_weight="1"
+                android:src="@drawable/intermediate_workout_button"
+                android:scaleType="centerInside"/>
+        </TableRow>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:text="Core 4"
-        android:id="@+id/button13"
-        android:layout_gravity="center_horizontal" />
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_marginBottom="5dp">
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:text="Freestyle"
-        android:id="@+id/button14"
-        android:layout_gravity="center_horizontal" />
-</LinearLayout>
+            <ImageButton
+                android:layout_width="0dp"
+                android:background="#0000"
+                android:layout_height="@dimen/button_height"
+                android:text="Choose a Workout"
+                android:onClick="showChooseAWorkout"
+                android:id="@+id/button3"
+                android:layout_weight="1"
+                android:src="@drawable/beast_workout_button"
+                android:scaleType="centerInside"/>
+
+            <ImageButton
+                android:layout_width="0dp"
+                android:background="#0000"
+                android:layout_height="@dimen/button_height"
+                android:text="Choose a Workout"
+                android:layout_marginLeft="5dp"
+                android:onClick="showChooseAWorkout"
+                android:id="@+id/button4"
+                android:layout_weight="1"
+                android:src="@drawable/first_step_workout_button"
+                android:scaleType="centerInside" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:layout_width="0dp"
+                android:background="#0000"
+                android:layout_height="@dimen/button_height"
+                android:text="Choose a Workout"
+                android:onClick="showChooseAWorkout"
+                android:id="@+id/button5"
+                android:layout_weight="1"
+                android:src="@drawable/core_workout_button"
+                android:scaleType="centerInside"/>
+
+            <ImageButton
+                android:layout_width="0dp"
+                android:background="#0000"
+                android:layout_height="@dimen/button_height"
+                android:text="Choose a Workout"
+                android:layout_marginLeft="5dp"
+                android:onClick="showChooseAWorkout"
+                android:id="@+id/button6"
+                android:layout_weight="1"
+                android:src="@drawable/freestyle_workout_button"
+                android:scaleType="centerInside" />
+        </TableRow>
+    </TableLayout>
+</ScrollView>

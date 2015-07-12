@@ -1,3 +1,6 @@
 <resources>
     <color name="rundle_blue_hex">#0088cc</color>
+    <color name="white">#ffffff</color>
+    <color name="button_grey">#B9B9B9</color>
+    <color name="secondary_grey">#EBEBEB</color>
 </resources>
