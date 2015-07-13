@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.practice.derikpc.workoutanywhere" >
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.practice.derikpc.workoutanywhere">
 
     <uses-sdk
         android:minSdkVersion="11"
@@ -11,7 +12,7 @@
         android:icon="@drawable/workoutanywherebyrundlefit"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".WelcomeSignIn"
+            android:name=".HomeScreen"
             android:label=""
             android:theme="@style/AppTheme"
             android:icon="@drawable/workoutanywherebyrundlefit" >
@@ -23,9 +24,10 @@
         </activity>
 
     <activity android:name=".UserProfile"></activity>
-    <activity android:name=".ChooseAWorkout"></activity>
+    <activity android:name="workouts.Workouts"></activity>
     <activity android:name=".LogInScreenFragment"></activity>
-    <activity android:name=".HomeScreen"></activity>
+    <activity android:name=".WelcomeSignIn"></activity>
+    <activity android:name="workouts.SpecificWorkout"></activity>
 
     </application>
 

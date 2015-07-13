@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/secondary_grey">
+
+    <TextView
+        android:layout_marginTop="15dp"
+        android:fontFamily=""
+        android:layout_width="wrap_content"
+        android:textColor="@color/rundle_blue_hex"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Apply This Format To Freestyle Workouts"
+        android:id="@+id/textView"
+        android:layout_gravity="center_horizontal" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        android:id="@+id/imageView5"
+        android:src="@drawable/beginner_sample_workout"
+        android:layout_gravity="top" />
+
+    <ImageView
+        android:layout_marginBottom="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:id="@+id/imageView6"
+        android:src="@drawable/beginner_workouts_button"
+        android:layout_gravity="center_horizontal" />
+</LinearLayout>

@@ -4,10 +4,10 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+
 
 public class WelcomeSignIn extends Activity {
 
@@ -40,6 +40,12 @@ public class WelcomeSignIn extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void bringToLogIn(View view) {
+
+        Intent intent = new Intent(getApplication(), LogInScreenFragment.class);
+
+        startActivity(intent);
+    }
 
     public void bringToRegistration(View view) {
         String registerURL = "http://workoutanywhere.net/become-a-member/";
@@ -47,13 +53,5 @@ public class WelcomeSignIn extends Activity {
         Intent goToRegister = new Intent(Intent.ACTION_VIEW, Uri.parse(registerURL));
 
         startActivity(goToRegister);
-
-    }
-
-    public void bringToLogIn(View view) {
-
-        Intent LogIn = new Intent(getApplicationContext(), LogInScreenFragment.class);
-
-        startActivity(LogIn);
     }
 }
