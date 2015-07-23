@@ -3,6 +3,7 @@ package workouts;
 import android.app.ActionBar;
 import android.app.ActionBar.TabListener;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.Fragment;
@@ -12,18 +13,28 @@ import android.support.v4.view.ViewPager;
 
 import com.practice.derikpc.workoutanywhere.R;
 
+
+
+
 public class SpecificWorkout extends FragmentActivity implements TabListener {
 
     private ViewPager viewPager;
     private ActionBar actionBar;
+
+    private String workoutType = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.workout_info_pager);
 
+        Intent intent = getIntent();
+        workoutType = intent.getStringExtra("Workout Type");
+
         viewPager = (ViewPager) findViewById(R.id.workout_view_pager);
-        viewPager.setAdapter(new MyAdapter(getSupportFragmentManager()));
+        MyAdapter myAdapter = new MyAdapter(getSupportFragmentManager());
+        myAdapter.setWorkout(workoutType);
+        viewPager.setAdapter(myAdapter);
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
             @Override
@@ -84,17 +95,27 @@ public class SpecificWorkout extends FragmentActivity implements TabListener {
 
 class MyAdapter extends FragmentPagerAdapter {
 
+    String workoutType = "";
 
     public MyAdapter(FragmentManager fm) {
         super(fm);
+    }
 
+    public void setWorkout(String workoutType) {
+        this.workoutType = workoutType;
     }
 
     @Override
     public Fragment getItem(int position) {
         Fragment fragment = null;
+
+        Bundle workout = new Bundle();
+        workout.putString("Type", workoutType);
+
+
         if(position == 0) {
             fragment = new WorkoutFormatFragmentTab();
+            fragment.setArguments(workout);
         }
 
         else if(position == 1) {

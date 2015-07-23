@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:scrollbars="none"
     android:layout_weight="1"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@color/secondary_grey">
+    android:background="@color/white">
 
 
     <LinearLayout
@@ -20,12 +22,11 @@
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:background="@color/rundle_blue_hex"
-            android:textColor="@color/white"
+            android:textColor="@color/rundle_blue_hex"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Welcome Name!"
             android:gravity="center"
-            android:id="@+id/user_name_text_view"
+            android:id="@+id/name_text_view"
             android:layout_gravity="center_horizontal" />
 
         <ImageView
@@ -41,16 +42,14 @@
             android:orientation="horizontal"
             android:layout_marginTop="40dp"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@color/rundle_blue_hex">
+            android:layout_height="40dp">
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
                 android:layout_weight="3"
-                android:layout_marginLeft="5dp"
                 android:gravity="left|center"
-                android:textColor="@color/white"
+                android:textColor="@color/rundle_blue_hex"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Favorited Workouts"
                 android:id="@+id/textView3" />
@@ -61,19 +60,24 @@
                 android:layout_weight="1"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
-                android:layout_marginRight="5dp"
-                android:textColor="@color/white"
-                android:background="@color/button_grey"
+                android:layout_marginRight="15dp"
+                android:textColor="@color/secondary_grey"
+                android:background="@color/white"
                 android:text="@string/view_all"
                 android:id="@+id/button15" />
 
         </LinearLayout>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/rundle_blue_hex" />
+
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="75dp"
-            android:layout_marginTop="0dp" >
+            android:layout_marginTop="5dp" >
 
             <TextView
                 android:layout_width="0dp"
@@ -81,7 +85,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="2"
                 android:gravity="left|center"
-                android:textColor="@color/rundle_blue_hex"
+                android:textColor="@color/secondary_grey"
                 android:text="Name of a Workout Video"
                 android:id="@+id/textView6" />
 
@@ -99,16 +103,14 @@
             android:orientation="horizontal"
             android:layout_marginTop="30dp"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@color/rundle_blue_hex">
+            android:layout_height="40dp">
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
                 android:layout_weight="3"
-                android:layout_marginLeft="5dp"
                 android:gravity="left|center"
-                android:textColor="@color/white"
+                android:textColor="@color/rundle_blue_hex"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Favorited Meals"
                 android:id="@+id/textView4" />
@@ -119,17 +121,23 @@
                 android:layout_weight="1"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
-                android:layout_marginRight="5dp"
-                android:textColor="@color/white"
-                android:background="@color/button_grey"
+                android:layout_marginRight="15dp"
+                android:textColor="@color/secondary_grey"
+                android:background="@color/white"
                 android:text="@string/view_all"
                 android:id="@+id/button16" />
         </LinearLayout>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/rundle_blue_hex" />
+
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="75dp" >
+            android:layout_height="75dp"
+            android:layout_marginTop="5dp">
 
             <TextView
                 android:layout_width="0dp"
@@ -137,7 +145,7 @@
                 android:layout_weight="2"
                 android:gravity="left|center"
                 android:layout_marginLeft="5dp"
-                android:textColor="@color/rundle_blue_hex"
+                android:textColor="@color/secondary_grey"
                 android:text="Name of a Meal Video"
                 android:id="@+id/textView7" />
 
@@ -155,16 +163,14 @@
             android:orientation="horizontal"
             android:layout_marginTop="30dp"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@color/rundle_blue_hex">
+            android:layout_height="40dp">
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
                 android:layout_weight="3"
-                android:layout_marginLeft="5dp"
                 android:gravity="left|center"
-                android:textColor="@color/white"
+                android:textColor="@color/rundle_blue_hex"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Recently Commented"
                 android:id="@+id/textView5" />
@@ -175,17 +181,23 @@
                 android:layout_weight="1"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
-                android:layout_marginRight="5dp"
-                android:textColor="@color/white"
-                android:background="@color/button_grey"
+                android:layout_marginRight="15dp"
+                android:textColor="@color/secondary_grey"
+                android:background="@color/white"
                 android:text="@string/view_all"
                 android:id="@+id/button17" />
         </LinearLayout>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/rundle_blue_hex" />
+
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="75dp">
+            android:layout_height="75dp"
+            android:layout_marginTop="5dp" >
 
             <TextView
                 android:layout_width="0dp"
@@ -193,7 +205,7 @@
                 android:layout_weight="2"
                 android:layout_marginLeft="5dp"
                 android:gravity="left|center"
-                android:textColor="@color/rundle_blue_hex"
+                android:textColor="@color/secondary_grey"
                 android:text="Name of a Meal Video"
                 android:id="@+id/textVie87" />
 

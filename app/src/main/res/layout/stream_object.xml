@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_weight="6"
+            android:layout_height="100dp">
+
+            <ImageView
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="75dp"
+                android:id="@+id/stream_object_picture" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_weight="18"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:textSize="13dp"
+                android:textColor="@color/secondary_grey"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text=""
+                android:id="@+id/stream_object_name" />
+
+            <TextView
+                android:textSize="13dp"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="4"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text=""
+                android:id="@+id/stream_object_update_text" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="5dp"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:layout_height="0dp"
+                    android:background="#FFFFFF"
+                    android:text=""
+                    android:id="@+id/like_post_button"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/like_button"
+                    android:scaleType="centerInside"/>
+
+            <ImageButton
+                    android:layout_marginRight="10dp"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:layout_height="0dp"
+                    android:background="#FFFFFF"
+                    android:text=""
+                    android:id="@+id/see_comments_button"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/comments_button"
+                    android:scaleType="centerInside" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="12dp"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:textStyle="bold"
+                android:textColor="@color/rundle_blue_hex"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="5"
+                android:id="@+id/stream_object_nlikes"
+                android:layout_gravity="center" />
+
+            <TextView
+                android:layout_marginTop="25dp"
+                android:textStyle="bold"
+                android:textColor="@color/rundle_blue_hex"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="10"
+                android:id="@+id/stream_object_ncomments"
+                android:layout_gravity="center" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</TableRow>

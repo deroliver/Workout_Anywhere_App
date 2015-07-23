@@ -1,106 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
+    android:padding="5dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:scrollbars="none"
     android:layout_weight="1"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@color/secondary_grey">
+    android:background="@color/white">
 
 
-    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:layout_marginRight="@dimen/activity_horizontal_margin"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:layout_marginBottom="@dimen/activity_vertical_margin"
-        tools:context=".MainActivity">
+        android:layout_height="match_parent">
 
-        <TableRow
+        <ImageButton
             android:layout_width="match_parent"
-            android:layout_marginBottom="5dp">
+            android:background="@color/white"
+            android:layout_height="160dp"
+            android:id="@+id/beginner_workout_button"
+            android:onClick="beginnerWorkoutButton"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/beginner_workouts_button"
+            android:scaleType="fitCenter"
+            android:layout_marginTop="10dp"/>
 
-            <ImageButton
-                android:layout_width="0dp"
-                android:background="#0000"
-                android:layout_height="@dimen/button_height"
-                android:onClick="showBeginnerWorkouts"
-                android:layout_marginRight="5dp"
-                android:text="My Profile"
-                android:id="@+id/beginnerButton"
-                android:layout_weight="1"
-                android:scaleType="centerInside"
-                android:src="@drawable/beginner_workouts_button" />
-
-            <ImageButton
-                android:layout_width="0dp"
-                android:background="#0000"
-                android:layout_height="@dimen/button_height"
-                android:text="Choose a Workout"
-                android:layout_marginLeft="5dp"
-                android:onClick="showChooseAWorkout"
-                android:id="@+id/intermediateButton"
-                android:layout_weight="1"
-                android:src="@drawable/intermediate_workout_button"
-                android:scaleType="centerInside"/>
-        </TableRow>
-
-        <TableRow
+        <ImageButton
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
-            android:layout_marginBottom="5dp">
+            android:layout_height="160dp"
+            android:background="@color/white"
+            android:id="@+id/intermediate_workout_button"
+            android:onClick="intermediateWorkoutButton"
+            android:layout_gravity="center_horizontal"
+            android:adjustViewBounds="true"
+            android:src="@drawable/intermediate_workout_button"
+            android:scaleType="fitCenter"/>
 
-            <ImageButton
-                android:layout_width="0dp"
-                android:background="#0000"
-                android:layout_height="@dimen/button_height"
-                android:text="Choose a Workout"
-                android:onClick="showChooseAWorkout"
-                android:id="@+id/beastButton"
-                android:layout_weight="1"
-                android:src="@drawable/beast_workout_button"
-                android:scaleType="centerInside"/>
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="160dp"
+            android:background="@color/white"
+            android:id="@+id/beast_workout_button"
+            android:onClick="beastWorkoutButton"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/beast_workout_button"
+            android:scaleType="fitCenter"
+            android:layout_marginTop="10dp"/>
 
-            <ImageButton
-                android:layout_width="0dp"
-                android:background="#0000"
-                android:layout_height="@dimen/button_height"
-                android:text="Choose a Workout"
-                android:layout_marginLeft="5dp"
-                android:onClick="showChooseAWorkout"
-                android:id="@+id/firstStepButton"
-                android:layout_weight="1"
-                android:src="@drawable/first_step_workout_button"
-                android:scaleType="centerInside" />
-        </TableRow>
+        <ImageButton
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="160dp"
+            android:id="@+id/core_workout_button"
+            android:onClick="coreWorkoutButton"
+            android:background="@color/white"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/core_workout_button"
+            android:scaleType="fitCenter"/>
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <ImageButton
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="160dp"
+            android:background="@color/white"
+            android:id="@+id/first_step_button"
+            android:onClick="firstStepWorkoutButton"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/first_step_workout_button"
+            android:scaleType="fitCenter"/>
 
-            <ImageButton
-                android:layout_width="0dp"
-                android:background="#0000"
-                android:layout_height="@dimen/button_height"
-                android:text="Choose a Workout"
-                android:onClick="showChooseAWorkout"
-                android:id="@+id/core4Button"
-                android:layout_weight="1"
-                android:src="@drawable/core_workout_button"
-                android:scaleType="centerInside"/>
-
-            <ImageButton
-                android:layout_width="0dp"
-                android:background="#0000"
-                android:layout_height="@dimen/button_height"
-                android:text="Choose a Workout"
-                android:layout_marginLeft="5dp"
-                android:onClick="showChooseAWorkout"
-                android:id="@+id/freestyleButton"
-                android:layout_weight="1"
-                android:src="@drawable/freestyle_workout_button"
-                android:scaleType="centerInside" />
-        </TableRow>
-    </TableLayout>
+        <ImageButton
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="160dp"
+            android:background="@color/white"
+            android:id="@+id/freestyle_wall_button"
+            android:onClick="freestyleWorkoutButton"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/freestyle_workout_button"
+            android:scaleType="fitCenter"/>
+    </LinearLayout>
 </ScrollView>

@@ -1,6 +1,6 @@
 package com.practice.derikpc.workoutanywhere;
 
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,20 +9,32 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
+
+import blog.BlogActivity;
+import calendar.Calendar;
+import stream.Stream;
 import workouts.Workouts;
 
 public class HomeScreenButtonsFragment extends Fragment {
 
     private static ImageButton myProfile;
     private static ImageButton workouts;
+    private static ImageButton feed;
+    private static ImageButton calendar;
+    private static ImageButton blog;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+
         View view = inflater.inflate(R.layout.home_buttons, container, false);
 
         myProfile = (ImageButton) view.findViewById(R.id.my_profile_home_button);
         workouts = (ImageButton) view.findViewById(R.id.workouts_home_button);
+        feed = (ImageButton) view.findViewById(R.id.my_feed_home_button);
+        calendar = (ImageButton) view.findViewById(R.id.calendar_home_button);
+        blog = (ImageButton) view.findViewById(R.id.blog_home_button);
 
         myProfile.setOnClickListener(new View.OnClickListener() {
 
@@ -41,6 +53,34 @@ public class HomeScreenButtonsFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+        feed.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), Stream.class);
+                startActivity(intent);
+            }
+        });
+
+        calendar.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+          public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), Calendar.class);
+                startActivity(intent);
+            }
+        });
+
+        blog.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), BlogActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
         return view;
     }
@@ -75,7 +115,7 @@ public class HomeScreenButtonsFragment extends Fragment {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle onSavedInstanceState) {
 
-            View rootView = inflater.inflate(R.layout.welcome_sign_in, container, false);
+            View rootView = inflater.inflate(R.layout.first_welcome_sign_in_fragment, container, false);
 
             return rootView;
         }

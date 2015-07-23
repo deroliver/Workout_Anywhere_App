@@ -27,7 +27,7 @@
         android:textColor="@color/rundle_blue_hex"
        android:gravity="center"
         android:layout_weight="1"
-        android:id="@+id/editText"
+        android:id="@+id/user_name_edit_text"
         android:hint="Username"
         android:layout_gravity="center_horizontal"
         />
@@ -41,7 +41,7 @@
         android:textColor="@color/rundle_blue_hex"
         android:gravity="center"
         android:layout_weight="1"
-        android:id="@+id/editText1"
+        android:id="@+id/user_password_edit_text"
         android:hint="Password"
         android:layout_gravity="center_horizontal" />
 
@@ -53,7 +53,6 @@
         android:textColor="@color/secondary_grey"
         android:layout_gravity="center"
         android:text="Sign In"
-        android:onClick="logInAccount"
         android:id="@+id/logInAccountButton"
         android:layout_marginBottom="10dp"/>
 

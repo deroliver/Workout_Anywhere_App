@@ -14,7 +14,7 @@ public class WelcomeSignIn extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.welcome_sign_in);
+        setContentView(R.layout.first_welcome_sign_in_fragment);
     }
 
     @Override
@@ -42,7 +42,7 @@ public class WelcomeSignIn extends Activity {
 
     public void bringToLogIn(View view) {
 
-        Intent intent = new Intent(getApplication(), LogInScreenFragment.class);
+        Intent intent = new Intent(getApplication(), LogInScreenActivity.class);
 
         startActivity(intent);
     }

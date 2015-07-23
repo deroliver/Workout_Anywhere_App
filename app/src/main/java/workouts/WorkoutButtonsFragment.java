@@ -25,12 +25,12 @@ public class WorkoutButtonsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.workout_buttons, container, false);
-        Beginner = (ImageButton) view.findViewById(R.id.beginnerButton);
-        Intermediate = (ImageButton) view.findViewById(R.id.intermediateButton);
-        Beast = (ImageButton) view.findViewById(R.id.beastButton);
-        FirstStep = (ImageButton) view.findViewById(R.id.firstStepButton);
-        Core4 = (ImageButton) view.findViewById(R.id.core4Button);
-        Freestyle = (ImageButton) view.findViewById(R.id.freestyleButton);
+        Beginner = (ImageButton) view.findViewById(R.id.beginner_workout_button);
+        Intermediate = (ImageButton) view.findViewById(R.id.intermediate_workout_button);
+        Beast = (ImageButton) view.findViewById(R.id.beast_workout_button);
+        FirstStep = (ImageButton) view.findViewById(R.id.first_step_button);
+        Core4 = (ImageButton) view.findViewById(R.id.core_workout_button);
+        Freestyle = (ImageButton) view.findViewById(R.id.freestyle_wall_button);
 
 
         Beginner.setOnClickListener(new View.OnClickListener() {
@@ -38,6 +38,9 @@ public class WorkoutButtonsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), SpecificWorkout.class);
+
+                intent.putExtra("Workout Type", "Beginner");
+
                 startActivity(intent);
             }
         });
@@ -46,6 +49,12 @@ public class WorkoutButtonsFragment extends Fragment {
 
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), SpecificWorkout.class);
+
+                intent.putExtra("Workout Type", "Intermediate");
+
+                startActivity(intent);
+
 
             }
         });
@@ -54,6 +63,11 @@ public class WorkoutButtonsFragment extends Fragment {
 
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), SpecificWorkout.class);
+
+                intent.putExtra("Workout Type", "Beast");
+
+                startActivity(intent);
 
             }
         });
@@ -62,6 +76,11 @@ public class WorkoutButtonsFragment extends Fragment {
 
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), SpecificWorkout.class);
+
+                intent.putExtra("Workout Type", "FirstStep");
+
+                startActivity(intent);
 
             }
         });
@@ -70,6 +89,11 @@ public class WorkoutButtonsFragment extends Fragment {
 
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), SpecificWorkout.class);
+
+                intent.putExtra("Workout Type", "Core");
+
+                startActivity(intent);
 
             }
         });
@@ -78,6 +102,11 @@ public class WorkoutButtonsFragment extends Fragment {
 
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), SpecificWorkout.class);
+
+                intent.putExtra("Workout Type", "Freestyle");
+
+                startActivity(intent);
 
             }
         });

@@ -19,7 +19,7 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_marginBottom="5dp">
+            android:layout_marginBottom="4dp">
 
             <ImageButton
                 android:layout_width="0dp"
@@ -46,33 +46,42 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_marginBottom="4dp">
 
-            <Button
+            <ImageButton
                 android:layout_width="0dp"
+                android:background="#0000"
                 android:layout_height="@dimen/button_height"
-                android:text="Button 3"
-                android:id="@+id/button3"
-                android:layout_weight="1" />
+                android:layout_marginRight="5dp"
+                android:id="@+id/my_feed_home_button"
+                android:src="@drawable/my_feed_button"
+                android:layout_weight="1"
+                android:scaleType="centerInside"/>
 
-            <Button
+            <ImageButton
                 android:layout_width="0dp"
+                android:background="#0000"
                 android:layout_height="@dimen/button_height"
-                android:text="Button 4"
-                android:id="@+id/button4"
-                android:layout_weight="1" />
+                android:layout_marginLeft="5dp"
+                android:id="@+id/calendar_home_button"
+                android:src="@drawable/calendar_button"
+                android:layout_weight="1"
+                android:scaleType="centerInside"/>
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <Button
+            <ImageButton
                 android:layout_width="0dp"
+                android:background="#0000"
                 android:layout_height="@dimen/button_height"
-                android:text="Button 5"
-                android:id="@+id/button5"
-                android:layout_weight="1" />
+                android:layout_marginRight="5dp"
+                android:id="@+id/blog_home_button"
+                android:src="@drawable/blog_button"
+                android:layout_weight="1"
+                android:scaleType="centerInside"/>
 
             <Button
                 android:layout_width="0dp"
