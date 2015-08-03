@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@color/white"
+    tools:context=".FreestyleWallWorkoutsTab">
 
     <Spinner
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/spinner"
+        android:layout_height="50dp"
+        android:id="@+id/freestyle_wall_spinner"
         android:layout_gravity="center_horizontal" />
 
     <ListView
@@ -16,6 +18,6 @@
         android:layout_height="wrap_content"
         android:id="@android:id/list"
         android:layout_gravity="center_horizontal"
-        android:divider="@null"/>
+        tools:listitem="@layout/freestyle_wall_object"/>
 
 </LinearLayout>

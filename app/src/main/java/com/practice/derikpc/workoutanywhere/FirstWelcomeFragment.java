@@ -11,17 +11,32 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
+
+
+import java.io.File;
 
 public class FirstWelcomeFragment extends Fragment {
 
-    Button loginButton;
-    TextView registrationButton;
+    private Button loginButton;
+    private TextView registrationButton;
+    private ImageView Logo;
+    private View view;
+
+    File img = new File("///android_asset/workoutanywherebyrundlefit.png");
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.first_welcome_sign_in_fragment, container, false);
+        view = inflater.inflate(R.layout.first_welcome_sign_in_fragment, container, false);
+
+        Logo = (ImageView) view.findViewById(R.id.workout_anywhere_picture_first);
+
+        Picasso.with(getActivity()).load(img).into(Logo);
+
 
         loginButton = (Button) view.findViewById(R.id.first_sign_in_button);
         loginButton.setOnClickListener(bringToLogin);
@@ -37,8 +52,8 @@ public class FirstWelcomeFragment extends Fragment {
         public void onClick(View v) {
             Fragment fragment = new LogInScreenFragment();
             FragmentTransaction fT = getFragmentManager().beginTransaction();
-            fT.replace(R.id.sign_in_activity, fragment);
-            fT.addToBackStack(null);
+            fT.replace(R.id.home_screen_activity, fragment);
+            fT.addToBackStack("SignIn");
             fT.commit();
         }
     };
@@ -53,4 +68,24 @@ public class FirstWelcomeFragment extends Fragment {
             startActivity(goToRegister);
         }
     };
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        img = new File("///android_asset/workoutanywherebyrundlefit.png");
+        Picasso.with(getActivity()).load(img).into(Logo);
+    }
+
+
+    @Override
+    public void onDestroyView() {
+        System.out.println("On DestroyView FirstWelcomeScreenFragment Called");
+        super.onDestroyView();
+        if(img != null) {
+            Picasso.with(getActivity()).invalidate(img);
+            img = null;
+        }
+
+        Logo.setImageBitmap(null);
+    }
 }

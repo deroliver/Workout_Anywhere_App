@@ -35,15 +35,15 @@ public class CalendarDateCompletionsFragment extends ListFragment {
         FreestyleWallObject FWO3 = new FreestyleWallObject();
 
         FWO.setWorkoutName("Full Body HIIT Workout");
-        FWO.setWorkoutPicture(getResources().getDrawable(R.drawable.workout_video_example));
+       // FWO.setWorkoutPicture(getResources().getDrawable(R.drawable.workout_video_example));
         FWO.setWorkoutType("Full Body");
 
         FWO2.setWorkoutName("Full Body HIIT Workout");
-        FWO2.setWorkoutPicture(getResources().getDrawable(R.drawable.workout_video_example));
+        //FWO2.setWorkoutPicture(getResources().getDrawable(R.drawable.workout_video_example));
         FWO2.setWorkoutType("Full Body");
 
         FWO3.setWorkoutName("Full Body HIIT Workout");
-        FWO3.setWorkoutPicture(getResources().getDrawable(R.drawable.workout_video_example));
+       // FWO3.setWorkoutPicture(getResources().getDrawable(R.drawable.workout_video_example));
         FWO3.setWorkoutType("Full Body");
 
         freestyleWallObjects.add(FWO);

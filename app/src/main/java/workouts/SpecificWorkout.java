@@ -5,35 +5,47 @@ import android.app.ActionBar.TabListener;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.practice.derikpc.workoutanywhere.R;
 
 
 
-
-public class SpecificWorkout extends FragmentActivity implements TabListener {
+public class SpecificWorkout extends Fragment implements TabListener {
 
     private ViewPager viewPager;
     private ActionBar actionBar;
+    private MyAdapter myAdapter;
+
+    private View view;
 
     private String workoutType = "";
 
+
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.workout_info_pager);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        view = inflater.inflate(R.layout.workout_info_pager, container, false);
+        System.out.println("OnCreate Specific Called");
 
-        Intent intent = getIntent();
-        workoutType = intent.getStringExtra("Workout Type");
+        viewPager = (ViewPager) view.findViewById(R.id.workout_view_pager);
+        myAdapter = new MyAdapter(getChildFragmentManager());
 
-        viewPager = (ViewPager) findViewById(R.id.workout_view_pager);
-        MyAdapter myAdapter = new MyAdapter(getSupportFragmentManager());
+        Bundle type = getArguments();
+        workoutType = type.getString("Workout Type");
+        System.out.println(workoutType);
+
+
         myAdapter.setWorkout(workoutType);
+
         viewPager.setAdapter(myAdapter);
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
@@ -45,7 +57,6 @@ public class SpecificWorkout extends FragmentActivity implements TabListener {
             @Override
             public void onPageSelected(int position) {
                 actionBar.setSelectedNavigationItem(position);
-
             }
 
             @Override
@@ -55,7 +66,7 @@ public class SpecificWorkout extends FragmentActivity implements TabListener {
         });
 
 
-        actionBar = getActionBar();
+        actionBar = getActivity().getActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
         ActionBar.Tab formatTab = actionBar.newTab();
@@ -74,6 +85,7 @@ public class SpecificWorkout extends FragmentActivity implements TabListener {
         actionBar.addTab(wallTab);
         actionBar.addTab(postTab);
 
+        return view;
     }
 
     @Override
@@ -89,9 +101,22 @@ public class SpecificWorkout extends FragmentActivity implements TabListener {
 
     @Override
     public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
+    }
 
+
+    @Override
+    public void onDestroyView() {
+        System.out.println("onDestroyView Specific Called");
+        super.onDestroyView();
+        actionBar.removeAllTabs();
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
+        myAdapter = null;
+        viewPager = null;
+        actionBar = null;
+        view = null;
     }
 }
+
 
 class MyAdapter extends FragmentPagerAdapter {
 
@@ -107,11 +132,11 @@ class MyAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
+        System.out.println(position);
         Fragment fragment = null;
 
         Bundle workout = new Bundle();
         workout.putString("Type", workoutType);
-
 
         if(position == 0) {
             fragment = new WorkoutFormatFragmentTab();
@@ -132,5 +157,10 @@ class MyAdapter extends FragmentPagerAdapter {
     @Override
     public int getCount() {
         return 3;
+    }
+
+    @Override
+    public void notifyDataSetChanged() {
+        super.notifyDataSetChanged();
     }
 }

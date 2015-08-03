@@ -35,8 +35,7 @@
             android:layout_marginTop="0dp"
             android:id="@+id/user_picture_image_view"
             android:layout_gravity="center_horizontal"
-            android:scaleType="fitCenter"
-            android:src="@drawable/icon_profile" />
+            android:scaleType="fitCenter" />
 
         <LinearLayout
             android:orientation="horizontal"
@@ -94,8 +93,7 @@
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
                 android:layout_marginBottom="5dp"
-                android:id="@+id/imageView2"
-                android:src="@drawable/youtube_icon" />
+                android:id="@+id/imageView2" />
 
         </LinearLayout>
 
@@ -154,8 +152,7 @@
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
                 android:layout_marginBottom="5dp"
-                android:id="@+id/imageView3"
-                android:src="@drawable/youtube_icon" />
+                android:id="@+id/imageView3" />
 
         </LinearLayout>
 
@@ -214,8 +211,7 @@
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
                 android:layout_marginBottom="5dp"
-                android:id="@+id/imageView4"
-                android:src="@drawable/youtube_icon" />
+                android:id="@+id/imageView4" />
 
         </LinearLayout>
 

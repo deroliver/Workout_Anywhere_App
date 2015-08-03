@@ -12,7 +12,16 @@
         Some abbreviated stretch and cool down sessions are filmed into the newer
         workout videos.  However, everyone is different and some require more
         flexibilityand cool down practices.  Get more flexibility training, coaching
-        and a plethora of workouts in the member’s section!</string>
+        and a plethora of workouts in the member’s section!
+    </string>
+
+    <string-array name="freestyle_wall_dropdown">
+        <item>All</item>
+        <item>Lower Body</item>
+        <item>Full Body</item>
+        <item>Beginner Home</item>
+        <item>Bodyweight</item>
+    </string-array>
 
 
 </resources>

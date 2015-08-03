@@ -60,19 +60,19 @@ public class Stream extends ListActivity {
         Derik.setUpdate("I just worked out. Today was leg day... Glad that it's over!");
         Derik.setnLikes(1);
         Derik.setnComments(1);
-        Derik.setPicture(getResources().getDrawable(R.drawable.my_profile_pic_test));
+       // Derik.setPicture(getResources().getDrawable(R.drawable.my_profile_pic_test));
 
         Leslie.setName("Andrew Rollins");
         Leslie.setUpdate("I just worked out. Today was leg day... Glad that it's over");
         Leslie.setnLikes(1);
         Leslie.setnComments(1);
-        Leslie.setPicture(getResources().getDrawable(R.drawable.andrew_profile_pic));
+        //Leslie.setPicture(getResources().getDrawable(R.drawable.andrew_profile_pic));
 
         Corey.setName("Dylan Sicklesteel");
         Corey.setUpdate("I just worked out. Today was leg day... Glad that it's over");
         Corey.setnLikes(1);
         Corey.setnComments(1);
-        Corey.setPicture(getResources().getDrawable(R.drawable.icon_profile));
+       // Corey.setPicture(getResources().getDrawable(R.drawable.icon_profile));
     }
 
     public void insertPost(StreamObject update) {
@@ -86,7 +86,7 @@ public class Stream extends ListActivity {
     }
 
 
-    private class MyListAdapter extends ArrayAdapter<StreamObject> {
+    private static class MyListAdapter extends ArrayAdapter<StreamObject> {
 
         private Context context;
         private ArrayList<StreamObject> allStreamObjects;
@@ -147,7 +147,7 @@ public class Stream extends ListActivity {
                 holder.nComments = (TextView) convertView.findViewById(R.id.stream_object_nlikes);
                 holder.likeButton = (ImageButton) convertView.findViewById(R.id.like_post_button);
                 holder.seeCommentsButton = (ImageButton) convertView.findViewById(R.id.see_comments_button);
-                holder.likeButton.setOnClickListener(new CustomOnClickListener(position));
+               // holder.likeButton.setOnClickListener(new CustomOnClickListener(position));
                 convertView.setTag(holder);
 
             } else {

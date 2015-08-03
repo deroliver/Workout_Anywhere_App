@@ -8,7 +8,7 @@
 
     <dimen name="buttons_above_margin">5dp</dimen>
 
-    <dimen name="button_height">175dp</dimen>
+    <dimen name="button_height">200dp</dimen>
     <dimen name="button_width">100dp</dimen>
 
 </resources>

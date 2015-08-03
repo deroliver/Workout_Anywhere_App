@@ -1,30 +1,34 @@
 package com.practice.derikpc.workoutanywhere;
 
-import android.content.Intent;
+import android.net.ParseException;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import com.squareup.picasso.Picasso;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
-import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.params.BasicHttpParams;
+import org.apache.http.util.EntityUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+
+import java.io.File;
+import java.io.IOException;
 
 
 public class LogInScreenFragment extends Fragment {
@@ -32,27 +36,27 @@ public class LogInScreenFragment extends Fragment {
     private Button logIn;
     private EditText userName;
     private EditText userPass;
+    private ImageView Logo;
 
     private String username;
     private String password;
-    private String cookie;
-    private String accountID;
-    private String firstName;
-    private String lastName;
-    private ImageView avatar;
-    private String loginStatus;
+    private View view;
 
-    private boolean successfulLogin = false;
+    File img = new File("///android_asset/workoutanywherebyrundlefit.png");
+
 
     private String workoutAnywhereURL = "https://workoutanywhere.net/";
-    private String generateNonce = "api/get_nonce/?controller=user&method=generate_auth_cookie";
     private String generateCookieFirst = "api/user/generate_auth_cookie/?username=";
     private String generateCookieSecond = "&password=";
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.sign_in_fragment, container, false);
+        view = inflater.inflate(R.layout.sign_in_fragment, container, false);
+        Logo = (ImageView) view.findViewById(R.id.workout_anywhere_picture_second);
+
+        Picasso.with(getActivity()).load(img).into(Logo);
+
 
         logIn = (Button) view.findViewById(R.id.logInAccountButton);
         logIn.setOnClickListener(logInListener);
@@ -70,90 +74,106 @@ public class LogInScreenFragment extends Fragment {
             password = userPass.getText().toString();
             System.out.println(username + password);
 
-            new MyAsyncTask().execute();
+            MyAsyncTask task = new MyAsyncTask();
+
+            task.setDataDownloadListener(new MyAsyncTask.CookieDownloadListener() {
+                @Override
+                public void dataDownloadedSuccessfully(String data) {
+                    Bundle cookie = new Bundle();
+                    cookie.putString("Cookie", data);
+
+                    Fragment fragment = new HomeScreenButtonsFragment();
+
+                    fragment.setArguments(cookie);
+                    FragmentManager fM = getFragmentManager();
+                    FragmentTransaction fT = fM.beginTransaction();
+                    fT.replace(R.id.home_screen_activity, fragment);
+                    fT.commit();
+                }
+
+                @Override
+                public void dataDownloadFailed() {
+                    userName.setText("");
+                    userPass.setText("");
+                    Toast.makeText(getActivity(), "Wrong Username or Password", Toast.LENGTH_SHORT).show();
+                }
+            });
+            task.execute(workoutAnywhereURL + generateCookieFirst + username + generateCookieSecond + password);
         }
     };
 
-    private class MyAsyncTask extends AsyncTask<String, String, String> {
+
+
+    private static final class MyAsyncTask extends AsyncTask<String, Void, String> {
+        CookieDownloadListener listener;
+
+        MyAsyncTask() {}
+
+        public void setDataDownloadListener(CookieDownloadListener listener) {
+            this.listener = listener;
+        }
 
         @Override
-        protected String doInBackground(String... params) {
-
-            DefaultHttpClient httpClient = new DefaultHttpClient(new BasicHttpParams());
-
-            HttpPost httpPostCookie = new HttpPost(workoutAnywhereURL + generateCookieFirst + username + generateCookieSecond + password);
-
-
-            httpPostCookie.setHeader("Content-type", "application/json");
-
-            InputStream inputStream = null;
-            String result = null;
-
+        protected String doInBackground(String... urls) {
             try {
-                HttpResponse cookieResponse = httpClient.execute(httpPostCookie);
-                HttpEntity entity = cookieResponse.getEntity();
+                HttpGet httpPost = new HttpGet(urls[0]);
+                HttpClient httpClient = new DefaultHttpClient();
+                HttpResponse response = httpClient.execute(httpPost);
 
-                inputStream = entity.getContent();
+                int status = response.getStatusLine().getStatusCode();
 
-                BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"), 8);
+                if(status == 200) {
+                    HttpEntity entity = response.getEntity();
+                    String data = EntityUtils.toString(entity);
 
-                StringBuilder theStringBuilder = new StringBuilder();
+                    JSONObject jsonObject = new JSONObject(data);
 
-                String line = null;
+                    jsonObject = new JSONObject(data);
 
-                while ((line = reader.readLine()) != null) {
-                    theStringBuilder.append(line + "\n");
+
+                    System.out.println(jsonObject.getString("cookie"));
+                    return jsonObject.getString("cookie");
                 }
-
-                result = theStringBuilder.toString();
-
-            } catch (Exception e) {
+            } catch (ParseException e1) {
+                e1.printStackTrace();
+            } catch (IOException e) {
                 e.printStackTrace();
-            }
-            finally {
-                try {if(inputStream != null) inputStream.close();}
-                catch (Exception e) {}
-            }
-
-            JSONObject jsonObject;
-            try {
-                successfulLogin = false;
-                jsonObject = new JSONObject(result);
-
-                loginStatus = jsonObject.getString("status");
-                if(loginStatus.equals("ok")) {
-                    successfulLogin = true;
-                    cookie = jsonObject.getString("cookie");
-
-                    JSONObject userJSONObject = jsonObject.getJSONObject("user");
-                    firstName = userJSONObject.getString("firstname");
-                    lastName = userJSONObject.getString("lastname");
-                }
-
-
-
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-
             return null;
         }
 
         protected void onPostExecute(String result) {
-            if(successfulLogin) {
-                Intent intent = new Intent(getActivity(), HomeScreen.class);
-
-                intent.putExtra("FirstName", firstName);
-                intent.putExtra("LastName", lastName);
-                intent.putExtra("Cookie", cookie);
-
-                startActivity(intent);
-            } else {
-                userName.setText("");
-                userPass.setText("");
-
-                Toast.makeText(getActivity(), "Incorrect Username or Password", Toast.LENGTH_LONG).show();
-            }
+            if(result != null)
+                listener.dataDownloadedSuccessfully(result);
+            else
+                listener.dataDownloadFailed();
         }
+
+        public static interface CookieDownloadListener {
+            void dataDownloadedSuccessfully(String data);
+            void dataDownloadFailed();
+        }
+
     }
+
+    @Override
+    public void onDestroyView() {
+        System.out.println("On DestroyView LogInScreenFragment Called");
+        super.onDestroyView();
+
+        if(img != null) {
+            Picasso.with(getActivity()).invalidate(img);
+            img = null;
+        }
+
+        Logo.setImageBitmap(null);
+        logIn = null;
+        userName = null;
+        userPass = null;
+    }
+
+
+
 }

@@ -12,7 +12,6 @@
         android:layout_weight="6"
         android:layout_gravity="center"
         android:id="@+id/imageView"
-        android:src="@drawable/workoutanywherebyrundlefit"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginTop="5dp" />

@@ -8,6 +8,17 @@ public class FreestyleWallObject {
     private String workoutName = "";
     private String workoutType = "";
     private Drawable workoutPicture;
+    private String imageURL = "";
+    private String url = "";
+
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
+    }
+
 
     public String getWorkoutType() {
         return workoutType;
@@ -33,6 +44,11 @@ public class FreestyleWallObject {
         return workoutPicture;
     }
 
+    public String getUrl() {
+        return url;
+    }
 
-
+    public void setUrl(String url) {
+        this.url = url;
+    }
 }

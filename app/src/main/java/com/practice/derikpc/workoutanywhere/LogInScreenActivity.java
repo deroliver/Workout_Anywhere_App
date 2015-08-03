@@ -24,4 +24,11 @@ public class LogInScreenActivity extends FragmentActivity {
         fT.add(R.id.sign_in_activity, fragment);
         fT.commit();
     }
+
+    @Override
+    protected void onDestroy() {
+        setContentView(null);
+        finish();
+        super.onDestroy();
+    }
 }

@@ -6,79 +6,96 @@
     android:scrollbars="none"
     android:layout_weight="1"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:isScrollContainer="false">
 
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        tools:context=".MainActivity"
+        android:padding="20dp">
 
-        <ImageButton
+
+        <TableRow
+            android:id="@+id/first_row"
+            android:layout_alignParentTop="true"
             android:layout_width="match_parent"
-            android:background="@color/white"
-            android:layout_height="160dp"
-            android:id="@+id/beginner_workout_button"
-            android:onClick="beginnerWorkoutButton"
-            android:layout_gravity="center_horizontal"
-            android:src="@drawable/beginner_workouts_button"
-            android:scaleType="fitCenter"
-            android:layout_marginTop="10dp"/>
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginBottom="10dp">
 
-        <ImageButton
-            android:layout_marginTop="10dp"
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_height="180dp"
+                android:background="#0000"
+                android:id="@+id/beginner_workout_button"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"/>
+
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_height="180dp"
+                android:background="#0000"
+                android:id="@+id/intermediate_workout_button"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"/>
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/second_row"
+            android:layout_alignBottom="@+id/first_row"
             android:layout_width="match_parent"
-            android:layout_height="160dp"
-            android:background="@color/white"
-            android:id="@+id/intermediate_workout_button"
-            android:onClick="intermediateWorkoutButton"
-            android:layout_gravity="center_horizontal"
-            android:adjustViewBounds="true"
-            android:src="@drawable/intermediate_workout_button"
-            android:scaleType="fitCenter"/>
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginBottom="10dp">
 
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="160dp"
-            android:background="@color/white"
-            android:id="@+id/beast_workout_button"
-            android:onClick="beastWorkoutButton"
-            android:layout_gravity="center_horizontal"
-            android:src="@drawable/beast_workout_button"
-            android:scaleType="fitCenter"
-            android:layout_marginTop="10dp"/>
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_height="180dp"
+                android:background="#0000"
+                android:layout_marginRight="5dp"
+                android:id="@+id/beast_workout_button"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"/>
 
-        <ImageButton
-            android:layout_marginTop="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="160dp"
-            android:id="@+id/core_workout_button"
-            android:onClick="coreWorkoutButton"
-            android:background="@color/white"
-            android:layout_gravity="center_horizontal"
-            android:src="@drawable/core_workout_button"
-            android:scaleType="fitCenter"/>
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_height="180dp"
+                android:background="#0000"
+                android:layout_marginLeft="5dp"
+                android:id="@+id/core_workout_button"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"/>
+        </TableRow>
 
-        <ImageButton
-            android:layout_marginTop="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="160dp"
-            android:background="@color/white"
-            android:id="@+id/first_step_button"
-            android:onClick="firstStepWorkoutButton"
-            android:layout_gravity="center_horizontal"
-            android:src="@drawable/first_step_workout_button"
-            android:scaleType="fitCenter"/>
+        <TableRow
+            android:id="@+id/third_row"
+            android:layout_alignBottom="@+id/second_row"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
 
-        <ImageButton
-            android:layout_marginTop="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="160dp"
-            android:background="@color/white"
-            android:id="@+id/freestyle_wall_button"
-            android:onClick="freestyleWorkoutButton"
-            android:layout_gravity="center_horizontal"
-            android:src="@drawable/freestyle_workout_button"
-            android:scaleType="fitCenter"/>
-    </LinearLayout>
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_height="180dp"
+                android:background="#0000"
+                android:layout_marginRight="5dp"
+                android:id="@+id/freestyle_workout_button"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"/>
+
+            <ImageButton
+                android:background="#0000"
+                android:layout_height="180dp"
+                android:layout_width="0dp"
+                android:id="@+id/first_step_workout_button"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"/>
+        </TableRow>
+    </TableLayout>
 </ScrollView>

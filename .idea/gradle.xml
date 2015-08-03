@@ -9,9 +9,13 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/YouTubeAndroidPlayerApi" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/jsoup-1.8.2" />
             <option value="$PROJECT_DIR$/libraries" />
             <option value="$PROJECT_DIR$/libraries/library" />
+            <option value="$PROJECT_DIR$/picasso-2.5.2" />
+            <option value="$PROJECT_DIR$/universal-image-loader-1.9.4" />
           </set>
         </option>
       </GradleProjectSettings>
