@@ -7,9 +7,11 @@ public class FreestyleWallObject {
 
     private String workoutName = "";
     private String workoutType = "";
-    private Drawable workoutPicture;
     private String imageURL = "";
     private String url = "";
+    private boolean liked = false;
+    private boolean completed = false;
+    private Integer SqliteID = -1;
 
     public String getImageURL() {
         return imageURL;
@@ -18,7 +20,6 @@ public class FreestyleWallObject {
     public void setImageURL(String imageURL) {
         this.imageURL = imageURL;
     }
-
 
     public String getWorkoutType() {
         return workoutType;
@@ -32,16 +33,8 @@ public class FreestyleWallObject {
         this.workoutName = workoutName;
     }
 
-    public void setWorkoutPicture(Drawable workoutPicture) {
-        this.workoutPicture = workoutPicture;
-    }
-
     public String getWorkoutName() {
         return workoutName;
-    }
-
-    public Drawable getWorkoutPicture() {
-        return workoutPicture;
     }
 
     public String getUrl() {
@@ -50,5 +43,29 @@ public class FreestyleWallObject {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public boolean isLiked() {
+        return liked;
+    }
+
+    public void setLiked(boolean liked) {
+        this.liked = liked;
+    }
+
+    public Integer getSqliteID() {
+        return SqliteID;
+    }
+
+    public void setSqliteID(Integer sqliteID) {
+        SqliteID = sqliteID;
+    }
+
+    public boolean isCompleted() {
+        return completed;
+    }
+
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
     }
 }

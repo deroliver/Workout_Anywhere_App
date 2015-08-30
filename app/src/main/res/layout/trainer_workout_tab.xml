@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="Step 2: Workout"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:textColor="@color/rundle_blue_hex"/>
+
+    <ScrollView
+        android:layout_marginTop="10dp"
+        android:id="@+id/image_scroll_view"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:scrollbars="none"
+        android:layout_weight="11"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:isScrollContainer="false">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_marginBottom="10dp"
+                android:id="@+id/workout_info_textview"
+                android:layout_marginLeft="10dp"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@color/secondary_grey"
+                android:layout_gravity="start"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:text="As Many Reps and Rounds As Possible In:\n
+            Beginners – 8 Minutes\n\n
+            1. Sit to stand to hop (single leg or double leg) (10x)\n
+            2. Dips on bench (10x)\n
+            3. Toe Touch Ab Crunch (10x)\n
+            4. Jumping Jacks (10x)\n
+            Post Workout: Core and Stretch"/>
+
+            <ImageView
+                android:id="@+id/workout_trainer_image"
+                android:layout_margin="5dp"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:src="@drawable/bodyweight_workout_week_one_workout"
+                android:scaleType="centerInside"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

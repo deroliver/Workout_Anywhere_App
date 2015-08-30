@@ -21,7 +21,20 @@
         <item>Full Body</item>
         <item>Beginner Home</item>
         <item>Bodyweight</item>
+        <item>8 Minute Meltdown</item>
+        <item>Cardio</item>
+        <item>4 Minute Core</item>
     </string-array>
+
+    <string-array name="core_strech_dropdown">
+        <item>Core</item>
+        <item>Stretch</item>
+    </string-array>
+
+    <string name="warm_up_info">Please try not to overlook this important staple to any workout program.
+        If strapped for time, try to move until at a sweat, but just remember the body performs best and
+        is less injury prone when warm.  To maximize this philosophy, use the RundleFit Dynamic Warm-Up
+        below before all workouts.</string>
 
 
 </resources>

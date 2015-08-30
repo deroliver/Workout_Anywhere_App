@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:padding="5dp"
+        android:gravity="center"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="12 Week Trainer Workout For:"
+        android:textSize="16sp"
+        android:textColor="@color/rundle_blue_hex"/>
+
+    <TextView
+        android:id="@+id/workout_day"
+        android:textStyle="italic"
+        android:gravity="center"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Monday August 16th"
+        android:textSize="16sp"
+        android:textColor="@color/dark_gray"/>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dip"
+        android:background="@color/rundle_blue_hex" />
+
+    <TextView
+        android:id="@+id/workout_title"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/rundle_blue_hex"/>
+
+    <ImageView
+        android:id="@+id/view_trainer_workout_button"
+        android:layout_marginTop="10dp"
+        android:padding="5dp"
+        android:layout_width="fill_parent"
+        android:layout_height="75dp"
+        android:src="@drawable/start_todays_workout_button"/>
+
+
+    <TextView
+        android:layout_marginTop="15dp"
+        android:padding="5dp"
+        android:gravity="center"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Other Completed Workouts"
+        android:textSize="16sp"
+        android:textColor="@color/rundle_blue_hex"/>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dip"
+        android:background="@color/rundle_blue_hex" />
+
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@android:id/list"
+        android:layout_gravity="center_horizontal"
+        tools:listitem="@layout/freestyle_wall_object"/>
+
+</LinearLayout>

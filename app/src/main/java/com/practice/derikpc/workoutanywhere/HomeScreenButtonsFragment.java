@@ -12,12 +12,12 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ScrollView;
 
-import com.squareup.picasso.Picasso;
-
-import java.io.File;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import blog.BlogActivity;
-import calendar.Calendar;
+import calendar.CalendarView;
+import databasetools.UserInfoDatabaseTools;
+import profile.UserProfile;
 import stream.Stream;
 import workouts.Workouts;
 
@@ -33,11 +33,19 @@ public class HomeScreenButtonsFragment extends Fragment {
 
     private View view;
 
-    File myP = new File("///android_asset/user_profile_button.png");
-    File woR = new File("///android_asset/workouts_button.png");
-    File myF = new File("///android_asset/my_feed_button.png");
-    File caL = new File("///android_asset/calendar_button.png");
-    File blO = new File("///android_asset/blog_button.png");
+    private SecondThread secondThread;
+
+    private ImageLoader imageLoader;
+
+    private String USER[] = null;
+
+    private String FNAME = "";
+    private String LNAME = "";
+    private String STATUS = "";
+    private String AVATARURL = "";
+    private String USERNAME = "";
+
+    UserInfoDatabaseTools userDBTools;
 
 
     @Nullable
@@ -45,100 +53,107 @@ public class HomeScreenButtonsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.home_buttons, container, false);
 
-        Picasso p = Picasso.with(getActivity());
+        userDBTools = new UserInfoDatabaseTools(getActivity());
 
-        myProfile = (ImageButton) view.findViewById(R.id.my_profile_home_button);
-        workouts = (ImageButton) view.findViewById(R.id.workouts_home_button);
-        feed = (ImageButton) view.findViewById(R.id.my_feed_home_button);
-        calendar = (ImageButton) view.findViewById(R.id.calendar_home_button);
-        blog = (ImageButton) view.findViewById(R.id.blog_home_button);
+        USER = new String[4];
 
-        scrollView = (ScrollView) view.findViewById(R.id.home_scroll_view);
+        Bundle data = getArguments();
+        USER = data.getStringArray("USER");
 
+        USERNAME = USER[0];
+        FNAME = USER[1];
+        LNAME = USER[2];
+        AVATARURL = USER[3];
+        STATUS = USER[4];
 
-        Picasso.with(getActivity()).load(myP).into(myProfile);
-        Picasso.with(getActivity()).load(woR).into(workouts);
-        Picasso.with(getActivity()).load(myF).into(feed);
-        Picasso.with(getActivity()).load(caL).into(calendar);
-        Picasso.with(getActivity()).load(blO).into(blog);
+        secondThread = new SecondThread();
+        secondThread.run();
 
-
-        myProfile.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), UserProfile.class);
-                startActivity(intent);
-            }
-        });
-
-        workouts.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Workouts.class);
-                startActivity(intent);
-
-                /*
-                Fragment fragment = new WorkoutButtonsFragment();
-
-                FragmentManager fM = getFragmentManager();
-                FragmentTransaction fT = fM.beginTransaction();
-                fT.add(R.id.home_screen_activity, fragment);
-                fT.addToBackStack(null);
-                fT.commit();
-                */
-            }
-        });
-
-        feed.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Stream.class);
-                startActivity(intent);
-            }
-        });
-
-        calendar.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-          public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Calendar.class);
-                startActivity(intent);
-            }
-        });
-
-        blog.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), BlogActivity.class);
-                startActivity(intent);
-            }
-        });
 
         return view;
     }
 
+    private class SecondThread extends Thread {
+        private boolean stopNow = true;
+
+        public void close() {
+            stopNow = false;
+        }
+
+        public void run() {
+            while (stopNow) {
+                imageLoader = ImageLoader.getInstance();
+
+                myProfile = (ImageButton) view.findViewById(R.id.my_profile_home_button);
+                workouts = (ImageButton) view.findViewById(R.id.workouts_home_button);
+                feed = (ImageButton) view.findViewById(R.id.my_feed_home_button);
+                calendar = (ImageButton) view.findViewById(R.id.calendar_home_button);
+                blog = (ImageButton) view.findViewById(R.id.blog_home_button);
+                scrollView = (ScrollView) view.findViewById(R.id.home_scroll_view);
+
+                imageLoader.displayImage("drawable://" + R.drawable.user_profile_button, myProfile);
+                imageLoader.displayImage("drawable://" + R.drawable.workouts_button, workouts);
+                imageLoader.displayImage("drawable://" + R.drawable.my_feed_button, feed);
+                imageLoader.displayImage("drawable://" + R.drawable.calendar_button, calendar);
+                imageLoader.displayImage("drawable://" + R.drawable.blog_button, blog);
+
+                myProfile.setOnClickListener(new View.OnClickListener() {
+
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getActivity(), UserProfile.class);
+                        intent.putExtra("USER", USER);
+                        startActivity(intent);
+                    }
+                });
+
+                workouts.setOnClickListener(new View.OnClickListener() {
+
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getActivity(), Workouts.class);
+                        startActivity(intent);
+                    }
+                });
+
+                feed.setOnClickListener(new View.OnClickListener() {
+
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getActivity(), Stream.class);
+                        startActivity(intent);
+                    }
+                });
+
+                calendar.setOnClickListener(new View.OnClickListener() {
+
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getActivity(), CalendarView.class);
+                        intent.putExtra("userName", USERNAME);
+                        startActivity(intent);
+                    }
+                });
+
+                blog.setOnClickListener(new View.OnClickListener() {
+
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getActivity(), BlogActivity.class);
+                        startActivity(intent);
+                    }
+                });
+
+                stopNow = false;
+            }
+        }
+
+    }
 
     @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-
-        Picasso.with(getActivity()).invalidate(myP);
-        myP = null;
-
-        Picasso.with(getActivity()).invalidate(woR);
-        woR = null;
-
-        Picasso.with(getActivity()).invalidate(myF);
-        myF = null;
-
-        Picasso.with(getActivity()).invalidate(caL);
-        caL = null;
-
-        Picasso.with(getActivity()).invalidate(blO);
-        blO = null;
+    public void onPause() {
+        super.onPause();
+        imageLoader.clearMemoryCache();
+        imageLoader.clearDiskCache();
     }
 }

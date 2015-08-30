@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
-    android:paddingLeft="5dp"
-    android:paddingRight="5dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:scrollbars="none"
@@ -32,14 +32,14 @@
         <ImageView
             android:layout_width="125dp"
             android:layout_height="125dp"
-            android:layout_marginTop="0dp"
+            android:layout_marginTop="10dp"
             android:id="@+id/user_picture_image_view"
             android:layout_gravity="center_horizontal"
             android:scaleType="fitCenter" />
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="40dp">
 
@@ -50,7 +50,7 @@
                 android:gravity="left|center"
                 android:textColor="@color/rundle_blue_hex"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Favorited Workouts"
+                android:text="Favorited Videos"
                 android:id="@+id/textView3" />
 
             <Button
@@ -60,10 +60,10 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:layout_marginRight="15dp"
-                android:textColor="@color/secondary_grey"
-                android:background="@color/white"
+                android:textColor="@color/white"
+                android:background="@color/rundle_blue_hex"
                 android:text="@string/view_all"
-                android:id="@+id/button15" />
+                android:id="@+id/view_all_favorited_videos_button" />
 
         </LinearLayout>
 
@@ -75,31 +75,92 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="75dp"
-            android:layout_marginTop="5dp" >
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp" >
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_marginLeft="5dp"
-                android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:gravity="left|center"
-                android:textColor="@color/secondary_grey"
-                android:text="Name of a Workout Video"
-                android:id="@+id/textView6" />
+            <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:descendantFocusability="blocksDescendants">
 
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="fill_parent"
-                android:layout_weight="1"
-                android:layout_marginBottom="5dp"
-                android:id="@+id/imageView2" />
+                <ImageView
+                    android:layout_marginRight="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:id="@+id/favorited_image"
+                    android:layout_width="fill_parent"
+                    android:layout_height="160dp"
+                    android:layout_gravity="center_horizontal"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/workout_video_example"
+                    android:clickable="true"/>
 
+                <ProgressBar
+                    android:id="@+id/favorited_progress_bar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="50dp"/>
+
+                <TextView
+                    android:id="@+id/favorited_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="130dp"
+                    android:layout_marginLeft="25dp"
+                    android:textSize="12dp"
+                    android:background="@color/dark_gray"
+                    android:textColor="@color/white"
+                    android:text="Full Body"/>
+
+                <LinearLayout
+                    android:layout_marginRight="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="160dp" >
+
+                    <TextView
+                        android:id="@+id/favorited_type"
+                        android:layout_width="0dp"
+                        android:layout_weight="10"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="@color/rundle_blue_hex"
+                        android:textSize="14dp" />
+
+                    <ImageView
+                        android:id="@+id/completed_favorited_workout_video_button"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="25dp"
+                        android:layout_marginRight="20dp"
+                        android:src="@drawable/completed_check_mark_button_empty"
+                        android:scaleType="centerInside"
+                        android:background="@android:color/transparent"
+                        android:clickable="true" />
+
+                    <ImageView
+                        android:id="@+id/favorited_favorited_workout_video_button"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="25dp"
+                        android:layout_marginRight="35dp"
+                        android:src="@drawable/like_button"
+                        android:scaleType="centerInside"
+                        android:background="@android:color/transparent"
+                        android:clickable="true" />
+
+                </LinearLayout>
+            </FrameLayout>
         </LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="0dp"
             android:layout_width="match_parent"
             android:layout_height="40dp">
 
@@ -110,20 +171,20 @@
                 android:gravity="left|center"
                 android:textColor="@color/rundle_blue_hex"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Favorited Meals"
+                android:text="Completed Workouts"
                 android:id="@+id/textView4" />
 
             <Button
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="fill_parent"
                 android:layout_weight="1"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:layout_marginRight="15dp"
-                android:textColor="@color/secondary_grey"
-                android:background="@color/white"
+                android:textColor="@color/white"
+                android:background="@color/rundle_blue_hex"
                 android:text="@string/view_all"
-                android:id="@+id/button16" />
+                android:id="@+id/view_all_completed_videos_button" />
         </LinearLayout>
 
         <View
@@ -134,31 +195,92 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="75dp"
-            android:layout_marginTop="5dp">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp" >
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:gravity="left|center"
-                android:layout_marginLeft="5dp"
-                android:textColor="@color/secondary_grey"
-                android:text="Name of a Meal Video"
-                android:id="@+id/textView7" />
+            <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:descendantFocusability="blocksDescendants">
 
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="fill_parent"
-                android:layout_weight="1"
-                android:layout_marginBottom="5dp"
-                android:id="@+id/imageView3" />
+                <ImageView
+                    android:layout_marginRight="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:id="@+id/completed_image"
+                    android:layout_width="fill_parent"
+                    android:layout_height="160dp"
+                    android:layout_gravity="center_horizontal"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/workout_video_example"
+                    android:clickable="true" />
 
+                <ProgressBar
+                    android:id="@+id/completed_progress_bar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="50dp"/>
+
+                <TextView
+                    android:id="@+id/completed_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="130dp"
+                    android:layout_marginLeft="25dp"
+                    android:textSize="12dp"
+                    android:background="@color/dark_gray"
+                    android:textColor="@color/white"
+                    android:text="Full Body"/>
+
+                <LinearLayout
+                    android:layout_marginRight="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="160dp" >
+
+                    <TextView
+                        android:id="@+id/completed_video_type"
+                        android:layout_width="0dp"
+                        android:layout_weight="10"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="@color/rundle_blue_hex"
+                        android:textSize="14dp" />
+
+                    <ImageView
+                        android:id="@+id/completed_completed_workout_video_button"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="25dp"
+                        android:layout_marginRight="20dp"
+                        android:src="@drawable/completed_check_mark_button_full"
+                        android:scaleType="centerInside"
+                        android:background="@android:color/transparent"
+                        android:clickable="true" />
+
+                    <ImageView
+                        android:id="@+id/favorite_completed_workout_video_button"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="25dp"
+                        android:layout_marginRight="15dp"
+                        android:src="@drawable/like_before_pressed_button"
+                        android:scaleType="centerInside"
+                        android:background="@android:color/transparent"
+                        android:clickable="true" />
+
+                </LinearLayout>
+            </FrameLayout>
         </LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="0dp"
             android:layout_width="match_parent"
             android:layout_height="40dp">
 
@@ -179,10 +301,10 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:layout_marginRight="15dp"
-                android:textColor="@color/secondary_grey"
-                android:background="@color/white"
+                android:textColor="@color/white"
+                android:background="@color/rundle_blue_hex"
                 android:text="@string/view_all"
-                android:id="@+id/button17" />
+                android:id="@+id/view_all_commented_videos_button" />
         </LinearLayout>
 
         <View
@@ -193,27 +315,87 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="75dp"
-            android:layout_marginTop="5dp" >
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp" >
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:layout_marginLeft="5dp"
-                android:gravity="left|center"
-                android:textColor="@color/secondary_grey"
-                android:text="Name of a Meal Video"
-                android:id="@+id/textVie87" />
+            <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:descendantFocusability="blocksDescendants">
 
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="fill_parent"
-                android:layout_weight="1"
-                android:layout_marginBottom="5dp"
-                android:id="@+id/imageView4" />
+                <ImageView
+                    android:layout_marginRight="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:id="@+id/commented_image"
+                    android:layout_width="fill_parent"
+                    android:layout_height="160dp"
+                    android:layout_gravity="center_horizontal"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/workout_video_example"
+                    android:clickable="true"/>
 
+                <ProgressBar
+                    android:id="@+id/commented_progress_bar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="50dp"/>
+
+                <TextView
+                    android:id="@+id/commented_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="130dp"
+                    android:layout_marginLeft="25dp"
+                    android:textSize="12dp"
+                    android:background="@color/dark_gray"
+                    android:textColor="@color/white"
+                    android:text="Full Body"/>
+
+                <LinearLayout
+                    android:layout_marginRight="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="160dp" >
+
+                    <TextView
+                        android:id="@+id/commented_type"
+                        android:layout_width="0dp"
+                        android:layout_weight="10"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="@color/rundle_blue_hex"
+                        android:textSize="14dp" />
+
+                    <ImageView
+                        android:id="@+id/completed_commented_workout_video_button"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="25dp"
+                        android:layout_marginRight="20dp"
+                        android:src="@drawable/completed_check_mark_button_empty"
+                        android:scaleType="centerInside"
+                        android:background="@android:color/transparent"
+                        android:clickable="true" />
+
+                    <ImageView
+                        android:id="@+id/favorited_commented_workout_video_button"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="25dp"
+                        android:layout_marginRight="15dp"
+                        android:src="@drawable/like_before_pressed_button"
+                        android:scaleType="centerInside"
+                        android:background="@android:color/transparent"
+                        android:focusable="false" />
+
+                </LinearLayout>
+            </FrameLayout>
         </LinearLayout>
-
     </LinearLayout>
 </ScrollView>

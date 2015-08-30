@@ -16,6 +16,8 @@ public class BlogPost {
     private String url = "";
     private Bitmap image;
     private boolean liked = false;
+    private boolean completed = false;
+    private Integer sqliteID = -1;
 
     public String getType() {
         return type;
@@ -87,5 +89,21 @@ public class BlogPost {
 
     public void setLiked(boolean liked) {
         this.liked = liked;
+    }
+
+    public Integer getSqliteID() {
+        return sqliteID;
+    }
+
+    public void setSqliteID(Integer sqliteID) {
+        this.sqliteID = sqliteID;
+    }
+
+    public boolean isCompleted() {
+        return completed;
+    }
+
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
     }
 }

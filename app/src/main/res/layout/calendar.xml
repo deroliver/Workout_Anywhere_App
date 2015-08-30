@@ -1,14 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FragmentLayout">
+    tools:context=".FragmentLayout"
+    android:orientation="vertical">
 
-    <com.squareup.timessquare.CalendarPickerView
-        android:id="@+id/calendar_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+    <ImageView
+        android:id="@+id/add_trainer_button"
+        android:padding="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_width="130dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:src="@drawable/calendar_add_trainer_button"/>
 
-</FrameLayout>
+    <LinearLayout
+        android:padding="10dp"
+        android:layout_marginTop="15dp"
+        android:id="@+id/calendar1"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="13"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+
+    <ImageView
+        android:padding="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_width="175dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:src="@drawable/calendar_completed_workout_key"/>
+
+    <ImageView
+        android:padding="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_width="175dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:src="@drawable/calendar_trainer_day_key"/>
+</LinearLayout>

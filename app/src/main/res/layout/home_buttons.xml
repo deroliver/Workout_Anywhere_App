@@ -1,99 +1,124 @@
-<ScrollView
-    android:id="@+id/home_scroll_view"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:scrollbars="none"
-    android:layout_weight="1"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:isScrollContainer="false">
+    android:layout_height="match_parent">
 
-
-    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <ImageView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:adjustViewBounds="true"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        tools:context=".MainActivity"
-        android:padding="20dp">
+        android:layout_gravity="center"
+        android:scaleType="fitXY"
+        android:src="@drawable/wallpaper_collage"/>
+
+    <ScrollView
+        android:id="@+id/home_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:layout_weight="1"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:isScrollContainer="false">
 
 
-        <TableRow
-            android:id="@+id/first_row"
-            android:layout_alignParentTop="true"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_marginBottom="0dp">
+        <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            tools:context=".MainActivity"
+            android:layout_margin="5dp">
 
-            <ImageButton
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:background="#0000"
-                android:layout_height="190dp"
-                android:layout_marginRight="5dp"
-                android:id="@+id/my_profile_home_button"
-                android:scaleType="fitCenter" />
 
-            <ImageButton
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:background="#0000"
-                android:layout_height="190dp"
-                android:layout_marginLeft="5dp"
-                android:id="@+id/workouts_home_button"
-                android:scaleType="fitCenter" />
-        </TableRow>
+            <TableRow
+                android:layout_margin="5dp"
+                android:id="@+id/first_row"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
 
-        <TableRow
-            android:id="@+id/second_row"
-            android:layout_alignBottom="@+id/first_row"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_marginBottom="0dp">
+                <ImageButton
+                    android:adjustViewBounds="true"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:background="#0000"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:id="@+id/my_profile_home_button"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/user_profile_button"/>
 
-            <ImageButton
-                android:layout_width="0dp"
-                android:background="#0000"
-                android:layout_height="190dp"
-                android:layout_marginRight="5dp"
-                android:id="@+id/my_feed_home_button"
-                android:layout_weight="1"
-                android:scaleType="fitCenter"/>
+                <ImageButton
+                    android:adjustViewBounds="true"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:background="#0000"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:id="@+id/workouts_home_button"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/workouts_button"/>
+            </TableRow>
 
-            <ImageButton
-                android:layout_width="0dp"
-                android:background="#0000"
-                android:layout_height="190dp"
-                android:layout_marginLeft="5dp"
-                android:id="@+id/calendar_home_button"
-                android:layout_weight="1"
-                android:scaleType="fitCenter"/>
-        </TableRow>
+            <TableRow
+                android:layout_margin="5dp"
+                android:id="@+id/second_row"
+                android:layout_alignBottom="@+id/first_row"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
 
-        <TableRow
-            android:id="@+id/third_row"
-            android:layout_alignBottom="@+id/second_row"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
+                <ImageButton
+                    android:adjustViewBounds="true"
+                    android:layout_width="0dp"
+                    android:background="#0000"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:id="@+id/my_feed_home_button"
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/calendar_button"/>
 
-            <ImageButton
-                android:layout_width="0dp"
-                android:background="#0000"
-                android:layout_height="190dp"
-                android:layout_marginRight="5dp"
-                android:id="@+id/blog_home_button"
-                android:layout_weight="1"
-                android:scaleType="fitCenter"/>
+                <ImageButton
+                    android:adjustViewBounds="true"
+                    android:layout_width="0dp"
+                    android:background="#0000"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="5dp"
+                    android:id="@+id/calendar_home_button"
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/my_feed_button"/>
+            </TableRow>
 
-            <ImageButton
-                android:background="#0000"
-                android:layout_width="0dp"
-                android:layout_height="190dp"
-                android:layout_marginLeft="5dp"
-                android:id="@+id/trainer_home_button"
-                android:layout_weight="1"
-                android:scaleType="fitCenter"/>
-        </TableRow>
-    </TableLayout>
-</ScrollView>
+            <TableRow
+                android:layout_margin="5dp"
+                android:id="@+id/third_row"
+                android:layout_alignBottom="@+id/second_row"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <ImageButton
+                    android:adjustViewBounds="true"
+                    android:layout_width="0dp"
+                    android:background="#0000"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:id="@+id/blog_home_button"
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/blog_button"/>
+
+                <ImageButton
+                    android:adjustViewBounds="true"
+                    android:background="#0000"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:id="@+id/trainer_home_button"
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter" />
+            </TableRow>
+        </TableLayout>
+    </ScrollView>
+</RelativeLayout>

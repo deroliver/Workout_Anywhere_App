@@ -2,11 +2,17 @@
     <color name="rundle_blue_hex">#0088cc</color>
     <color name="white">#ffffff</color>
     <color name="button_grey">#B9B9B9</color>
-    <color name="secondary_grey">#5a5959</color>
+    <color name="secondary_grey">#999999</color>
     <color name="black">#000000</color>
     <color name="beginner_workout_format_blue">#146cc6</color>
     <color name="pink_workout_format">#f44aa0</color>
     <color name="green_workout_format">#53de67</color>
     <color name="dark_gray">#222222</color>
+    <color name="transparent">#00000000</color>
+    <color name="light_rundle_blue_hex">#D90088cc</color>
+    <color name="text_grey">#666666</color>
+    <color name="background_rundle_blue">#260088cc</color>
+    <color name="stream_object_gray">#f2f2f2</color>
+
 
 </resources>

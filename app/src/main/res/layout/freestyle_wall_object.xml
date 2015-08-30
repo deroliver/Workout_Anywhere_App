@@ -35,7 +35,7 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="25dp"
-        android:layout_marginTop="200dp">
+        android:layout_marginTop="210dp">
 
         <TextView
             android:id="@+id/freestyle_workout_video_type"
@@ -47,23 +47,26 @@
             android:textColor="@color/rundle_blue_hex"
             android:textSize="14dp" />
 
-        <ImageButton
-            android:id="@+id/freestyle_workout_video_like_button"
+        <ImageView
+            android:id="@+id/freestyle_workout_video_completed_button"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_height="20dp"
-            android:layout_marginTop="5dp"
+            android:layout_height="25dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/completed_check_mark_button_full"
+            android:scaleType="centerInside"
+            android:background="@android:color/transparent"
+            android:focusable="false" />
+
+        <ImageView
+            android:id="@+id/freestyle_workout_video_like_button"
+            android:layout_width="0dp"
+            android:layout_marginRight="15dp"
+            android:layout_weight="1"
+            android:layout_height="25dp"
             android:src="@drawable/like_before_pressed_button"
             android:scaleType="centerInside"
-            android:background="@color/white"/>
+            android:background="@android:color/transparent"/>
 
     </LinearLayout>
-
-    <View
-        android:id="@+id/line"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/rundle_blue_hex"
-        android:layout_marginTop="230dp"/>
-
 </FrameLayout>

@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/white">
+
+        <ImageView
+            android:layout_gravity="start"
+            android:layout_width="0dp"
+            android:layout_height="115dp"
+            android:layout_weight="1"
+            android:src="@drawable/original_12_week_trainer"/>
+
+        <LinearLayout
+            android:layout_marginTop="25dp"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:textSize="12sp"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="ORIG. 12 WEEK TRAINER"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginBottom="10dp"/>
+
+            <View
+                android:layout_gravity="center"
+                android:layout_width="50dp"
+                android:layout_height="2dip"
+                android:background="#000000" />
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:textSize="12sp"
+                android:textColor="@color/secondary_grey"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="Minimal Equipment +"/>
+
+            <TextView
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center"
+                android:textSize="12sp"
+                android:textColor="@color/secondary_grey"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="Bodyweight Exercises"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:padding="5dp"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/original_beginner_trainer_button"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:src="@drawable/beginner_trainer_button"/>
+
+            <ImageView
+                android:id="@+id/original_int_trainer_button"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:src="@drawable/intermediate_trainer_button"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_gravity="center"
+        android:layout_width="fill_parent"
+        android:layout_height="20dip"
+        android:background="@color/white" />
+
+    <View
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_gravity="center"
+        android:layout_width="fill_parent"
+        android:layout_height="1dip"
+        android:background="@color/rundle_blue_hex" />
+
+    <View
+        android:layout_gravity="center"
+        android:layout_width="fill_parent"
+        android:layout_height="20dip"
+        android:background="@color/white" />
+
+    <LinearLayout
+        android:layout_margin="5dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/white">
+
+        <ImageView
+            android:layout_gravity="start"
+            android:layout_width="0dp"
+            android:layout_height="115dp"
+            android:layout_weight="1"
+            android:src="@drawable/week12_bodyweight_trainer"/>
+
+        <LinearLayout
+            android:layout_marginTop="25dp"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:textSize="12sp"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="12 W BW TRAINER"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginBottom="10dp"/>
+
+            <View
+                android:layout_gravity="center"
+                android:layout_width="50dp"
+                android:layout_height="2dip"
+                android:background="#000000" />
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:textSize="12sp"
+                android:textColor="@color/secondary_grey"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="Bodyweight Exercises +"/>
+
+            <TextView
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center"
+                android:textSize="12sp"
+                android:textColor="@color/secondary_grey"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="Your Surroundings"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:padding="5dp"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/week12_beginner_trainer_button"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:src="@drawable/beginner_trainer_button"/>
+
+            <ImageView
+                android:id="@+id/week12_int_trainer_button"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:src="@drawable/intermediate_trainer_button"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_gravity="center"
+        android:layout_width="fill_parent"
+        android:layout_height="20dip"
+        android:background="@color/white" />
+
+    <View
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_gravity="center"
+        android:layout_width="fill_parent"
+        android:layout_height="1dip"
+        android:background="@color/rundle_blue_hex" />
+
+    <View
+        android:layout_gravity="center"
+        android:layout_width="fill_parent"
+        android:layout_height="20dip"
+        android:background="@color/white" />
+
+
+    <LinearLayout
+        android:layout_margin="5dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/white">
+
+        <ImageView
+            android:layout_gravity="start"
+            android:layout_width="0dp"
+            android:layout_height="115dp"
+            android:layout_weight="1"
+            android:src="@drawable/fat_burning_12_week_trainer"/>
+
+        <LinearLayout
+            android:layout_marginTop="25dp"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:textSize="12sp"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="12 WEEK TRAINER, PHASE 2"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginBottom="10dp"/>
+
+            <View
+                android:layout_gravity="center"
+                android:layout_width="50dp"
+                android:layout_height="2dip"
+                android:background="#000000" />
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:textSize="12sp"
+                android:textColor="@color/secondary_grey"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="The Next Step"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:padding="5dp"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/fat_burner_beginner_trainer_button"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:src="@drawable/beginner_trainer_button"/>
+
+            <ImageView
+                android:id="@+id/fat_burner_int_trainer_button"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:src="@drawable/intermediate_trainer_button"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

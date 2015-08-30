@@ -5,23 +5,59 @@ import android.graphics.drawable.Drawable;
 
 public class StreamObject {
 
-    private String name = "Derik Oliver";
-    private String update = "I completed a challenge";
-    private Integer nLikes = 10;
-    private Integer nComments = 11;
-    private Drawable picture;
+    private String usersName = "";
+    private String activityAction = "";
+    private String activityContent = "";
+    private Integer nLikes = 0;
+    private Integer nComments = 0;
+    private String userImageURL = "";
+    private String activityID = "";
+    private String activityUserID = "";
+    private String dateTime = "";
 
 
-    public Drawable getPicture() {
-        return this.picture;
+    public String getDateTime() {
+        return dateTime;
+    }
+
+    public void setDateTime(String dateTime) {
+        this.dateTime = dateTime;
+    }
+
+    public String getActivityContent() {
+        return activityContent;
+    }
+
+    public void setActivityContent(String activityContent) {
+        this.activityContent = activityContent;
+    }
+
+    public String getActivityAction() {
+        return activityAction;
+    }
+
+    public void setActivityAction(String activityAction) {
+        this.activityAction = activityAction;
+    }
+
+    public String getActivityUserID() {
+        return activityUserID;
+    }
+
+    public void setActivityUserID(String activityUserID) {
+        this.activityUserID = activityUserID;
+    }
+
+    public String getActivityID() {
+        return activityID;
+    }
+
+    public void setActivityID(String activityID) {
+        this.activityID = activityID;
     }
 
     public String getName() {
-        return this.name;
-    }
-
-    public String getUpdate() {
-        return this.update;
+        return this.usersName;
     }
 
     public Integer getnLikes() {
@@ -33,7 +69,7 @@ public class StreamObject {
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.usersName = name;
     }
 
     public void setnComments(Integer nComments) {
@@ -44,12 +80,11 @@ public class StreamObject {
         this.nLikes = nLikes;
     }
 
-    public void setPicture(Drawable picture) {
-        this.picture = picture;
+    public String getImageURL() {
+        return userImageURL;
     }
 
-    public void setUpdate(String update) {
-        this.update = update;
+    public void setImageURL(String imageURL) {
+        this.userImageURL = imageURL;
     }
-
 }

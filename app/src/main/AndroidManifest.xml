@@ -26,13 +26,16 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".UserProfile"></activity>
+        <activity android:name="profile.UserProfile"></activity>
         <activity android:name="workouts.Workouts"></activity>
-        <activity android:name=".WelcomeSignIn"></activity>
         <activity android:name="stream.Stream"></activity>
-        <activity android:name="calendar.Calendar"></activity>
+        <activity android:name="calendar.CalendarView"></activity>
         <activity android:name="blog.BlogActivity"></activity>
         <activity android:name="blog.BlogPostActivity"></activity>
+        <activity android:name="workouts.WorkoutPostActivity"></activity>
+        <activity android:name="profile.UserProfileWorkoutsList"></activity>
+        <activity android:name="trainer.TrainerDay"></activity>
+        <activity android:name="calendar.ChooseATrainerFragment"></activity>
 
     </application>
 

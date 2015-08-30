@@ -27,5 +27,7 @@ dependencies {
     compile project(':universal-image-loader-1.9.4')
     compile project(':jsoup-1.8.2')
     compile project(':YouTubeAndroidPlayerApi')
+    compile project(':library:Caldroid:caldroid')
+    compile project(':joda-time-2.8.2')
 }
 

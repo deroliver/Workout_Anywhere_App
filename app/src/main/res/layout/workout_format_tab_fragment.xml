@@ -1,35 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<ScrollView
+    android:id="@+id/home_scroll_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    android:layout_margin="10dp">
+    android:scrollbars="none"
+    android:layout_weight="1"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:isScrollContainer="false"
+    android:background="@color/white">
 
-    <TextView
-        android:layout_marginTop="15dp"
-        android:fontFamily=""
-        android:layout_width="wrap_content"
-        android:textColor="@color/rundle_blue_hex"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Apply This Format To Freestyle Workouts"
-        android:id="@+id/workout_format_text_view"
-        android:layout_gravity="center_horizontal" />
-
-    <ImageView
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="5"
-        android:id="@+id/workout_format_image_view"
-        android:layout_gravity="top" />
+        android:layout_height="match_parent"
+        android:background="@color/white">
 
-    <ImageView
-        android:layout_marginBottom="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_weight="4"
-        android:id="@+id/workout_type_image_view"
-        android:layout_gravity="center_horizontal" />
-</LinearLayout>
+
+        <LinearLayout
+            android:padding="10dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:src="@drawable/beginner_workouts_button"
+                android:layout_width="0dp"
+                android:layout_height="160dp"
+                android:layout_weight="1"
+                android:id="@+id/beginner_button_pic" />
+
+            <ImageView
+                android:src="@drawable/beginner_sample_workout"
+                android:layout_width="0dp"
+                android:layout_height="160dp"
+                android:layout_weight="2"
+                android:id="@+id/beginner_format_pic" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:padding="10dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:src="@drawable/intermediate_workout_button"
+                android:layout_width="0dp"
+                android:layout_height="160dp"
+                android:layout_weight="1"
+                android:id="@+id/intermediate_button_pic" />
+
+            <ImageView
+                android:src="@drawable/intermediate_sample_workout"
+                android:layout_width="0dp"
+                android:layout_height="160dp"
+                android:layout_weight="2"
+                android:id="@+id/intermediate_format_pic" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:padding="10dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:src="@drawable/beast_workout_button"
+                android:layout_width="0dp"
+                android:layout_height="160dp"
+                android:layout_weight="1"
+                android:id="@+id/beast_button_pic" />
+
+
+            <ImageView
+                android:src="@drawable/beast_sample_workout"
+                android:layout_width="0dp"
+                android:layout_height="160dp"
+                android:layout_weight="2"
+                android:id="@+id/beast_format_pic" />
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

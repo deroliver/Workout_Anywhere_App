@@ -3,12 +3,12 @@ package workouts;
 import android.app.ActionBar;
 import android.app.ActionBar.TabListener;
 import android.app.FragmentTransaction;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 
 import com.practice.derikpc.workoutanywhere.R;
 
+import java.util.List;
 
 
 public class SpecificWorkout extends Fragment implements TabListener {
@@ -29,24 +30,21 @@ public class SpecificWorkout extends Fragment implements TabListener {
 
     private String workoutType = "";
 
+    private ActionBar.Tab formatTab;
+    private ActionBar.Tab wallTab;
+    private ActionBar.Tab postTab;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.workout_info_pager, container, false);
         System.out.println("OnCreate Specific Called");
-
         viewPager = (ViewPager) view.findViewById(R.id.workout_view_pager);
+
         myAdapter = new MyAdapter(getChildFragmentManager());
 
-        Bundle type = getArguments();
-        workoutType = type.getString("Workout Type");
-        System.out.println(workoutType);
-
-
-        myAdapter.setWorkout(workoutType);
-
         viewPager.setAdapter(myAdapter);
+        viewPager.setOffscreenPageLimit(2);
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
             @Override
@@ -69,15 +67,15 @@ public class SpecificWorkout extends Fragment implements TabListener {
         actionBar = getActivity().getActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
-        ActionBar.Tab formatTab = actionBar.newTab();
+        formatTab = actionBar.newTab();
         formatTab.setText("Format");
         formatTab.setTabListener(this);
 
-        ActionBar.Tab wallTab = actionBar.newTab();
+        wallTab = actionBar.newTab();
         wallTab.setText("Wall");
         wallTab.setTabListener(this);
 
-        ActionBar.Tab postTab = actionBar.newTab();
+        postTab = actionBar.newTab();
         postTab.setText("Post");
         postTab.setTabListener(this);
 
@@ -86,6 +84,20 @@ public class SpecificWorkout extends Fragment implements TabListener {
         actionBar.addTab(postTab);
 
         return view;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        List<Fragment> fragments = getChildFragmentManager().getFragments();
+        if (fragments == null) {
+            return;
+        }
+        for (Fragment f : fragments) {
+            if (f == null) {
+                continue;
+            }
+            f.onActivityResult(requestCode, resultCode, data);
+        }
     }
 
     @Override
@@ -120,14 +132,8 @@ public class SpecificWorkout extends Fragment implements TabListener {
 
 class MyAdapter extends FragmentPagerAdapter {
 
-    String workoutType = "";
-
     public MyAdapter(FragmentManager fm) {
         super(fm);
-    }
-
-    public void setWorkout(String workoutType) {
-        this.workoutType = workoutType;
     }
 
     @Override
@@ -135,12 +141,8 @@ class MyAdapter extends FragmentPagerAdapter {
         System.out.println(position);
         Fragment fragment = null;
 
-        Bundle workout = new Bundle();
-        workout.putString("Type", workoutType);
-
         if(position == 0) {
             fragment = new WorkoutFormatFragmentTab();
-            fragment.setArguments(workout);
         }
 
         else if(position == 1) {

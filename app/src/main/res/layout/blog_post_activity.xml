@@ -9,6 +9,8 @@
     tools:context=".BlogPostActivity">
 
     <TextView
+        android:textStyle="bold"
+        android:gravity="center"
         android:padding="5dp"
         android:layout_width="wrap_content"
         android:textColor="@color/rundle_blue_hex"
@@ -17,19 +19,73 @@
         android:id="@+id/blog_post_title_text_view"
         android:layout_gravity="center_horizontal" />
 
-
     <com.google.android.youtube.player.YouTubePlayerView
         android:id="@+id/youtube_video_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="6"
+        android:layout_weight="7"
         android:layout_gravity="top" />
 
-    <TextView
-        android:layout_marginTop="25dp"
-        android:layout_width="wrap_content"
+    <ImageView
+        android:id="@+id/post_image_view"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="6"
-        android:id="@+id/blog_post_text_view"
-        android:layout_gravity="center_horizontal" />
+        android:layout_weight="0"
+        android:layout_gravity="top"
+        android:visibility="gone"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/blog_type"
+            android:layout_width="0dp"
+            android:layout_weight="10"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/rundle_blue_hex"
+            android:textSize="14dp" />
+
+        <ImageView
+            android:id="@+id/blog_post_activity_completed_button"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="25dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/completed_check_mark_button_empty"
+            android:scaleType="centerInside"
+            android:background="@android:color/transparent"
+            android:focusable="false" />
+
+        <ImageView
+            android:id="@+id/blog_post_activity_like_button"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="25dp"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/like_before_pressed_button"
+            android:scaleType="centerInside"
+            android:background="@android:color/transparent"
+            android:focusable="false" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_marginTop="5dp"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="6">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/blog_post_text_view"
+            android:layout_gravity="center_horizontal" />
+
+    </ScrollView>
 </LinearLayout>

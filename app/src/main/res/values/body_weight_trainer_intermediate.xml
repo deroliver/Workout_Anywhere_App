@@ -1,0 +1,1372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    // Week 1
+    <string-array name="bw_int_week_1">
+        // Monday
+        <item>bodyweight_workout_week_one_workout~The Body Weight AMRAP~
+            The Body Weight AMRAP:\n
+            Beginners: 8 Minutes\n
+            Intermediate: 10 Minutes\n
+            Advanced: 12 Minutes\n\n
+
+            1. Sit Down-Stand Ups (Single or Double Leg) (10x)\n
+            2. Dips on Bench (10x)\n
+            3. Toes Touch Ab Crunch (10x)\n
+            4. Jumping Jacks (10x)\n\n
+
+            Post Workout: Core and Stretch
+        </item>
+
+        // Tuesday
+        <item>NA~Welcome To Your First Turn It Up Tuesday: Aerobic Day or Active Rest Day~Using smart training practices means
+            respecting one’s rest periods.  That means, for one’s “Fast Twitch” muscle fibers
+            (the target with our main workouts), joints and nervous system to recover optimally,
+            a rest day or two is needed. However, rest days don’t have to be lazy days.  In fact,
+            active rest targeting “Slow Twitch” muscle fibers (which aerobic activity does) is a
+            great change-up for burning calories and promoting recovery.  This on top of mobility
+            and flexibility practices makes an ideal, in-between workout day.\n\n
+
+            Choose from the following:\n
+            Running, biking, hiking, stairs, swimming, basketball, soccer, frisbee, another sport,
+            rock climbing, jumping jacks, burpees, high knees, skiing, cross-country skiing, snow
+            shoeing, hopscotch, bear crawls, playing with the kids or whatever keeps you moving for…\n
+            Intermediate: 12 minutes / Advanced: 15 Minutes\n\n
+
+            Post Workout: Core and Stretch:\n
+            Pick at least 6 stretches and hold for 20-30 seconds each.  It’s okay to go through the
+            stretch series a couple of times.  For an amazing post-workout stretch bonus, try foam
+            rolling.  This is the perfect recovery enhancer and can be done anywhere (even if you do
+            not own a foam roller (check out foam rolling on Dr. Oz earlier this year!)\n\n
+
+            If you typically get sore after workouts, stretching immediately after a workout will
+            help alleviate some of this.  As well, stretching POST-workout will help prevent injury,
+            speed up muscle recovery and enhance overall fitness level. Go to the stretching section
+            to get started on this recovery practice.\n\n
+
+            Feel free to ask questions below, or in the community area.  We would love to hear your
+            feedback, as well as see group interaction.</item>
+
+        // Wednesday
+        <item>NA~5 Minute Fat Burner~
+            The 5 Minute Fat Burning Workout:\n
+            *No equipment needed\n\n
+
+            Intermediate: 5 Minutes (As Many Rounds As Possible)\n
+            Advanced: 8 Minutes (As Many Rounds As Possible)\n\n
+
+            1. Bear Crawl 5-10 feet forward\n
+            2. 5 Burpees\n
+            3. Bear Crawl 5-10 feet backward\n
+            4. 5 Burpees \n\n\n
+
+            Core workout from the tab\n
+            Fitness Challenge:\n
+            Complete Exercises For Time:\n\n
+
+            1. 30 squats\n
+            2. 30 jumping jacks\n
+            3. 30 sit ups\n
+            4. 30 push-ups\n\n
+
+            Stretch and Cool Down Post Workout:\n
+            * Pick at least 6 stretches from the Stretch Tab and hold for 20-30 seconds each.  It’s okay to go
+            through the stretch series a couple times.  For an amazing post-workout stretch bonus, try foam rolling.
+            This is the perfect recovery enhancer and can be done anywhere (even if you do not own a foam roller
+            (check out foam rolling on Dr. Oz earlier this year!)\n\n
+
+            *  If you typically get sore after workouts, stretching immediately after a workout will help alleviate
+            some of this.  As well, stretching POST-workout will help prevent injury, speed up muscle recovery and
+            enhance overall fitness.\n\n
+
+            * Feel free to ask questions below, or in the community area.  We would love to hear your feedback,
+            as well as see group interaction
+        </item>
+
+        // Thursday
+        <item>NA~Aerobic Day~Choose from the following:
+            Running, biking, hiking, stairs, swimming, basketball, soccer, frisbee, another sport,
+            rock climbing, jumping jacks, burpees, high knees, skiing, cross-country skiing, snow
+            shoeing, hopscotch, bear crawls, playing with the kids or whatever keeps you moving for…\n
+            Intermediate: 12 minutes / Advanced: 15 Minutes\n\n
+            Post Workout: Core and Stretch:\n
+            Pick at least 6 stretches and hold for 20-30 seconds each.\n\n
+        </item>
+
+        // Friday
+        <item>bodyweight_workout_week_one_workout~Welcome To Your First Flashback Friday!~
+            The Body Weight AMRAP:\n
+            Beginners: 8 Minutes\n
+            Intermediate: 10 Minutes\n
+            Advanced: 12 Minutes\n\n
+
+            1. Sit Down-Stand Ups (Single or Double Leg) (10x)\n
+            2. Dips on Bench (10x)\n
+            3. Toes Touch Ab Crunch (10x)\n
+            4. Jumping Jacks (10x)\n\n
+
+            Post Workout: Core and Stretch
+        </item>
+
+
+        // Saturday
+        <item>NA~Active Rest Day~
+            Today is the perfect day to go for a walk, hike or family activity.  You can also do the Dynamic
+            Warm-Up, Foam Roll and stretch to loosen up your muscles.  Keep it light today and let your muscles
+            begin to repair.  You will hit it hard on Monday.\n\n
+
+            Post Workout: Stretch and Cool Down
+        </item>
+    </string-array>
+
+
+    // Week 2
+    <string-array name="bw_int_week_2">
+        // Monday
+        <item>bodyweight_workout_week_two_workout~Round For Time Body Weight Workout~
+            Round For Time Body Weight Workout:\n
+            Intermediate: 3 rounds\n
+            Advanced: 4-5 rounds\n\n
+
+            Squat with a Side Crunch (I: 10 reps, A: 15 reps)\n
+            Plank with Side Toe Taps and Push -Up (I: 10 reps, A: 15 reps)\n
+            Plate Pull Ins and Push Outs (I: 10 reps, A: 15 reps)\n
+            Double Ab Crunch (I: 30 reps, A: 45 reps)\n
+            Mt. Climbers (I: 30 reps, A: 45 reps)\n
+            Pogo Hops (I: 30 reps, A: 45 reps)\n\n
+
+            Post Workout: Core and Stretch
+        </item>
+
+        // Tuesday
+        <item>NA~Welcome To Your First Turn It Up Tuesday: Aerobic Day or Active Rest Day~Using smart training practices means
+            respecting one’s rest periods.  That means, for one’s “Fast Twitch” muscle fibers
+            (the target with our main workouts), joints and nervous system to recover optimally,
+            a rest day or two is needed. However, rest days don’t have to be lazy days.  In fact,
+            active rest targeting “Slow Twitch” muscle fibers (which aerobic activity does) is a
+            great change-up for burning calories and promoting recovery.  This on top of mobility
+            and flexibility practices makes an ideal, in-between workout day.\n\n
+
+            Choose from the following:\n
+            Running, biking, hiking, stairs, swimming, basketball, soccer, frisbee, another sport,
+            rock climbing, jumping jacks, burpees, high knees, skiing, cross-country skiing, snow
+            shoeing, hopscotch, bear crawls, playing with the kids or whatever keeps you moving for…\n
+            Intermediate: 15 minutes / Advanced: 18 Minutes\n\n
+
+            Post Workout: Core and Stretch:\n
+            Pick at least 6 stretches and hold for 20-30 seconds each.  It’s okay to go through the
+            stretch series a couple of times.  For an amazing post-workout stretch bonus, try foam
+            rolling.  This is the perfect recovery enhancer and can be done anywhere (even if you do
+            not own a foam roller (check out foam rolling on Dr. Oz earlier this year!)\n\n
+
+            If you typically get sore after workouts, stretching immediately after a workout will
+            help alleviate some of this.  As well, stretching POST-workout will help prevent injury,
+            speed up muscle recovery and enhance overall fitness level. Go to the stretching section
+            to get started on this recovery practice.\n\n
+
+            Feel free to ask questions below, or in the community area.  We would love to hear your
+            feedback, as well as see group interaction.</item>
+
+        // Wednesday
+        <item>NA~Glute Workout~
+            *No equipment needed\n\n
+
+            Intermediate: 3 Rounds\n
+            Advanced: 4-5 Rounds\n\n
+
+            Hip Bridge or Single Leg Hip Bridge (15x)\n
+            Glute Kickback (15x/side)\n
+            Supermans (15x)\n
+            Step Ups with Kickback (15x/side)\n
+            Jump Squats or Squats (15x)\n\n
+
+            Core workout from the tab\n
+            Fitness Challenge:\n
+            Complete Exercises For Time:\n\n
+
+            1. 10 Jump Squats (Click to see how to do a jump squat)
+            2. 20 Burpees  (Click to see how to do a burpee)
+            3. 30 Squats
+            4. 40 Bicycle Crunches
+
+            Stretch and Cool Down Post Workout:\n
+            * Pick at least 6 stretches from the Stretch Tab and hold for 20-30 seconds each.  It’s okay to go
+            through the stretch series a couple times.  For an amazing post-workout stretch bonus, try foam rolling.
+            This is the perfect recovery enhancer and can be done anywhere (even if you do not own a foam roller
+            (check out foam rolling on Dr. Oz earlier this year!)\n\n
+        </item>
+
+        // Thursday
+        <item>NA~Aerobic Day~Choose from the following:
+            Running, biking, hiking, stairs, swimming, basketball, soccer, frisbee, another sport,
+            rock climbing, jumping jacks, burpees, high knees, skiing, cross-country skiing, snow
+            shoeing, hopscotch, bear crawls, playing with the kids or whatever keeps you moving for…\n
+            Intermediate: 15 minutes / Advanced: 18 Minutes\n\n
+            Post Workout: Core and Stretch:\n
+            Pick at least 6 stretches and hold for 20-30 seconds each.\n\n
+        </item>
+
+        // Friday
+        <item>bodyweight_workout_week_two_workout~Flashback Friday!~
+            Your Challenge Is To Beat Monday’s Score!\n\n
+            Round For Time Body Weight Workout:\n
+            Intermediate: 3 rounds\n
+            Advanced: 4-5 rounds\n\n
+
+            Squat with a Side Crunch (I: 10 reps, A: 15 reps)\n
+            Plank with Side Toe Taps and Push -Up (I: 10 reps, A: 15 reps)\n
+            Plate Pull Ins and Push Outs (I: 10 reps, A: 15 reps)\n
+            Double Ab Crunch (I: 30 reps, A: 45 reps)\n
+            Mt. Climbers (I: 30 reps, A: 45 reps)\n
+            Pogo Hops (I: 30 reps, A: 45 reps)\n\n
+
+            Post Workout: Core and Stretch
+        </item>
+
+        // Saturday
+        <item>NA~Active Rest Day~
+            Today is the perfect day to go for a walk, hike or family activity.  You can also do the Dynamic
+            Warm-Up, Foam Roll and stretch to loosen up your muscles.  Keep it light today and let your muscles
+            begin to repair.  You will hit it hard on Monday.\n\n
+
+            Post Workout: Stretch and Cool Down
+        </item>
+    </string-array>
+
+    // Week 3
+    <string-array name="bw_int_week_3">
+        // Monday
+        <item>bodyweight_workout_week_three_workout~Body Weight Total Body Meltdown~
+            Intermediate: 15 Minute AMRAP / Advanced: 20 Minute AMRAP\n\n
+
+            Alternating Lunges or Squats (I: 15x, A: 20x)\n
+            Side to Side Push-Ups (I: 15x, A: 20x) \n
+            Hip Pulse (I: 15x, A: 20x)\n
+            Burpees (I: 15x, A: 20x)\n
+            Boxer Shuffle (I: 15x, A: 20x)\n\n
+
+            Post Workout: Core and Stretch
+        </item>
+
+        // Tuesday
+        <item>NA~Welcome To Your First Turn It Up Tuesday: Aerobic Day or Active Rest Day~Using smart training practices means
+            respecting one’s rest periods.  That means, for one’s “Fast Twitch” muscle fibers
+            (the target with our main workouts), joints and nervous system to recover optimally,
+            a rest day or two is needed. However, rest days don’t have to be lazy days.  In fact,
+            active rest targeting “Slow Twitch” muscle fibers (which aerobic activity does) is a
+            great change-up for burning calories and promoting recovery.  This on top of mobility
+            and flexibility practices makes an ideal, in-between workout day.\n\n
+
+            Choose from the following:\n
+            Running, biking, hiking, stairs, swimming, basketball, soccer, frisbee, another sport,
+            rock climbing, jumping jacks, burpees, high knees, skiing, cross-country skiing, snow
+            shoeing, hopscotch, bear crawls, playing with the kids or whatever keeps you moving for…\n
+            Intermediate: 18 minutes / Advanced: 21 Minutes\n\n
+
+            Post Workout: Core and Stretch:\n
+            Pick at least 6 stretches and hold for 20-30 seconds each.  It’s okay to go through the
+            stretch series a couple of times.  For an amazing post-workout stretch bonus, try foam
+            rolling.  This is the perfect recovery enhancer and can be done anywhere (even if you do
+            not own a foam roller (check out foam rolling on Dr. Oz earlier this year!)\n\n
+
+            If you typically get sore after workouts, stretching immediately after a workout will
+            help alleviate some of this.  As well, stretching POST-workout will help prevent injury,
+            speed up muscle recovery and enhance overall fitness level. Go to the stretching section
+            to get started on this recovery practice.\n\n
+
+            Feel free to ask questions below, or in the community area.  We would love to hear your
+            feedback, as well as see group interaction.</item>
+
+        // Wednesday
+        <item>NA~Animal AMRAP~
+            Intermediate = 12 Minutes\n
+            Advanced = 16 Minutes\n\n
+
+            1) Bear Crawls Forward and Backward\n
+            2) Frog Hops\n
+            3) Crab Walk\n
+            4) Butterfly Sit-Ups\n
+            5) Inchworm Push-Ups\n
+            6) Bird Feeder, beginners can hold on to something stationary and sturdy\n\n
+
+            Core workout from the tab\n
+            Fitness Challenge:\n
+            Complete Exercises For Time:\n\n
+
+            1. 30 squats\n
+            2. 30 jumping jacks\n
+            3. 30 sit ups\n
+            4. 30 push-ups\n\n
+
+            Stretch and Cool Down Post Workout:\n
+            * Pick at least 6 stretches from the Stretch Tab and hold for 20-30 seconds each.  It’s okay to go
+            through the stretch series a couple times.  For an amazing post-workout stretch bonus, try foam rolling.
+            This is the perfect recovery enhancer and can be done anywhere (even if you do not own a foam roller
+            (check out foam rolling on Dr. Oz earlier this year!)\n\n
+        </item>
+
+        // Thursday
+        <item>NA~Aerobic Day~Choose from the following:
+            Running, biking, hiking, stairs, swimming, basketball, soccer, frisbee, another sport,
+            rock climbing, jumping jacks, burpees, high knees, skiing, cross-country skiing, snow
+            shoeing, hopscotch, bear crawls, playing with the kids or whatever keeps you moving for…\n
+            Intermediate: 18 minutes / Advanced: 21 Minutes\n\n
+            Post Workout: Core and Stretch:\n
+            Pick at least 6 stretches and hold for 20-30 seconds each.\n\n
+        </item>
+
+        // Friday
+        <item>bodyweight_workout_week_three_workout~Flashback Friday!~
+            Your job is to beat Monday’s score.\n\n
+            Intermediate: 15 Minute AMRAP / Advanced: 20 Minute AMRAP\n\n
+
+            Alternating Lunges or Squats (I: 15x, A: 20x)\n
+            Side to Side Push-Ups (I: 15x, A: 20x) \n
+            Hip Pulse (I: 15x, A: 20x)\n
+            Burpees (I: 15x, A: 20x)\n
+            Boxer Shuffle (I: 15x, A: 20x)\n\n
+
+            Post Workout: Core and Stretch
+        </item>
+
+        // Saturday
+        <item>NA~Active Rest Day~
+            Today is the perfect day to go for a walk, hike or family activity.  You can also do the Dynamic
+            Warm-Up, Foam Roll and stretch to loosen up your muscles.  Keep it light today and let your muscles
+            begin to repair.  You will hit it hard on Monday.\n\n
+
+            Post Workout: Stretch and Cool Down
+        </item>
+    </string-array>
+
+
+    // Week 4
+    <string-array name="bw_int_week_4">
+        // Monday
+        <item>bodyweight_workout_week_four_workout~The Fat Burning Body Weight Workout~
+            Re-test Baseline Workout:\n
+            Baseline Test:\n\n
+
+            1. Push-Ups or Knee Push-Ups (How many can you get in 1 minute?)\n
+            2. Squat or Chair Squats (How many can you get in 1 minute?)\n
+            3. Plank or Knee Plank (How long can you hold the plank?)\n\n\n
+
+            Monday’s Workout: The Fat Burning Body Weight Workout\n
+            Intermediate: 4-5 Rounds / Advanced: 6-7 Rounds\n\n
+
+            1. Inch Worm Push-Ups (12x)\n
+            2. Gate Swings (12x)\n
+            3. Plank with Side Toe Taps (12x)\n
+            4. Plate Pull Ins/Push-Outs (12x)\n
+            5. Boxer Shuffle (50x)\n\n
+
+            Post Workout: Core and Stretch
+        </item>
+
+        // Tuesday
+        <item>NA~Welcome To Your First Turn It Up Tuesday: Aerobic Day or Active Rest Day~Using smart training practices means
+            respecting one’s rest periods.  That means, for one’s “Fast Twitch” muscle fibers
+            (the target with our main workouts), joints and nervous system to recover optimally,
+            a rest day or two is needed. However, rest days don’t have to be lazy days.  In fact,
+            active rest targeting “Slow Twitch” muscle fibers (which aerobic activity does) is a
+            great change-up for burning calories and promoting recovery.  This on top of mobility
+            and flexibility practices makes an ideal, in-between workout day.\n\n
+
+            Choose from the following:\n
+            Running, biking, hiking, stairs, swimming, basketball, soccer, frisbee, another sport,
+            rock climbing, jumping jacks, burpees, high knees, skiing, cross-country skiing, snow
+            shoeing, hopscotch, bear crawls, playing with the kids or whatever keeps you moving for…\n
+            Intermediate: 21 minutes / Advanced: 24 Minutes\n\n
+
+            Post Workout: Core and Stretch:\n
+            Pick at least 6 stretches and hold for 20-30 seconds each.  It’s okay to go through the
+            stretch series a couple of times.  For an amazing post-workout stretch bonus, try foam
+            rolling.  This is the perfect recovery enhancer and can be done anywhere (even if you do
+            not own a foam roller (check out foam rolling on Dr. Oz earlier this year!)\n\n
+
+            If you typically get sore after workouts, stretching immediately after a workout will
+            help alleviate some of this.  As well, stretching POST-workout will help prevent injury,
+            speed up muscle recovery and enhance overall fitness level. Go to the stretching section
+            to get started on this recovery practice.\n\n
+
+            Feel free to ask questions below, or in the community area.  We would love to hear your
+            feedback, as well as see group interaction.</item>
+
+        // Wednesday
+        <item>NA~8 Minute Meltdown~
+            The 8 Minute Meltdown:\n
+            Do as many rounds as possible within 8 minutes.\n
+            Every circuit increases by 3 repetitions (start with 3, 6, 9, 12, 15, etc.)\n\n
+
+            1) Burpees\n
+            2) Squats\n
+            3) Double Crunch\n
+            4) Inchworm Push-Ups\n\n
+
+            Core workout from the tab\n
+            Fitness Challenge:\n
+            Complete Exercises For Time:\n\n
+
+            1. 30 squats\n
+            2. 30 jumping jacks\n
+            3. 30 sit ups\n
+            4. 30 push-ups\n\n
+
+            Stretch and Cool Down Post Workout:\n
+            * Pick at least 6 stretches from the Stretch Tab and hold for 20-30 seconds each.  It’s okay to go
+            through the stretch series a couple times.  For an amazing post-workout stretch bonus, try foam rolling.
+            This is the perfect recovery enhancer and can be done anywhere (even if you do not own a foam roller
+            (check out foam rolling on Dr. Oz earlier this year!)\n\n
+        </item>
+
+        // Thursday
+        <item>NA~Aerobic Day~Choose from the following:
+            Running, biking, hiking, stairs, swimming, basketball, soccer, frisbee, another sport,
+            rock climbing, jumping jacks, burpees, high knees, skiing, cross-country skiing, snow
+            shoeing, hopscotch, bear crawls, playing with the kids or whatever keeps you moving for…\n
+            Intermediate: 21 minutes / Advanced: 24 Minutes\n\n
+            Post Workout: Core and Stretch:\n
+            Pick at least 6 stretches and hold for 20-30 seconds each.\n\n
+        </item>
+
+        // Friday
+        <item>bodyweight_workout_week_four_workout~Flashback Friday!~
+            Your goal is to beat Monday’s score.\n\n
+            Monday’s Workout: The Fat Burning Body Weight Workout\n
+            Intermediate: 4-5 Rounds / Advanced: 6-7 Rounds\n\n
+
+            1. Inch Worm Push-Ups (12x)\n
+            2. Gate Swings (12x)\n
+            3. Plank with Side Toe Taps (12x)\n
+            4. Plate Pull Ins/Push-Outs (12x)\n
+            5. Boxer Shuffle (50x)\n\n
+
+            Post Workout: Core and Stretch
+        </item>
+
+        // Saturday
+        <item>NA~Active Rest Day~
+            Today is the perfect day to go for a walk, hike or family activity.  You can also do the Dynamic
+            Warm-Up, Foam Roll and stretch to loosen up your muscles.  Keep it light today and let your muscles
+            begin to repair.  You will hit it hard on Monday.\n\n
+
+            Post Workout: Stretch and Cool Down
+        </item>
+    </string-array>
+
+
+    // Week 5
+    <string-array name="bw_int_week_5">
+        // Monday
+        <item>bodyweight_workout_week_five_workout~The Total Body Toning AMRAP~
+            The Total Body Toning AMRAP:\n
+            I: 15  Minutes and 20 Reps\n
+            A: 20 Minutes and 20 Reps\n\n
+
+            1. Push-Ups w/ Yoga Twist\n
+            2. Plate Pull-Ins and Push-Outs\n
+            3. Jump Squats\n
+            4. Crab Dips w/ Leg Kick\n
+            5. Plank (rock forward and back)\n
+            6. Butt Kickers\n\n
+
+            Post Workout: Core and Stretch
+        </item>
+
+        // Tuesday
+        <item>NA~Welcome To Your First Turn It Up Tuesday: Aerobic Day or Active Rest Day~Using smart training practices means
+            respecting one’s rest periods.  That means, for one’s “Fast Twitch” muscle fibers
+            (the target with our main workouts), joints and nervous system to recover optimally,
+            a rest day or two is needed. However, rest days don’t have to be lazy days.  In fact,
+            active rest targeting “Slow Twitch” muscle fibers (which aerobic activity does) is a
+            great change-up for burning calories and promoting recovery.  This on top of mobility
+            and flexibility practices makes an ideal, in-between workout day.\n\n
+
+            Choose from the following:\n
+            Running, biking, hiking, stairs, swimming, basketball, soccer, frisbee, another sport,
+            rock climbing, jumping jacks, burpees, high knees, skiing, cross-country skiing, snow
+            shoeing, hopscotch, bear crawls, playing with the kids or whatever keeps you moving for…\n
+            Intermediate: 24 minutes / Advanced: 27 Minutes\n\n
+
+            Post Workout: Core and Stretch:\n
+            Pick at least 6 stretches and hold for 20-30 seconds each.  It’s okay to go through the
+            stretch series a couple of times.  For an amazing post-workout stretch bonus, try foam
+            rolling.  This is the perfect recovery enhancer and can be done anywhere (even if you do
+            not own a foam roller (check out foam rolling on Dr. Oz earlier this year!)\n\n
+
+            If you typically get sore after workouts, stretching immediately after a workout will
+            help alleviate some of this.  As well, stretching POST-workout will help prevent injury,
+            speed up muscle recovery and enhance overall fitness level. Go to the stretching section
+            to get started on this recovery practice.\n\n
+
+            Feel free to ask questions below, or in the community area.  We would love to hear your
+            feedback, as well as see group interaction.</item>
+
+        // Wednesday
+        <item>NA~3 Rounds For Time Fat Blast~
+            Three Rounds For Time Fat Blast:\n
+            *No equipment needed\n\n
+
+            Intermediate: 15 Reps and 3 Rounds\n
+            Advanced: 20 Reps and 3 Rounds\n\n
+
+            1. Squat with Alternating Front Kicks\n
+            2. Plank Jacks\n
+            3. Run 200 meters Or Boxer Shuffle (100x)\n
+            4. Jumping Jacks\n
+            5. Football Squat with Alternating Toe Touch Back\n
+            6. Supermans\n
+            7. Alternating Toe Touch Ab Crunch\n\n\n
+
+            Core workout from the tab\n
+            Fitness Challenge:\n
+            Complete Exercises For Time:\n\n
+
+            1. 10 Burpees\n
+            2. 20 Push-Ups\n
+            3. 30 Gate Swings\n
+            4. 40 Toe Touch Crunches\n\n
+
+            Stretch and Cool Down Post Workout:\n
+            * Pick at least 6 stretches from the Stretch Tab and hold for 20-30 seconds each.  It’s okay to go
+            through the stretch series a couple times.  For an amazing post-workout stretch bonus, try foam rolling.
+            This is the perfect recovery enhancer and can be done anywhere (even if you do not own a foam roller
+            (check out foam rolling on Dr. Oz earlier this year!)\n\n
+        </item>
+
+        // Thursday
+        <item>NA~Aerobic Day~Choose from the following:
+            Running, biking, hiking, stairs, swimming, basketball, soccer, frisbee, another sport,
+            rock climbing, jumping jacks, burpees, high knees, skiing, cross-country skiing, snow
+            shoeing, hopscotch, bear crawls, playing with the kids or whatever keeps you moving for…\n
+            Intermediate: 24 minutes / Advanced: 27 Minutes\n\n
+            Post Workout: Core and Stretch:\n
+            Pick at least 6 stretches and hold for 20-30 seconds each.\n\n
+        </item>
+
+        // Friday
+        <item>bodyweight_workout_week_five_workout~Flashback Friday!~
+            Your challenge  is to beat Monday’s score.\n\n
+            The Total Body Toning AMRAP:\n
+            I: 15  Minutes and 20 Reps\n
+            A: 20 Minutes and 20 Reps\n\n
+
+            1. Push-Ups w/ Yoga Twist\n
+            2. Plate Pull-Ins and Push-Outs\n
+            3. Jump Squats\n
+            4. Crab Dips w/ Leg Kick\n
+            5. Plank (rock forward and back)\n
+            6. Butt Kickers\n\n
+
+            Post Workout: Core and Stretch
+        </item>
+
+        // Saturday
+        <item>NA~Active Rest Day~
+            Today is the perfect day to go for a walk, hike or family activity.  You can also do the Dynamic
+            Warm-Up, Foam Roll and stretch to loosen up your muscles.  Keep it light today and let your muscles
+            begin to repair.  You will hit it hard on Monday.\n\n
+
+            Post Workout: Stretch and Cool Down
+        </item>
+    </string-array>
+
+
+    // Week 6
+    <string-array name="bw_int_week_6">
+        // Monday
+        <item>bodyweight_workout_week_six_workout~The Filthy 40/60 Chipper Workout~
+            The Filthy 40/60 Chipper Workout:\n
+            Chipper Workout: One Round\n
+            Intermediate: 40 Reps/ Advanced: 60 Reps\n\n
+
+            1. Star Jacks\n
+            2. Lunge-Lunge-Hop\n
+            3. Tricep Push-Up\n
+            4. Towel Back Row\n
+            5. Running High Knees\n\n
+
+            Post Workout: Core and Stretch
+        </item>
+
+        // Tuesday
+        <item>NA~Welcome To Your First Turn It Up Tuesday: Aerobic Day or Active Rest Day~Using smart training practices means
+            respecting one’s rest periods.  That means, for one’s “Fast Twitch” muscle fibers
+            (the target with our main workouts), joints and nervous system to recover optimally,
+            a rest day or two is needed. However, rest days don’t have to be lazy days.  In fact,
+            active rest targeting “Slow Twitch” muscle fibers (which aerobic activity does) is a
+            great change-up for burning calories and promoting recovery.  This on top of mobility
+            and flexibility practices makes an ideal, in-between workout day.\n\n
+
+            Choose from the following:\n
+            Running, biking, hiking, stairs, swimming, basketball, soccer, frisbee, another sport,
+            rock climbing, jumping jacks, burpees, high knees, skiing, cross-country skiing, snow
+            shoeing, hopscotch, bear crawls, playing with the kids or whatever keeps you moving for…\n
+            Intermediate: 27 minutes / Advanced: 30 Minutes\n\n
+
+            Post Workout: Core and Stretch:\n
+            Pick at least 6 stretches and hold for 20-30 seconds each.  It’s okay to go through the
+            stretch series a couple of times.  For an amazing post-workout stretch bonus, try foam
+            rolling.  This is the perfect recovery enhancer and can be done anywhere (even if you do
+            not own a foam roller (check out foam rolling on Dr. Oz earlier this year!)\n\n
+
+            If you typically get sore after workouts, stretching immediately after a workout will
+            help alleviate some of this.  As well, stretching POST-workout will help prevent injury,
+            speed up muscle recovery and enhance overall fitness level. Go to the stretching section
+            to get started on this recovery practice.\n\n
+
+            Feel free to ask questions below, or in the community area.  We would love to hear your
+            feedback, as well as see group interaction.</item>
+
+        // Wednesday
+        <item>NA~Workout: 7/10 Minute Fat Burner~
+            The 7/10 Minute Fat Burning Workout:\n
+            *No equipment needed\n
+
+            Intermediate: 7 Minutes (As Many Rounds As Possible)\n
+            Advanced: 10 Minutes (As Many Rounds As Possible)\n\n
+
+            1. Bear Crawl 5-10 feet forward\n
+            2. 5 Burpees\n
+            3. Bear Crawl 5-10 feet backward\n
+            4. 5 Burpees\n\n
+
+            Core workout from the tab\n
+            Fitness Challenge:\n
+            Complete Exercises For Time:\n\n
+
+            1. How long can you hold a plank?
+
+            Stretch and Cool Down Post Workout:\n
+            * Pick at least 6 stretches from the Stretch Tab and hold for 20-30 seconds each.  It’s okay to go
+            through the stretch series a couple times.  For an amazing post-workout stretch bonus, try foam rolling.
+            This is the perfect recovery enhancer and can be done anywhere (even if you do not own a foam roller
+            (check out foam rolling on Dr. Oz earlier this year!)\n\n
+        </item>
+
+        // Thursday
+        <item>NA~Aerobic Day~Choose from the following:
+            Running, biking, hiking, stairs, swimming, basketball, soccer, frisbee, another sport,
+            rock climbing, jumping jacks, burpees, high knees, skiing, cross-country skiing, snow
+            shoeing, hopscotch, bear crawls, playing with the kids or whatever keeps you moving for…\n
+            Intermediate: 27 minutes / Advanced: 30 Minutes\n\n
+            Post Workout: Core and Stretch:\n
+            Pick at least 6 stretches and hold for 20-30 seconds each.\n\n
+        </item>
+
+        // Friday
+        <item>bodyweight_workout_week_six_workout~Flashback Friday!~
+            Your challenge  is to beat Monday’s score.\n\n
+            The Filthy 40/60 Chipper Workout:\n
+            Chipper Workout: One Round\n
+            Intermediate: 40 Reps/ Advanced: 60 Reps\n\n
+
+            1. Star Jacks\n
+            2. Lunge-Lunge-Hop\n
+            3. Tricep Push-Up\n
+            4. Towel Back Row\n
+            5. Running High Knees\n\n
+
+            Post Workout: Core and Stretch
+        </item>
+
+        // Saturday
+        <item>NA~Active Rest Day~
+            Today is the perfect day to go for a walk, hike or family activity.  You can also do the Dynamic
+            Warm-Up, Foam Roll and stretch to loosen up your muscles.  Keep it light today and let your muscles
+            begin to repair.  You will hit it hard on Monday.\n\n
+
+            Post Workout: Stretch and Cool Down
+        </item>
+    </string-array>
+
+
+    // Week 7
+    <string-array name="bw_int_week_7">
+        // Monday
+        <item>bodyweight_workout_week_seven_workout~The Superset Circuit~
+            The Superset Circuit Workout (Rounds For Time):\n
+            Intermediate: 2-3 Rounds\n
+            Advanced: 3-4 Rounds\n\n
+
+            Complete 12 reps of each exercise.  Complete all sets of the couplet A and B before moving on.
+            Rest 30-60 seconds in between each couplet.\n\n
+
+            1. Couplet:  Squats 12x and Push-ups 12x (Complete all rounds before moving onto couplet #2)\n
+            2. Couplet: Tuck Jumps 12x and Door Frame Back Rows 12x\n
+            3. Couplet:  Mt. Climbers 12x and Tricep Dips 12x\n
+            4. Couplet:  Hip Bridges 12x and Supermans 12x\n\n
+
+            Post Workout: Core and Stretch
+        </item>
+
+        // Tuesday
+        <item>NA~Welcome To Your First Turn It Up Tuesday: Aerobic Day or Active Rest Day~Using smart training practices means
+            respecting one’s rest periods.  That means, for one’s “Fast Twitch” muscle fibers
+            (the target with our main workouts), joints and nervous system to recover optimally,
+            a rest day or two is needed. However, rest days don’t have to be lazy days.  In fact,
+            active rest targeting “Slow Twitch” muscle fibers (which aerobic activity does) is a
+            great change-up for burning calories and promoting recovery.  This on top of mobility
+            and flexibility practices makes an ideal, in-between workout day.\n\n
+
+            Choose from the following:\n
+            Running, biking, hiking, stairs, swimming, basketball, soccer, frisbee, another sport,
+            rock climbing, jumping jacks, burpees, high knees, skiing, cross-country skiing, snow
+            shoeing, hopscotch, bear crawls, playing with the kids or whatever keeps you moving for…\n
+            Intermediate: 30 minutes / Advanced: 33 Minutes\n\n
+
+            Post Workout: Core and Stretch:\n
+            Pick at least 6 stretches and hold for 20-30 seconds each.  It’s okay to go through the
+            stretch series a couple of times.  For an amazing post-workout stretch bonus, try foam
+            rolling.  This is the perfect recovery enhancer and can be done anywhere (even if you do
+            not own a foam roller (check out foam rolling on Dr. Oz earlier this year!)\n\n
+
+            If you typically get sore after workouts, stretching immediately after a workout will
+            help alleviate some of this.  As well, stretching POST-workout will help prevent injury,
+            speed up muscle recovery and enhance overall fitness level. Go to the stretching section
+            to get started on this recovery practice.\n\n
+
+            Feel free to ask questions below, or in the community area.  We would love to hear your
+            feedback, as well as see group interaction.</item>
+
+        // Wednesday
+        <item>NA~The Anywhere Rounds For Time Workout~
+            The Anywhere Rounds For Time Workout:\n
+            This quick outdoor workout can be done indoors too.\n
+            No Equipment Needed: However, find a set of stairs.\n\n
+
+            4 Rounds for time of:\n
+            1) Walk (B), Run (I) or Hop (A) Stairs (x10)\n
+            2) Knee Push-Ups or Push Ups (I to A) (x10)\n
+            3) Mt. Climbers (x10)\n
+            4) Crunches (B) or Sit-Ups (I to A) (x10)\n\n\n
+
+
+
+            Core workout from the tab\n
+            Fitness Challenge:\n
+            Complete 1 Minute of each movement and record number of reps:\n\n
+
+            1. Alternating Lunges\n
+            2. Bicycle Ab Crunch\n
+            3. Plank Jacks\n
+            4. Burpees\n\n
+
+            Stretch and Cool Down Post Workout:\n
+            * Pick at least 6 stretches from the Stretch Tab and hold for 20-30 seconds each.  It’s okay to go
+            through the stretch series a couple times.  For an amazing post-workout stretch bonus, try foam rolling.
+            This is the perfect recovery enhancer and can be done anywhere (even if you do not own a foam roller
+            (check out foam rolling on Dr. Oz earlier this year!)\n\n
+        </item>
+
+        // Thursday
+        <item>NA~Aerobic Day~Choose from the following:
+            Running, biking, hiking, stairs, swimming, basketball, soccer, frisbee, another sport,
+            rock climbing, jumping jacks, burpees, high knees, skiing, cross-country skiing, snow
+            shoeing, hopscotch, bear crawls, playing with the kids or whatever keeps you moving for…\n
+            Intermediate: 30 minutes / Advanced: 33 Minutes\n\n
+            Post Workout: Core and Stretch:\n
+            Pick at least 6 stretches and hold for 20-30 seconds each.\n\n
+        </item>
+
+        // Friday
+        <item>bodyweight_workout_week_six_workout~Flashback Friday!~
+            Your challenge  is to beat Monday’s score.\n\n
+            The Superset Circuit Workout (Rounds For Time):\n
+            Intermediate: 2-3 Rounds\n
+            Advanced: 3-4 Rounds\n\n
+
+            Complete 12 reps of each exercise.  Complete all sets of the couplet A and B before moving on.
+            Rest 30-60 seconds in between each couplet.\n\n
+
+            1. Couplet:  Squats 12x and Push-ups 12x (Complete all rounds before moving onto couplet #2)\n
+            2. Couplet: Tuck Jumps 12x and Door Frame Back Rows 12x\n
+            3. Couplet:  Mt. Climbers 12x and Tricep Dips 12x\n
+            4. Couplet:  Hip Bridges 12x and Supermans 12x\n\n
+
+            Post Workout: Core and Stretch
+        </item>
+
+        // Saturday
+        <item>NA~Active Rest Day~
+            Today is the perfect day to go for a walk, hike or family activity.  You can also do the Dynamic
+            Warm-Up, Foam Roll and stretch to loosen up your muscles.  Keep it light today and let your muscles
+            begin to repair.  You will hit it hard on Monday.\n\n
+
+            Post Workout: Stretch and Cool Down
+        </item>
+    </string-array>
+
+
+    // Week 8
+    <string-array name="bw_int_week_8">
+        // Monday
+        <item>bodyweight_workout_week_three_workout~Re-test Baseline Workout~
+            Re-test Baseline Workout:\n
+            Baseline Test:\n
+            1. Push-Ups or Knee Push-Ups (How many can you get in 1 minute?)\n
+            2. Squat or Chair Squats (How many can you get in 1 minute?)\n
+            3. Plank or Knee Plank (How long can you hold the plank?)\n\n\n
+
+            Retest Week #3 Workout: Body Weight Total Body Meltdown:\n
+            Intermediate: 15 Minute AMRAP and 15 reps each exercise\n
+            Advanced: 20 Minute AMRAP and 20 reps each exercise\n\n
+
+            1. Alternating Lunges or Squats\n
+            2. Side to Side Push-Ups\n
+            3. Hip Pulse\n
+            4. Burpees\n
+            5. Boxer Shuffle\n\n
+
+            Post Workout: Core and Stretch
+        </item>
+
+        // Tuesday
+        <item>NA~Welcome To Your First Turn It Up Tuesday: Aerobic Day or Active Rest Day~Using smart training practices means
+            respecting one’s rest periods.  That means, for one’s “Fast Twitch” muscle fibers
+            (the target with our main workouts), joints and nervous system to recover optimally,
+            a rest day or two is needed. However, rest days don’t have to be lazy days.  In fact,
+            active rest targeting “Slow Twitch” muscle fibers (which aerobic activity does) is a
+            great change-up for burning calories and promoting recovery.  This on top of mobility
+            and flexibility practices makes an ideal, in-between workout day.\n\n
+
+            Choose from the following:\n
+            Running, biking, hiking, stairs, swimming, basketball, soccer, frisbee, another sport,
+            rock climbing, jumping jacks, burpees, high knees, skiing, cross-country skiing, snow
+            shoeing, hopscotch, bear crawls, playing with the kids or whatever keeps you moving for…\n
+            Intermediate: 33 minutes / Advanced: 36 Minutes\n\n
+
+            Post Workout: Core and Stretch:\n
+            Pick at least 6 stretches and hold for 20-30 seconds each.  It’s okay to go through the
+            stretch series a couple of times.  For an amazing post-workout stretch bonus, try foam
+            rolling.  This is the perfect recovery enhancer and can be done anywhere (even if you do
+            not own a foam roller (check out foam rolling on Dr. Oz earlier this year!)\n\n
+
+            If you typically get sore after workouts, stretching immediately after a workout will
+            help alleviate some of this.  As well, stretching POST-workout will help prevent injury,
+            speed up muscle recovery and enhance overall fitness level. Go to the stretching section
+            to get started on this recovery practice.\n\n
+
+            Feel free to ask questions below, or in the community area.  We would love to hear your
+            feedback, as well as see group interaction.</item>
+
+        // Wednesday
+        <item>NA~The Anywhere Beach 8 Minute Meltdown~
+            The Anywhere Beach 8 Minute Meltdown\n
+            *No equipment needed\n
+            As many rounds and reps as possible in 8 minutes.\n\n
+
+            1. Crab walk forward (10x) and backward (10x)\n
+            2. Side Rocking Plank (10x)\n
+            3. Side Walks (10x each way)\n
+            4. Push-Ups (10x)\n
+            5. Squats (10x)\n\n\n
+
+            Core workout from the tab\n
+            Fitness Challenge:\n
+            Hold a wall squat for as long as possible with good form.  Your score is your time.\n\n
+
+            Stretch and Cool Down Post Workout:\n
+            * Pick at least 6 stretches from the Stretch Tab and hold for 20-30 seconds each.  It’s okay to go
+            through the stretch series a couple times.  For an amazing post-workout stretch bonus, try foam rolling.
+            This is the perfect recovery enhancer and can be done anywhere (even if you do not own a foam roller
+            (check out foam rolling on Dr. Oz earlier this year!)\n\n
+        </item>
+
+        // Thursday
+        <item>NA~Aerobic Day~Choose from the following:
+            Running, biking, hiking, stairs, swimming, basketball, soccer, frisbee, another sport,
+            rock climbing, jumping jacks, burpees, high knees, skiing, cross-country skiing, snow
+            shoeing, hopscotch, bear crawls, playing with the kids or whatever keeps you moving for…\n
+            Intermediate: 33 minutes / Advanced: 36 Minutes\n\n
+            Post Workout: Core and Stretch:\n
+            Pick at least 6 stretches and hold for 20-30 seconds each.\n\n
+        </item>
+
+        // Friday
+        <item>bodyweight_workout_week_four_workout~Flashback Friday Retest #4 Workout!~
+            The Fat Burning Workout (Rounds For Time):\n
+            Intermediate: 4-5 Rounds\n
+            Advanced: 6-7 Rounds\n\n
+
+            1. Inch Worm Push-Ups (12x)\n
+            2. Gate Swings (12x)\n
+            3. Plank with Side Toe Taps (12x)\n
+            4. Plate Pull Ins/Push-Outs (12x)\n
+            5. Boxer Shuffle (50x)\n\n
+
+            Post Workout: Core and Stretch
+        </item>
+
+        // Saturday
+        <item>NA~Active Rest Day~
+            Today is the perfect day to go for a walk, hike or family activity.  You can also do the Dynamic
+            Warm-Up, Foam Roll and stretch to loosen up your muscles.  Keep it light today and let your muscles
+            begin to repair.  You will hit it hard on Monday.\n\n
+
+            Post Workout: Stretch and Cool Down
+        </item>
+    </string-array>
+
+
+    // Week 9
+    <string-array name="bw_int_week_9">
+        // Monday
+        <item>bodyweight_workout_week_nine_workout~The Super Shred Rounds For Time Workout~
+            The Super Shred Workout (Rounds For Time):\n
+            Beginners: 3-4 Rounds / Advanced 4-5 Rounds\n\n
+
+            1) Door Frame Rows (12x)\n
+            2) Starburst Burpee (12x)\n
+            3) Alternating Lunges (24x)\n
+            4) Double Crunch (x12)\n
+            5) Push Ups w/ Alternating Kick Backs (12x)\n
+            6) Burpees (12x)\n
+            7) Running High Knees (24x) or Marching for beginners\n\n
+
+            Post Workout: Core and Stretch
+        </item>
+
+        // Tuesday
+        <item>NA~Welcome To Your First Turn It Up Tuesday: Aerobic Day or Active Rest Day~Using smart training practices means
+            respecting one’s rest periods.  That means, for one’s “Fast Twitch” muscle fibers
+            (the target with our main workouts), joints and nervous system to recover optimally,
+            a rest day or two is needed. However, rest days don’t have to be lazy days.  In fact,
+            active rest targeting “Slow Twitch” muscle fibers (which aerobic activity does) is a
+            great change-up for burning calories and promoting recovery.  This on top of mobility
+            and flexibility practices makes an ideal, in-between workout day.\n\n
+
+            Choose from the following:\n
+            Running, biking, hiking, stairs, swimming, basketball, soccer, frisbee, another sport,
+            rock climbing, jumping jacks, burpees, high knees, skiing, cross-country skiing, snow
+            shoeing, hopscotch, bear crawls, playing with the kids or whatever keeps you moving for…\n
+            Intermediate: 36 minutes / Advanced: 39 Minutes\n\n
+
+            Post Workout: Core and Stretch:\n
+            Pick at least 6 stretches and hold for 20-30 seconds each.  It’s okay to go through the
+            stretch series a couple of times.  For an amazing post-workout stretch bonus, try foam
+            rolling.  This is the perfect recovery enhancer and can be done anywhere (even if you do
+            not own a foam roller (check out foam rolling on Dr. Oz earlier this year!)\n\n
+
+            If you typically get sore after workouts, stretching immediately after a workout will
+            help alleviate some of this.  As well, stretching POST-workout will help prevent injury,
+            speed up muscle recovery and enhance overall fitness level. Go to the stretching section
+            to get started on this recovery practice.\n\n
+
+            Feel free to ask questions below, or in the community area.  We would love to hear your
+            feedback, as well as see group interaction.</item>
+
+        // Wednesday
+        <item>NA~The Muffin Top Busting Workout~
+            The Muffin Top Busting Workout:\n
+            Intermediate: 3 Rounds\n
+            Advanced: 4 Rounds\n\n
+
+            1. Double Ab Crunch (20x)\n
+            2. Squat with an Alternating Side Ab Crunch (20x)\n
+            3. Fire Hydrants (10x/side)\n
+            4. Fire Hydrant Circles (10x/Side)\n
+            5. Fire Hydrant Circles (Other directions) (10x/side)\n
+            6. Burpees (10x)\n
+            7. Supermans (10x)\n
+            8. Russian Twists (20x)\n\n\n
+
+            Core workout from the tab\n
+            Fitness Challenge:\n
+            Complete Exercises For Time:\n\n
+
+            1. 50 Push-Ups\n
+            2. 50 Star Jacks\n\n
+
+            Stretch and Cool Down Post Workout:\n
+            * Pick at least 6 stretches from the Stretch Tab and hold for 20-30 seconds each.  It’s okay to go
+            through the stretch series a couple times.  For an amazing post-workout stretch bonus, try foam rolling.
+            This is the perfect recovery enhancer and can be done anywhere (even if you do not own a foam roller
+            (check out foam rolling on Dr. Oz earlier this year!)\n\n
+        </item>
+
+        // Thursday
+        <item>NA~Aerobic Day~Choose from the following:
+            Running, biking, hiking, stairs, swimming, basketball, soccer, frisbee, another sport,
+            rock climbing, jumping jacks, burpees, high knees, skiing, cross-country skiing, snow
+            shoeing, hopscotch, bear crawls, playing with the kids or whatever keeps you moving for…\n
+            Intermediate: 36 minutes / Advanced: 39 Minutes\n\n
+            Post Workout: Core and Stretch:\n
+            Pick at least 6 stretches and hold for 20-30 seconds each.\n\n
+        </item>
+
+        // Friday
+        <item>bodyweight_workout_week_nine_workout~Flashback Friday!~
+            Your Challenge Is To Beat Monday’s Score!
+            The Super Shred Workout (Rounds For Time):\n
+            Beginners: 3-4 Rounds / Advanced 4-5 Rounds\n\n
+
+            1) Door Frame Rows (12x)\n
+            2) Starburst Burpee (12x)\n
+            3) Alternating Lunges (24x)\n
+            4) Double Crunch (x12)\n
+            5) Push Ups w/ Alternating Kick Backs (12x)\n
+            6) Burpees (12x)\n
+            7) Running High Knees (24x) or Marching for beginners\n\n
+
+            Post Workout: Core and Stretch
+        </item>
+
+        // Saturday
+        <item>NA~Active Rest Day~
+            Today is the perfect day to go for a walk, hike or family activity.  You can also do the Dynamic
+            Warm-Up, Foam Roll and stretch to loosen up your muscles.  Keep it light today and let your muscles
+            begin to repair.  You will hit it hard on Monday.\n\n
+
+            Post Workout: Stretch and Cool Down
+        </item>
+    </string-array>
+
+
+    // Week 10
+    <string-array name="bw_int_week_10">
+        // Monday
+        <item>bodyweight_workout_week_ten_workout~The Fat Torching Chipper~
+            The Fat Torching Chipper Workout:\n
+            Intermediate: 80 Reps\n
+            Advanced: 100 Reps\n\n
+
+            1) Plank Jacks\n
+            2) Side to Side Push-Ups\n
+            3) Sit-Ups\n
+            4) Door Frame Rows (80/100x each side)\n
+            5) Gate Swings\n
+            Optional Badge Bonus: Burpees at the prescribed reps\n\n
+
+            Post Workout: Core and Stretch
+        </item>
+
+        // Tuesday
+        <item>NA~Welcome To Your First Turn It Up Tuesday: Aerobic Day or Active Rest Day~Using smart training practices means
+            respecting one’s rest periods.  That means, for one’s “Fast Twitch” muscle fibers
+            (the target with our main workouts), joints and nervous system to recover optimally,
+            a rest day or two is needed. However, rest days don’t have to be lazy days.  In fact,
+            active rest targeting “Slow Twitch” muscle fibers (which aerobic activity does) is a
+            great change-up for burning calories and promoting recovery.  This on top of mobility
+            and flexibility practices makes an ideal, in-between workout day.\n\n
+
+            Choose from the following:\n
+            Running, biking, hiking, stairs, swimming, basketball, soccer, frisbee, another sport,
+            rock climbing, jumping jacks, burpees, high knees, skiing, cross-country skiing, snow
+            shoeing, hopscotch, bear crawls, playing with the kids or whatever keeps you moving for…\n
+            Intermediate: 39 minutes / Advanced: 42 Minutes\n\n
+
+            Post Workout: Core and Stretch:\n
+            Pick at least 6 stretches and hold for 20-30 seconds each.  It’s okay to go through the
+            stretch series a couple of times.  For an amazing post-workout stretch bonus, try foam
+            rolling.  This is the perfect recovery enhancer and can be done anywhere (even if you do
+            not own a foam roller (check out foam rolling on Dr. Oz earlier this year!)\n\n
+
+            If you typically get sore after workouts, stretching immediately after a workout will
+            help alleviate some of this.  As well, stretching POST-workout will help prevent injury,
+            speed up muscle recovery and enhance overall fitness level. Go to the stretching section
+            to get started on this recovery practice.\n\n
+
+            Feel free to ask questions below, or in the community area.  We would love to hear your
+            feedback, as well as see group interaction.</item>
+
+        // Wednesday
+        <item>NA~HIIT Workout 15-20 Minute AMRAP~
+            The HIIT Workout (15-20 Minute AMRAP):\n
+            *No equipment needed\n
+            Intermediate: 15 Minutes (As Many Rounds As Possible)\n
+            Advanced: 20 Minutes (As Many Rounds As Possible)\n\n
+
+            1) Side to Side Push-Ups (beginners can use knees) (10 reps)\n
+            2) Chair Squats (B), Squats (I) or Squat Jumps (A)\n
+            3) Bicycle Crunch (20 reps)\n
+            4) Marching (B) or Running High Knees (A)\n\n\n
+
+
+            Core workout from the tab\n
+            Fitness Challenge:\n
+            Complete Exercises For Time:\n\n
+
+            1. 30 Alternating Lunges
+            2. 30 Dips from a chair or bench
+            3. 30 Hip Bridges
+            4. 30 Sit-Ups
+
+            Stretch and Cool Down Post Workout:\n
+            * Pick at least 6 stretches from the Stretch Tab and hold for 20-30 seconds each.  It’s okay to go
+            through the stretch series a couple times.  For an amazing post-workout stretch bonus, try foam rolling.
+            This is the perfect recovery enhancer and can be done anywhere (even if you do not own a foam roller
+            (check out foam rolling on Dr. Oz earlier this year!)\n\n
+        </item>
+
+        // Thursday
+        <item>NA~Aerobic Day~Choose from the following:
+            Running, biking, hiking, stairs, swimming, basketball, soccer, frisbee, another sport,
+            rock climbing, jumping jacks, burpees, high knees, skiing, cross-country skiing, snow
+            shoeing, hopscotch, bear crawls, playing with the kids or whatever keeps you moving for…\n
+            Intermediate: 39 minutes / Advanced: 42 Minutes\n\n
+            Post Workout: Core and Stretch:\n
+            Pick at least 6 stretches and hold for 20-30 seconds each.\n\n
+        </item>
+
+        // Friday
+        <item>bodyweight_workout_week_ten_workout~Flashback Friday!~
+            Your Challenge Is To Beat Monday’s Score!
+            The Fat Torching Chipper Workout:\n
+            Intermediate: 80 Reps\n
+            Advanced: 100 Reps\n\n
+
+            1) Plank Jacks\n
+            2) Side to Side Push-Ups\n
+            3) Sit-Ups\n
+            4) Door Frame Rows (80/100x each side)\n
+            5) Gate Swings\n
+            Optional Badge Bonus: Burpees at the prescribed reps\n\n
+
+            Post Workout: Core and Stretch
+        </item>
+
+        // Saturday
+        <item>NA~Active Rest Day~
+            Today is the perfect day to go for a walk, hike or family activity.  You can also do the Dynamic
+            Warm-Up, Foam Roll and stretch to loosen up your muscles.  Keep it light today and let your muscles
+            begin to repair.  You will hit it hard on Monday.\n\n
+
+            Post Workout: Stretch and Cool Down
+        </item>
+    </string-array>
+
+    // Week 11
+    <string-array name="bw_int_week_11">
+        // Monday
+        <item>bodyweight_workout_week_eleven_workout~The Fat Blasting AMRAP Workout~
+            The Fat Blasting AMRAP Workout:\n
+            Intermediate: 15 Minute AMRAP\n
+            Advanced: 20 Minute AMRAP\n\n
+
+            1) Plyo Push-Ups (Advanced), Push-Ups (Intermediate and Beginners) (12x)\n
+            2) Scissor Hops (Lunge Hops) (Advanced), Alternating Lunges (Intermediate)  (12x each leg)\n
+            3) Jump Squats (12x)\n
+            4) Plate Pull-Ins / Push Outs (12x)\n
+            5) Tricep Dips on Chair/Stair or Bench (12x)\n
+            6) Step Ups on Chair/Stair or Bench (12x on each leg)\n
+            7) Single Leg Hip Bridge (Advanced), Hip Bridge (Beginner and Intermediate) (12x)\n
+            8) Wall Sits (30 seconds)\n\n
+
+            Post Workout: Core and Stretch
+        </item>
+
+        // Tuesday
+        <item>NA~Welcome To Your First Turn It Up Tuesday: Aerobic Day or Active Rest Day~Using smart training practices means
+            respecting one’s rest periods.  That means, for one’s “Fast Twitch” muscle fibers
+            (the target with our main workouts), joints and nervous system to recover optimally,
+            a rest day or two is needed. However, rest days don’t have to be lazy days.  In fact,
+            active rest targeting “Slow Twitch” muscle fibers (which aerobic activity does) is a
+            great change-up for burning calories and promoting recovery.  This on top of mobility
+            and flexibility practices makes an ideal, in-between workout day.\n\n
+
+            Choose from the following:\n
+            Running, biking, hiking, stairs, swimming, basketball, soccer, frisbee, another sport,
+            rock climbing, jumping jacks, burpees, high knees, skiing, cross-country skiing, snow
+            shoeing, hopscotch, bear crawls, playing with the kids or whatever keeps you moving for…\n
+            Intermediate: 42 minutes / Advanced: 45 Minutes\n\n
+
+            Post Workout: Core and Stretch:\n
+            Pick at least 6 stretches and hold for 20-30 seconds each.  It’s okay to go through the
+            stretch series a couple of times.  For an amazing post-workout stretch bonus, try foam
+            rolling.  This is the perfect recovery enhancer and can be done anywhere (even if you do
+            not own a foam roller (check out foam rolling on Dr. Oz earlier this year!)\n\n
+
+            If you typically get sore after workouts, stretching immediately after a workout will
+            help alleviate some of this.  As well, stretching POST-workout will help prevent injury,
+            speed up muscle recovery and enhance overall fitness level. Go to the stretching section
+            to get started on this recovery practice.\n\n
+
+            Feel free to ask questions below, or in the community area.  We would love to hear your
+            feedback, as well as see group interaction.</item>
+
+        // Wednesday
+        <item>NA~8 Minute Meltdown~
+            The 8 Minute Meltdown Workout:\n
+            *No equipment needed\n
+            8 Minute AMRAP (As Many Rounds As Possible)\n\n
+
+            1. Bear Crawl (Forward 10x and Backward 10x)\n
+            2. Seal Jacks or Stationary Jacks (10x)\n
+            3. Hip Pulse (10x)\n
+            4. 3 Push-Ups, 3 Squat Hops or Squats (Repeat circuit 2x)\n
+            5. Ab Crunch (10x)\n\n\n
+
+
+            Core workout from the tab\n
+            Fitness Challenge:\n
+            How long can you hold a plank while keeping good form?\n\n
+
+            Stretch and Cool Down Post Workout:\n
+            * Pick at least 6 stretches from the Stretch Tab and hold for 20-30 seconds each.  It’s okay to go
+            through the stretch series a couple times.  For an amazing post-workout stretch bonus, try foam rolling.
+            This is the perfect recovery enhancer and can be done anywhere (even if you do not own a foam roller
+            (check out foam rolling on Dr. Oz earlier this year!)\n\n
+        </item>
+
+        // Thursday
+        <item>NA~Aerobic Day~Choose from the following:
+            Running, biking, hiking, stairs, swimming, basketball, soccer, frisbee, another sport,
+            rock climbing, jumping jacks, burpees, high knees, skiing, cross-country skiing, snow
+            shoeing, hopscotch, bear crawls, playing with the kids or whatever keeps you moving for…\n
+            Intermediate: 42 minutes / Advanced: 45 Minutes\n\n
+            Post Workout: Core and Stretch:\n
+            Pick at least 6 stretches and hold for 20-30 seconds each.\n\n
+        </item>
+
+        // Friday
+        <item>bodyweight_workout_week_eleven_workout~Flashback Friday!~
+            Your Challenge Is To Beat Monday’s Score!
+            Intermediate: 15 Minute AMRAP\n
+            Advanced: 20 Minute AMRAP\n\n
+
+            1) Plyo Push-Ups (Advanced), Push-Ups (Intermediate and Beginners) (12x)\n
+            2) Scissor Hops (Lunge Hops) (Advanced), Alternating Lunges (Intermediate)  (12x each leg)\n
+            3) Jump Squats (12x)\n
+            4) Plate Pull-Ins / Push Outs (12x)\n
+            5) Tricep Dips on Chair/Stair or Bench (12x)\n
+            6) Step Ups on Chair/Stair or Bench (12x on each leg)\n
+            7) Single Leg Hip Bridge (Advanced), Hip Bridge (Beginner and Intermediate) (12x)\n
+            8) Wall Sits (30 seconds)\n\n
+
+            Post Workout: Core and Stretch
+        </item>
+
+        // Saturday
+        <item>NA~Active Rest Day~
+            Today is the perfect day to go for a walk, hike or family activity.  You can also do the Dynamic
+            Warm-Up, Foam Roll and stretch to loosen up your muscles.  Keep it light today and let your muscles
+            begin to repair.  You will hit it hard on Monday.\n\n
+
+            Post Workout: Stretch and Cool Down
+        </item>
+    </string-array>
+
+
+    // Week 12
+    <string-array name="bw_int_week_12">
+        // Monday
+        <item>bodyweight_workout_week_six_workout~Retest Week~
+            Re-test Baseline Workout:\n
+            Baseline Test:\n\n
+
+            1. Push-Ups or Knee Push-Ups (How many can you get in 1 minute?)\n
+            2. Squat or Chair Squats (How many can you get in 1 minute?)\n
+            3. Plank or Knee Plank (How long can you hold the plank?)\n\n\n
+
+            Retest Week #6 Workout: The Filthy 40/60 Workout:\n
+            One round for time.  Intermediate: 40 reps / Advanced 60 reps\n\n
+
+            1. Star Jacks\n
+            2. Lunge-Lunge-Hop\n
+            3. Tricep Push-Ups\n
+            4. Towel Back Row (use a sturdy object) or sub in plate pull ins and push-outs\n
+            5. Running High Knees\n\n
+
+
+            Post Workout: Core and Stretch
+        </item>
+
+        // Tuesday
+        <item>NA~Welcome To Your First Turn It Up Tuesday: Aerobic Day or Active Rest Day~Using smart training practices means
+            respecting one’s rest periods.  That means, for one’s “Fast Twitch” muscle fibers
+            (the target with our main workouts), joints and nervous system to recover optimally,
+            a rest day or two is needed. However, rest days don’t have to be lazy days.  In fact,
+            active rest targeting “Slow Twitch” muscle fibers (which aerobic activity does) is a
+            great change-up for burning calories and promoting recovery.  This on top of mobility
+            and flexibility practices makes an ideal, in-between workout day.\n\n
+
+            Choose from the following:\n
+            Running, biking, hiking, stairs, swimming, basketball, soccer, frisbee, another sport,
+            rock climbing, jumping jacks, burpees, high knees, skiing, cross-country skiing, snow
+            shoeing, hopscotch, bear crawls, playing with the kids or whatever keeps you moving for…\n
+            Intermediate: 45minutes / Advanced: 48 Minutes\n\n
+
+            Post Workout: Core and Stretch:\n
+            Pick at least 6 stretches and hold for 20-30 seconds each.  It’s okay to go through the
+            stretch series a couple of times.  For an amazing post-workout stretch bonus, try foam
+            rolling.  This is the perfect recovery enhancer and can be done anywhere (even if you do
+            not own a foam roller (check out foam rolling on Dr. Oz earlier this year!)\n\n
+
+            If you typically get sore after workouts, stretching immediately after a workout will
+            help alleviate some of this.  As well, stretching POST-workout will help prevent injury,
+            speed up muscle recovery and enhance overall fitness level. Go to the stretching section
+            to get started on this recovery practice.\n\n
+
+            Feel free to ask questions below, or in the community area.  We would love to hear your
+            feedback, as well as see group interaction.</item>
+
+        // Wednesday
+        <item>NA~Butt Kicking 8 Minute Meltdown~
+            The Butt Kicking 8 Minute Meltdown Workout:\n
+            Workout Details: As many rounds as possible in 8 minutes.  10 reps each exercise\n\n
+
+            1. Butt Kickers (10 reps each side )\n
+            2. High Knees (or Marching for beginners)\n
+            3. Crossing Toe Touch Ab Crunch\n
+            4. Alternating Lunges\n
+            5. Spiderman Push-Ups\n
+            6. Sit-Ups\n
+            7. Burpees\n
+            8. Supermans\n\n\n
+
+
+            Core workout from the tab\n
+            Fitness Challenge:\n
+            Complete Exercises For Time:\n\n
+
+            1. 30 squats\n
+            2. 30 jumping jacks\n
+            3. 30 sit ups\n
+            4. 30 push-ups\n\n
+
+            Stretch and Cool Down Post Workout:\n
+            * Pick at least 6 stretches from the Stretch Tab and hold for 20-30 seconds each.  It’s okay to go
+            through the stretch series a couple times.  For an amazing post-workout stretch bonus, try foam rolling.
+            This is the perfect recovery enhancer and can be done anywhere (even if you do not own a foam roller
+            (check out foam rolling on Dr. Oz earlier this year!)\n\n
+        </item>
+
+        // Thursday
+        <item>NA~Aerobic Day~Choose from the following:
+            Running, biking, hiking, stairs, swimming, basketball, soccer, frisbee, another sport,
+            rock climbing, jumping jacks, burpees, high knees, skiing, cross-country skiing, snow
+            shoeing, hopscotch, bear crawls, playing with the kids or whatever keeps you moving for…\n
+            Intermediate: 45 minutes / Advanced: 48 Minutes\n\n
+            Post Workout: Core and Stretch:\n
+            Pick at least 6 stretches and hold for 20-30 seconds each.\n\n
+        </item>
+
+        // Friday
+        <item>bodyweight_workout_week_nine_workout~Flashback Friday Retest Week #9 Workout!~
+            The Super Shred Workout (Rounds For Time):\n
+            Beginners: 3-4 Rounds / Advanced 4-5 Rounds\n\n
+
+            1) Door Frame Rows (12x)\n
+            2) Starburst Burpee (12x) or 45 second plank hold for beginners.\n
+            3) Alternating Lunges (24x) or squats for beginners.\n
+            4) Double Crunch (x12)\n
+            5) Push Ups w/ Alternating Kick Backs (12x) or traditional push-ups for beginners.\n
+            6) Burpees (12x)\n
+            7) Running High Knees (24x) or Marching for beginners\n\n
+
+            Post Workout: Core and Stretch
+        </item>
+
+        // Saturday
+        <item>NA~Active Rest Day~
+            Today is the perfect day to go for a walk, hike or family activity.  You can also do the Dynamic
+            Warm-Up, Foam Roll and stretch to loosen up your muscles.  Keep it light today and let your muscles
+            begin to repair.  You will hit it hard on Monday.\n\n
+
+            Post Workout: Stretch and Cool Down
+        </item>
+    </string-array>
+
+
+</resources>
