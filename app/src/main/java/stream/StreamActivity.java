@@ -1,8 +1,5 @@
-package workouts;
+package stream;
 
-import android.app.DatePickerDialog;
-import android.app.Dialog;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -12,77 +9,45 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.DatePicker;
-import android.widget.Toast;
 
 import com.practice.derikpc.workoutanywhere.HomeScreen;
 import com.practice.derikpc.workoutanywhere.R;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import databasetools.UserInfoDatabaseTools;
 import user.User;
 
-public class Workouts extends FragmentActivity implements ProgressDialogListener {
-    private ProgressDialog progress;
+public class StreamActivity extends FragmentActivity implements CommentListener {
+
+    private ArrayList<UserComment> commentArray;
     private UserInfoDatabaseTools uDBTools;
 
     @Override
-    public void setProgressBar(ProgressDialog progress) {
-        this.progress = progress;
+    public ArrayList<UserComment> getCommentArray() {
+        return commentArray;
     }
 
     @Override
-    public ProgressDialog getProgressBar() {
-        return progress;
+    public void setCommentArray(ArrayList<UserComment> comments) {
+        this.commentArray = comments;
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.workouts);
+        setContentView(R.layout.stream);
 
         uDBTools = new UserInfoDatabaseTools(this);
 
-        progress = new ProgressDialog(Workouts.this, R.style.MyTheme);
-        progress.setCancelable(false);
-        progress.setProgressStyle(android.R.style.Widget_ProgressBar_Small);
-        progress.show();
+        commentArray = new ArrayList<UserComment>();
 
-        Fragment fragment = new SpecificWorkout();
+        Fragment fragment = new Stream();
 
         FragmentManager fM = getSupportFragmentManager();
         FragmentTransaction fT = fM.beginTransaction();
-        fT.replace(R.id.workouts_activity, fragment);
+        fT.replace(R.id.stream_activity, fragment);
         fT.commit();
-
-    }
-
-    @Override
-    protected void onDestroy() {
-        System.out.println("Workouts onDestroy Called");
-        super.onDestroy();
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        this.finish();
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if(data == null) {
-            finish();
-        }
-
-        for (Fragment fragment : getSupportFragmentManager().getFragments())
-        {
-            if (fragment != null)
-            {
-                fragment.onActivityResult(requestCode, resultCode, data);
-            }
-        }
     }
 
     @Override

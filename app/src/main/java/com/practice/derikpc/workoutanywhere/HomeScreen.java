@@ -8,6 +8,9 @@ import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -23,6 +26,7 @@ import java.util.HashMap;
 import databasetools.CompletedDatabaseTools;
 import databasetools.FavoritesDatabaseTools;
 import databasetools.UserInfoDatabaseTools;
+import user.User;
 
 
 public class HomeScreen extends FragmentActivity {
@@ -43,6 +47,8 @@ public class HomeScreen extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_screen);
+
+        getApplication().deleteDatabase("Completed.db");
 
         getActionBar().hide();
 
@@ -146,6 +152,53 @@ public class HomeScreen extends FragmentActivity {
         secondThread.close();
     }
 
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch(item.getItemId()) {
+            case R.id.sign_out: {
+                signOut();
+                return true;
+            }
+
+            case R.id.exit_the_app: {
+                System.exit(0);
+                return true;
+            }
+
+            case R.id.home_screen: {
+                homeScreen();
+                return true;
+            }
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
+    private void signOut() {
+        String username = User.getUserName();
+        uDBTools.updateSignedInByUsername(username, "false");
+
+        Intent intent = new Intent(this, HomeScreen.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
+
+    private void homeScreen() {
+        Intent intent = new Intent(this, HomeScreen.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
 
 }
 

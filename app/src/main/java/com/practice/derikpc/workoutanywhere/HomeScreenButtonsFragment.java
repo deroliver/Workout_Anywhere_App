@@ -19,6 +19,8 @@ import calendar.CalendarView;
 import databasetools.UserInfoDatabaseTools;
 import profile.UserProfile;
 import stream.Stream;
+import stream.StreamActivity;
+import user.User;
 import workouts.Workouts;
 
 public class HomeScreenButtonsFragment extends Fragment {
@@ -39,32 +41,12 @@ public class HomeScreenButtonsFragment extends Fragment {
 
     private String USER[] = null;
 
-    private String FNAME = "";
-    private String LNAME = "";
-    private String STATUS = "";
-    private String AVATARURL = "";
-    private String USERNAME = "";
-
-    UserInfoDatabaseTools userDBTools;
-
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.home_buttons, container, false);
 
-        userDBTools = new UserInfoDatabaseTools(getActivity());
-
-        USER = new String[4];
-
-        Bundle data = getArguments();
-        USER = data.getStringArray("USER");
-
-        USERNAME = USER[0];
-        FNAME = USER[1];
-        LNAME = USER[2];
-        AVATARURL = USER[3];
-        STATUS = USER[4];
+        getActivity().getActionBar().show();
 
         secondThread = new SecondThread();
         secondThread.run();
@@ -102,7 +84,6 @@ public class HomeScreenButtonsFragment extends Fragment {
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(getActivity(), UserProfile.class);
-                        intent.putExtra("USER", USER);
                         startActivity(intent);
                     }
                 });
@@ -120,7 +101,7 @@ public class HomeScreenButtonsFragment extends Fragment {
 
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(getActivity(), Stream.class);
+                        Intent intent = new Intent(getActivity(), StreamActivity.class);
                         startActivity(intent);
                     }
                 });
@@ -130,7 +111,7 @@ public class HomeScreenButtonsFragment extends Fragment {
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(getActivity(), CalendarView.class);
-                        intent.putExtra("userName", USERNAME);
+                        intent.putExtra("userName", User.getUserName());
                         startActivity(intent);
                     }
                 });

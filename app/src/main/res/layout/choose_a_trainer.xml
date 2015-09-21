@@ -278,6 +278,7 @@
             android:layout_weight="1">
 
             <ImageView
+                android:clickable="false"
                 android:id="@+id/fat_burner_beginner_trainer_button"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
@@ -285,6 +286,7 @@
                 android:src="@drawable/beginner_trainer_button"/>
 
             <ImageView
+                android:clickable="false"
                 android:id="@+id/fat_burner_int_trainer_button"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"

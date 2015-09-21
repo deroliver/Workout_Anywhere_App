@@ -13,13 +13,19 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.practice.derikpc.workoutanywhere.HomeScreen;
 import com.practice.derikpc.workoutanywhere.R;
 
 import java.util.List;
 
+import databasetools.UserInfoDatabaseTools;
+import user.User;
 import workouts.FreestyleWallWorkoutsTab;
 import workouts.PostWorkoutFragmentTab;
 import workouts.WorkoutFormatFragmentTab;
@@ -44,6 +50,7 @@ public class TrainerDay extends FragmentActivity implements ActionBar.TabListene
     private String trainerType;
     private int[] dayWeek;
     private ProgressDialog progress;
+    private UserInfoDatabaseTools uDBTools;
 
     @Override
     public void setProgressBar(ProgressDialog progress) {
@@ -80,6 +87,8 @@ public class TrainerDay extends FragmentActivity implements ActionBar.TabListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.workout_info_pager);
         dayWeek = new int[2];
+
+        uDBTools = new UserInfoDatabaseTools(this);
 
         progress = new ProgressDialog(TrainerDay.this, R.style.MyTheme);
         progress.setCancelable(false);
@@ -158,6 +167,53 @@ public class TrainerDay extends FragmentActivity implements ActionBar.TabListene
     @Override
     public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch(item.getItemId()) {
+            case R.id.sign_out: {
+                signOut();
+                return true;
+            }
+
+            case R.id.exit_the_app: {
+                System.exit(0);
+                return true;
+            }
+
+            case R.id.home_screen: {
+                homeScreen();
+                return true;
+            }
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
+    private void signOut() {
+        String username = User.getUserName();
+        uDBTools.updateSignedInByUsername(username, "false");
+
+        Intent intent = new Intent(this, HomeScreen.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
+
+    private void homeScreen() {
+        Intent intent = new Intent(this, HomeScreen.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
 }
 
 
@@ -196,4 +252,6 @@ class MyAdapter extends FragmentPagerAdapter {
     public void notifyDataSetChanged() {
         super.notifyDataSetChanged();
     }
+
+
 }

@@ -1,20 +1,24 @@
 package stream;
 
-import android.app.ListActivity;
+
+import android.app.Activity;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.ListFragment;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.net.ParseException;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.provider.DocumentsContract;
-import android.support.v7.app.ActionBar;
-import android.text.format.Time;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -27,6 +31,7 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
+import com.nostra13.universalimageloader.core.listener.PauseOnScrollListener;
 import com.practice.derikpc.workoutanywhere.R;
 
 import org.apache.http.HttpEntity;
@@ -42,6 +47,7 @@ import org.json.JSONObject;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -50,12 +56,18 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Iterator;
+import java.util.List;
 import java.util.logging.SimpleFormatter;
 
+import databasetools.StreamDatabaseHelper;
+import user.User;
 import workouts.FreestyleWallObject;
 
 
-public class Stream extends ListActivity {
+
+
+
+public class Stream extends ListFragment {
 
     private ArrayList<StreamObject> streamObjects;
     private MyListAdapter myListAdapter;
@@ -65,33 +77,170 @@ public class Stream extends ListActivity {
     private int numNewPosts = 0;
     private int numPosts = 0;
 
+    private boolean pauseOnScroll = false;
+    private boolean pauseOnFling = true;
+
     private ImageLoader imageLoader;
     private DisplayImageOptions options;
 
+    private ArrayList<UserComment> comments;
+
     private ListView listView;
+
+    private String submitActivityUrl1 = "http://workoutanywhere.net/api/buddypressread/activity_submit_activity/?action=";
+    private String submitActivityUrl2 = "&content=";
+    private String submitActivityUrl3 = "&userid=";
 
     private String firstUrl = "http://workoutanywhere.net/api/buddypressread/activity_get_activities/?pages=2&comments=threaded&page=";
     private String page = "1";
     private String curUrl = firstUrl+ page;
 
+    private Boolean first = true;
+
+    private MultiScrollListener scrolls;
+
+    private StreamDatabaseHelper streamDB;
+
+    private CommentListener listener;
+
+    private ImageButton submitActivity;
+
+    private TextView whatsNewText;
+
+    private EditText activityContent;
+
     View context;
 
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.my_stream);
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        listener = (CommentListener)activity;
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.my_stream, container, false);
 
         streamObjects = new ArrayList<StreamObject>();
+        comments = new ArrayList<UserComment>();
 
-        imageLoader = ImageLoader.getInstance();
-        options = getDisplayOptions();
-        listView = (ListView) findViewById(android.R.id.list);
+        listView = (ListView) view.findViewById(android.R.id.list);
 
-        myListAdapter = new MyListAdapter(getApplicationContext(), streamObjects);
+        submitActivity = (ImageButton) view.findViewById(R.id.submit_activity_button);
+        whatsNewText = (TextView) view.findViewById(R.id.whats_new_text_view);
+        activityContent = (EditText) view.findViewById(R.id.activity_content_text);
 
-        listView.setAdapter(myListAdapter);
+        whatsNewText.setText("What's new " + User.firstName);
+
+        myListAdapter = new MyListAdapter(getActivity(), streamObjects);
 
         new MyAsyncTask().execute(firstUrl);
 
+        return view;
+    }
+
+
+    private class Second extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected Void doInBackground(Void... params) {
+
+            streamDB = new StreamDatabaseHelper(getActivity());
+            streamDB.printAllLikes();
+
+            imageLoader = ImageLoader.getInstance();
+            options = getDisplayOptions();
+
+            scrolls = new MultiScrollListener();
+
+            EndlessScrollListener endlessListener = new EndlessScrollListener();
+
+            PauseOnScrollListener listener = new PauseOnScrollListener(imageLoader, pauseOnScroll, pauseOnFling);
+
+            scrolls.addScrollListener(listener);
+            scrolls.addScrollListener(endlessListener);
+
+            return null;
+        }
+
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+
+            submitActivity.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(!activityContent.getText().equals("")) {
+                        String url = submitActivityUrl1 + User.getFirstName() + "%20" + User.getLastName() + "%20posted%20an%20update" +
+                                submitActivityUrl2 + activityContent.getText() + submitActivityUrl3 + User.getUserID();
+
+                        activityContent.setText("");
+
+                        System.out.println(url);
+
+                        new SubmitActivity().execute(url);
+                    }
+                }
+            });
+
+            listView.setAdapter(myListAdapter);
+
+            listView.setOnScrollListener(scrolls);
+
+            new CheckLikes().execute();
+        }
+    }
+
+    private class SubmitActivity extends AsyncTask<String, Void, Boolean> {
+
+        @Override
+        protected Boolean doInBackground(String... urls) {
+            try {
+                isLoading = true;
+                HttpGet httpPost = new HttpGet(urls[0]);
+                HttpClient httpClient = new DefaultHttpClient();
+                HttpResponse response = httpClient.execute(httpPost);
+
+
+            } catch (ParseException e1) {
+                e1.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return true;
+        }
+
+        protected void onPostExecute(Boolean result) {
+        }
+    }
+
+
+
+    private static class MultiScrollListener implements AbsListView.OnScrollListener {
+        List<AbsListView.OnScrollListener> mListeners = new ArrayList<AbsListView.OnScrollListener>();
+
+        public void addScrollListener(AbsListView.OnScrollListener listener) {
+            mListeners.add(listener);
+        }
+
+        public void removeScrollListener(AbsListView.OnScrollListener listener) {
+            mListeners.remove(listener);
+        }
+
+        @Override
+        public void onScrollStateChanged(AbsListView view, int scrollState) {
+            for(AbsListView.OnScrollListener listener : mListeners) {
+                listener.onScrollStateChanged(view, scrollState);
+            }
+        }
+
+        @Override
+        public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+            for(AbsListView.OnScrollListener listener : mListeners) {
+                listener.onScroll(view, firstVisibleItem, visibleItemCount, totalItemCount);
+            }
+        }
     }
 
     public DisplayImageOptions getDisplayOptions() {
@@ -105,6 +254,27 @@ public class Stream extends ListActivity {
                 .build();
 
         return  options;
+    }
+
+    private class CheckLikes extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            for(int i = 0; i < streamObjects.size(); i++) {
+                if(streamDB.checkIfLikeExists(streamObjects.get(i).getActivityID())){
+                    System.out.println("Liked");
+                    streamObjects.get(i).setLiked(true);
+                }
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            myListAdapter.notifyDataSetChanged();
+        }
     }
 
 
@@ -156,7 +326,7 @@ public class Stream extends ListActivity {
         }
 
         @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
+        public View getView(final int position, View convertView, ViewGroup parent) {
             final ViewHolder holder;
             int type = getItemViewType(position);
 
@@ -179,6 +349,16 @@ public class Stream extends ListActivity {
                 holder = (ViewHolder) convertView.getTag();
             }
 
+            boolean liked = allStreamObjects.get(position).getLiked();
+
+            if(liked) {
+                holder.likeButton.setTextColor(getResources().getColor(R.color.light_rundle_blue_hex));
+                holder.nLikes.setTextColor(getResources().getColor(R.color.light_rundle_blue_hex));
+            } else {
+                holder.likeButton.setTextColor(getResources().getColor(R.color.secondary_grey));
+                holder.nLikes.setTextColor(getResources().getColor(R.color.secondary_grey));
+            }
+
             holder.personName.setText(allStreamObjects.get(position).getName());
             if(allStreamObjects.get(position).getActivityContent() != "") {
                 holder.content.setVisibility(View.VISIBLE);
@@ -189,6 +369,58 @@ public class Stream extends ListActivity {
             display(holder.personPicture, allStreamObjects.get(position).getImageURL(), holder.bar);
             holder.nLikes.setText((allStreamObjects.get(position).getnLikes()).toString());
             holder.nComments.setText((allStreamObjects.get(position).getnComments()).toString());
+
+            if(allStreamObjects.get(position).getnComments() == 1) {
+                holder.seeCommentsButton.setText("comment");
+            }
+
+            if(allStreamObjects.get(position).getnLikes() == 1) {
+                holder.likeButton.setText("like");
+            }
+
+            holder.likeButton.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Boolean liked = allStreamObjects.get(position).getLiked();
+                    Integer likes = 0;
+                    String postId = allStreamObjects.get(position).getActivityID();
+
+                    if(liked) {
+                        holder.likeButton.setTextColor(getResources().getColor(R.color.secondary_grey));
+                        holder.nLikes.setTextColor(getResources().getColor(R.color.secondary_grey));
+                        likes = allStreamObjects.get(position).getnLikes();
+                        likes--;
+                        holder.nLikes.setText(likes.toString());
+                        allStreamObjects.get(position).setLiked(false);
+                        streamDB.deleteLike(postId);
+                    } else {
+                        holder.likeButton.setTextColor(getResources().getColor(R.color.light_rundle_blue_hex));
+                        holder.nLikes.setTextColor(getResources().getColor(R.color.light_rundle_blue_hex));
+                        likes = allStreamObjects.get(position).getnLikes();
+                        likes++;
+                        holder.nLikes.setText(likes.toString());
+                        allStreamObjects.get(position).setLiked(true);
+                        streamDB.addLike(postId);
+                    }
+
+                    allStreamObjects.get(position).setnLikes(likes);
+                }
+            });
+
+            holder.seeCommentsButton.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int comments = streamObjects.get(position).getnComments();
+
+                    if(comments > 0) {
+                        new startCommentFragment().execute(position);
+                    } else {
+                        Toast.makeText(getActivity(), "No comments to see", Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+            });
+
             holder.pos = position;
             return convertView;
         }
@@ -218,7 +450,6 @@ public class Stream extends ListActivity {
                 }
             });
         }
-
     }
 
     static class ViewHolder {
@@ -235,28 +466,47 @@ public class Stream extends ListActivity {
         int pos;
     }
 
+    private class startCommentFragment extends AsyncTask<Integer, Void, Void> {
+        @Override
+        protected Void doInBackground(Integer... params) {
+            listener.setCommentArray(streamObjects.get(params[0]).getComments());
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            Fragment fragment = new CommentsFragment();
+
+            FragmentManager fM = getFragmentManager();
+            FragmentTransaction fT = fM.beginTransaction();
+            fT.add(R.id.stream_activity, fragment);
+            fT.addToBackStack(null);
+            fT.commit();
+        }
+    }
+
     private String calculateTimeDifference(String dateTime) {
-        DateTime postDate = new DateTime();
-        DateTime now = DateTime.now();
+        Calendar now = Calendar.getInstance();
+        Calendar postDate = Calendar.getInstance();
+
+        DateTime post = new DateTime();
 
 
         try {
-            postDate = new DateTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(dateTime));
+            post = new DateTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(dateTime));
         } catch (java.text.ParseException e) {
-            postDate = null;
+            post = null;
             e.printStackTrace();
         }
 
 
-        long secondsInMill = 0;
-        long minutesInMill = 0;
-        long hoursInMill = 0;
-        long daysInMill = 0;
+        postDate.setTime(post.toDate());
 
-        long elapsedDays = 0;
-        long elapsedHours = 0;
-        long elapsedMinutes = 0;
-        long elapsedSeconds = 0;
+        int elapsedDays = 0;
+        int elapsedHours = 0;
+        int elapsedMinutes = 0;
+        int elapsedWeeks = 0;
 
         int diffYear = 0;
         int diffMonth = 0;
@@ -264,20 +514,28 @@ public class Stream extends ListActivity {
 
         if(postDate != null) {
 
-            long millis = now.getMillis() - postDate.getMillis();
+            long millis = now.getTimeInMillis() - postDate.getTimeInMillis();
             long difference = Math.abs(millis);
 
             elapsedDays = (int) (difference/(1000 * 60 * 60 * 24));
             elapsedHours = (int) ((difference -  (1000 * 60 * 60 * 24*elapsedDays))/ (1000 * 60 * 60));
             elapsedMinutes = (int) ((difference -  (1000 * 60 * 60 * 24*elapsedDays))/ (1000 * 60));
+            elapsedWeeks = elapsedDays / 7;
         }
 
         if(diffYear > 0) {
-            return (diffYear + " years " + diffMonth + " ago");
+            return (diffYear + " years " + diffMonth + " months ago");
         }
 
         if(diffMonth > 0) {
-            return (diffMonth + " months " + elapsedDays + " ago");
+            if(elapsedWeeks > 0) {
+                return (diffMonth + " months " + elapsedWeeks + " weeks ago");
+            }
+            return (diffMonth + " months ago");
+        }
+
+        if(elapsedWeeks > 0) {
+            return (elapsedWeeks + " weeks ago");
         }
 
         if(elapsedDays > 0) {
@@ -285,6 +543,11 @@ public class Stream extends ListActivity {
         }
 
         if(elapsedHours > 0) {
+
+            if(elapsedMinutes >= 30) {
+                return ((elapsedHours + 1) + " hours ago");
+            }
+
             return (elapsedHours + " hours ago");
         }
 
@@ -387,20 +650,39 @@ public class Stream extends ListActivity {
 
                         int numComments = 0;
 
-                        if(children != null) {
+                        ArrayList<UserComment> postComments = new ArrayList<UserComment>();
 
-                            Iterator y = array.keys();
+                        if(children != null) {
+                            Iterator y = children.keys();
 
                             JSONArray childrenArray = new JSONArray();
 
-                            while(x.hasNext()) {
+                            while(y.hasNext()) {
                                 String key = (String)y.next();
                                 childrenArray.put(children.get(key));
+                            }
+
+                            UserComment comment = new UserComment();
+                            JSONObject jsonComment = new JSONObject();
+                            JSONObject userComment = new JSONObject();
+
+                            for(int j = 0; j < childrenArray.length(); j++) {
+                                jsonComment = childrenArray.getJSONObject(j);
+                                comment.setCommentContent(jsonComment.getString("content"));
+                                comment.setCommentTime(jsonComment.getString("time"));
+
+                                userComment = jsonComment.getJSONObject("user");
+                                comment.setFirstLastName(userComment.getString("display_name"));
+                                comment.setAvatarUrl(userComment.getString("avatar_thumb"));
+
+                                postComments.add(comment);
                             }
 
                             System.out.println("Children: " + childrenArray.length());
                             numComments = childrenArray.length();
                         }
+
+                        String id = jsonPost.getString("id");
 
 
                         StreamObject activityUpdate = new StreamObject();
@@ -412,6 +694,8 @@ public class Stream extends ListActivity {
                         activityUpdate.setActivityAction(actionText);
                         activityUpdate.setActivityContent(contentText);
                         activityUpdate.setnComments(numComments);
+                        activityUpdate.setActivityID(id);
+                        activityUpdate.setComments(postComments);
 
                         System.out.println(userName + "   " + avatarURL);
 
@@ -431,9 +715,14 @@ public class Stream extends ListActivity {
         }
 
         protected void onPostExecute(Boolean result) {
+            listener.setCommentArray(comments);
+
+            if(first) {
+                first = false;
+                new Second().execute();
+            }
             myListAdapter.notifyDataSetChanged();
             isLoading = false;
-
             System.out.println(streamObjects.size());
             //pageNumber++;
         }
@@ -456,6 +745,7 @@ public class Stream extends ListActivity {
 
         @Override
         public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+
             if(totalItemCount < previousTotal) {
                 previousTotal = totalItemCount;
                 currentPage = startingPageIndex;
@@ -472,6 +762,7 @@ public class Stream extends ListActivity {
             if (!loading && (totalItemCount - visibleItemCount) <= (firstVisibleItem + visibleThreshold)) {
                 currentPage++;
                 curUrl = firstUrl + currentPage;
+                System.out.println(curUrl);
                 new MyAsyncTask().execute(curUrl);
                 loading = true;
             }
@@ -488,6 +779,7 @@ public class Stream extends ListActivity {
         //imageLoader.clearMemoryCache();
         //imageLoader.clearDiskCache();
     }
+
 }
 
 

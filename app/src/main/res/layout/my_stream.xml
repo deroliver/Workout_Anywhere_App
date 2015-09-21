@@ -4,7 +4,49 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@color/stream_background_gray">
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/whats_new_text_view"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:padding="5dp"
+            android:textSize="16sp"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            android:text="What's new Derik ?"
+            android:textColor="@color/rundle_blue_hex"/>
+
+        <ImageButton
+            android:id="@+id/submit_activity_button"
+            android:background="@color/stream_background_gray"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:src="@drawable/submit_activity_button"/>
+
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/activity_content_text"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:textColor="@color/text_grey"
+        android:textSize="12sp"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:inputType="textMultiLine"
+        android:text=""
+        android:hint="Add your activity update here"/>
+
 
     <ListView
         android:padding="10dp"
@@ -12,6 +54,8 @@
         android:layout_height="wrap_content"
         android:id="@android:id/list"
         android:layout_gravity="center_horizontal"
-        tools:listitem="@layout/stream_object"/>
+        tools:listitem="@layout/stream_object"
+        android:divider="@null"
+        android:dividerHeight="0dp"/>
 
 </LinearLayout>

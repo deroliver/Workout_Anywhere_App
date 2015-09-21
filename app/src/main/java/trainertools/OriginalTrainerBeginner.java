@@ -47,8 +47,7 @@ public class OriginalTrainerBeginner {
         } else {
             content = weekStringArray[dayNumber];
             String[] subStrings = content.split("~");
-            String title = subStrings[0];
-            System.out.println("Title: " + title);
+            String title = subStrings[1];
 
             return title;
         }
@@ -78,7 +77,7 @@ public class OriginalTrainerBeginner {
 
         content = weekStringArray[dayNumber];
         String[] subStrings = content.split("~");
-        String workout = subStrings[1];
+        String workout = subStrings[2];
         System.out.println("Workout: " + workout);
 
         return workout;

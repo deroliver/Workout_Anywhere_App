@@ -8,13 +8,19 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.practice.derikpc.workoutanywhere.HomeScreen;
 import com.practice.derikpc.workoutanywhere.R;
 
+import databasetools.UserInfoDatabaseTools;
 import dialog.CustomDialog;
+import user.User;
 
 public class ChooseATrainerFragment extends FragmentActivity {
 
@@ -31,10 +37,14 @@ public class ChooseATrainerFragment extends FragmentActivity {
     private Boolean yesOrNo = false;
     private CustomDialog customDialog;
 
+    private UserInfoDatabaseTools uDBTools;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.choose_a_trainer);
+
+        uDBTools = new UserInfoDatabaseTools(this);
 
         customDialog = new CustomDialog(ChooseATrainerFragment.this);
         customDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
@@ -119,5 +129,52 @@ public class ChooseATrainerFragment extends FragmentActivity {
         }
 
         finish();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch(item.getItemId()) {
+            case R.id.sign_out: {
+                signOut();
+                return true;
+            }
+
+            case R.id.exit_the_app: {
+                System.exit(0);
+                return true;
+            }
+
+            case R.id.home_screen: {
+                homeScreen();
+                return true;
+            }
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
+    private void signOut() {
+        String username = User.getUserName();
+        uDBTools.updateSignedInByUsername(username, "false");
+
+        Intent intent = new Intent(this, HomeScreen.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
+
+    private void homeScreen() {
+        Intent intent = new Intent(this, HomeScreen.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
     }
 }

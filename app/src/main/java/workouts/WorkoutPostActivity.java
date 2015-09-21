@@ -7,6 +7,9 @@ import android.content.Intent;
 import android.net.ParseException;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -18,6 +21,7 @@ import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.practice.derikpc.workoutanywhere.HomeScreen;
 import com.practice.derikpc.workoutanywhere.R;
 
 import org.apache.http.HttpEntity;
@@ -35,6 +39,9 @@ import org.jsoup.nodes.Element;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import databasetools.UserInfoDatabaseTools;
+import user.User;
 
 public class WorkoutPostActivity extends YouTubeBaseActivity implements YouTubePlayer.OnInitializedListener {
 
@@ -64,10 +71,14 @@ public class WorkoutPostActivity extends YouTubeBaseActivity implements YouTubeP
     private ImageLoader imageLoader;
     private DisplayImageOptions options;
 
+    private UserInfoDatabaseTools uDBTools;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.workout_post_activity);
+
+        uDBTools = new UserInfoDatabaseTools(this);
 
         like = (ImageView) findViewById(R.id.wall_post_activity_like_button);
         completed = (ImageView) findViewById(R.id.wall_post_activity_completed_button);
@@ -175,7 +186,7 @@ public class WorkoutPostActivity extends YouTubeBaseActivity implements YouTubeP
         intent.putExtra("Liked", likedWorkout);
         intent.putExtra("Completed", completedWorkout);
         intent.putExtra("Position", position.toString());
-        intent.putExtra("Date", day_x + ":" + month_x + ":" + year_x);
+        intent.putExtra("Date", month_x + "/" + day_x + "/" + year_x);
         setResult(RESULT_OK, intent);
         finish();
     }
@@ -339,5 +350,50 @@ public class WorkoutPostActivity extends YouTubeBaseActivity implements YouTubeP
     @Override
     protected void onDestroy() {
         super.onDestroy();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch(item.getItemId()) {
+            case R.id.sign_out: {
+                signOut();
+                return true;
+            }
+
+            case R.id.exit_the_app: {
+                System.exit(0);
+                return true;
+            }
+
+            case R.id.home_screen: {
+                homeScreen();
+                return true;
+            }
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
+    private void signOut() {
+        String username = User.getUserName();
+        uDBTools.updateSignedInByUsername(username, "false");
+
+        Intent intent = new Intent(this, HomeScreen.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
+
+    private void homeScreen() {
+        finish();
     }
 }

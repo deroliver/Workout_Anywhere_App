@@ -44,6 +44,7 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
+import org.joda.time.DateTime;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -100,6 +101,8 @@ public class FreestyleWallWorkoutsTab extends ListFragment {
     private ProgressDialog progress;
     private ProgressDialogListener listener;
     private boolean first = true;
+
+    private int currentObjectPosition = -1;
 
     @Override
     public void onAttach(Activity activity) {
@@ -191,7 +194,7 @@ public class FreestyleWallWorkoutsTab extends ListFragment {
 
         @Override
         protected void onPostExecute(Void aVoid) {
-            d = new DatePickerDialog(getActivity(), R.style.AppTheme, dPickerListener, year_x, month_x, day_x);
+            d = new DatePickerDialog(getActivity(), R.style.AppTheme, dPickerListener, year_x, day_x, month_x);
 
             listView.setAdapter(myListAdapter);
 
@@ -260,13 +263,31 @@ public class FreestyleWallWorkoutsTab extends ListFragment {
             year_x = year;
             month_x = monthOfYear + 1;
             day_x = dayOfMonth;
-            Toast.makeText(getActivity(), day_x + "/" + month_x + "/" + year, Toast.LENGTH_LONG).show();
+
+            String date = "";
+
+            if(month_x >= 10 && day_x >= 10) {
+                date = month_x + "/" + day_x + "/" + year_x;
+            } else if(month_x >= 10 && day_x < 10) {
+                date = month_x + "/0" + day_x + "/" + year_x;
+            } else if(month_x < 10 && day_x >=10) {
+                date =  month_x + "/" + day_x + "/" + year_x;
+            } else if(month_x < 10 && day_x < 10) {
+                date = "0" + month_x + "/0" + day_x + "/" + year_x;
+            }
+
+            fDBtools.insertCompletion(freestyleWallObjects.get(currentObjectPosition).getUrl(), date);
+            Toast.makeText(getActivity(), month_x + "/" + day_x + "/" + year, Toast.LENGTH_LONG).show();
         }
     };
 
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(data == null) {
+            getActivity().finish();
+            return;
+        }
         System.out.println("Request Code: " + requestCode + "::::::" + " Result Code: " + resultCode);
 
         String position = data.getStringExtra("Position");
@@ -281,7 +302,7 @@ public class FreestyleWallWorkoutsTab extends ListFragment {
         if(completed && !freestyleWallObjects.get(pos).isCompleted()) {
             freestyleWallObjects.get(pos).setCompleted(true);
             myListAdapter.notifyDataSetChanged();
-            fDBtools.insertCompletion(freestyleWallObjects.get(pos).getUrl(), date);
+            currentObjectPosition = pos;
             numCompleted++;
             freestyleWallObjects.get(pos).setSqliteID(numCompleted);
         } else if(!completed && freestyleWallObjects.get(pos).isCompleted()) {
@@ -483,12 +504,10 @@ public class FreestyleWallWorkoutsTab extends ListFragment {
                         numCompleted--;
                         fDBtools.deleteCompletion((freestyleWallObjects.get(position).getSqliteID().toString()));
                         freestyleWallObjects.get(position).setCompleted(false);
-                    }
-
-                    else if (!freestyleWallObjects.get(position).isCompleted()) {
+                    } else if (!freestyleWallObjects.get(position).isCompleted()) {
                         d.show();
                         Picasso.with(getActivity()).load(R.drawable.completed_check_mark_button_full).into(vH.completed);
-                        fDBtools.insertCompletion(freestyleWallObjects.get(position).getUrl(), "Blog");
+                        currentObjectPosition = position;
                         numCompleted++;
                         freestyleWallObjects.get(position).setSqliteID(numCompleted);
                         freestyleWallObjects.get(position).setCompleted(true);

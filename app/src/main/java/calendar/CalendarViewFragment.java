@@ -3,6 +3,7 @@ package calendar;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -25,8 +26,10 @@ import org.joda.time.DateTime;
 import org.joda.time.Days;
 import org.joda.time.Period;
 
+import java.sql.Array;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -61,6 +64,8 @@ public class CalendarViewFragment extends Fragment {
     private String trainerType = "BeginnerOriginal";
 
     private int[] weekDayNumber;
+    private CompletedDatabaseTools completedDatabaseTools;
+    private ArrayList<HashMap<String, String>> completedList;
 
     @Override
     public void onAttach(Activity activity) {
@@ -75,6 +80,8 @@ public class CalendarViewFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.calendar, container, false);
         caldroidFragment = new CaldroidFragment();
+
+        completedDatabaseTools = new CompletedDatabaseTools(getActivity());
 
         weekDayNumber = new int[2];
 
@@ -115,11 +122,10 @@ public class CalendarViewFragment extends Fragment {
 
         @Override
         protected Void doInBackground(Void... params) {
+            completedList = completedDatabaseTools.getAllCompleted();
             userDBTools = new UserInfoDatabaseTools(getActivity());
             Bundle args = getArguments();
             userName = args.getString("userName");
-
-            System.out.println(userName);
 
             user = userDBTools.getUserInfoByUserName(userName);
 
@@ -133,8 +139,6 @@ public class CalendarViewFragment extends Fragment {
                 currentDate = new DateTime(cal.getTime());
             }
 
-            System.out.println(user.get("firstTrainerDay"));
-
             if(firstDay.equals("NA")) {
                 int[] data = new int[] {weekNumber, dayNumber};
                 listener.setDayWeekNumber(data);
@@ -146,7 +150,6 @@ public class CalendarViewFragment extends Fragment {
                 try {
                     first = dateFormat.parse(firstDay);
                     firstTrainerDay = new DateTime(dateFormat.parse(firstDay));
-                    System.out.println(firstTrainerDay.getMonthOfYear() + "/" + firstTrainerDay.getDayOfMonth() + "/" + firstTrainerDay.getYear());
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
@@ -175,8 +178,6 @@ public class CalendarViewFragment extends Fragment {
         @Override
         protected void onPostExecute(Void aVoid) {
             if(firstTrainerPresent) {
-                System.out.println("First Trainer Present");
-                System.out.println(trainerType);
                 if(trainerType.equals("OriginalBeginner") || trainerType.equals("BodyweightBeginner") || trainerType.equals("FatBurnerBeginner")) {
                     new setCalendarBackgrounds().execute("Beginner");
                     listener.setTrainerType(trainerType);
@@ -190,16 +191,31 @@ public class CalendarViewFragment extends Fragment {
                 @Override
                 public void onSelectDate(Date date, View view) {
                     SimpleDateFormat sdf = new SimpleDateFormat("EEEE");
+                    completedWorkoutChecker dateChecker = new completedWorkoutChecker();
+                    Boolean found = false;
+                    dateChecker.execute(new DateTime(date));
+
 
                     if (lastDate != null) {
 
                         String day = sdf.format(lastDate.toDate());
                         int daysSinceFirst = dateDifference(firstTrainerDay, lastDate);
 
-                        System.out.println(daysSinceFirst);
+                        Boolean completed = dateChecker.isCompleted();
+
+                        while(!completed) {
+                            completed = dateChecker.isCompleted();
+                            found = dateChecker.getResult();
+                            System.out.println("Progress: " + dateChecker.isCompleted());
+                            System.out.println("Result: " + dateChecker.getResult());
+                        }
 
                         if(daysSinceFirst >= 0 && daysSinceFirst < 84 && !day.equals("Sunday") && !day.equals("Saturday")) {
-                            caldroidFragment.setBackgroundResourceForDate(R.drawable.calendar_trainer_day, lastDate.toDate());
+                            if(found) {
+                                caldroidFragment.setBackgroundResourceForDate(R.drawable.calendar_date_selected_both, lastDate.toDate());
+                            } else {
+                                caldroidFragment.setBackgroundResourceForDate(R.drawable.calendar_trainer_day, lastDate.toDate());
+                            }
                         } else {
                             caldroidFragment.setBackgroundResourceForDate(R.color.white, lastDate.toDate());
                         }
@@ -214,14 +230,15 @@ public class CalendarViewFragment extends Fragment {
                         weekDayNumber[1] = dayNumber;
                         listener.setDayWeekNumber(weekDayNumber);
 
-                        System.out.println("First Trainer Day: " + firstTrainerDay.getDayOfMonth());
-                        System.out.println("Current Date: " + currentDate.getDayOfMonth());
-
                         daysSinceFirst = dateDifference(firstTrainerDay, new DateTime(date));
                         day = sdf.format(date);
 
                         if(daysSinceFirst >= 0 && daysSinceFirst < 84 && !day.equals("Sunday") && !day.equals("Saturday")) {
-                            caldroidFragment.setBackgroundResourceForDate(R.drawable.calendar_date_selected_trainer, date);
+                            if(found) {
+                                caldroidFragment.setBackgroundResourceForDate(R.drawable.calendar_date_selected_both, date);
+                            } else {
+                                caldroidFragment.setBackgroundResourceForDate(R.drawable.calendar_trainer_day, date);
+                            }
                         } else {
                             caldroidFragment.setBackgroundResourceForDate(R.drawable.calendar_date_selected, date);
                         }
@@ -232,7 +249,11 @@ public class CalendarViewFragment extends Fragment {
                         String day = sdf.format(date);
 
                         if(daysSinceFirst >= 0 && daysSinceFirst < 84 && !day.equals("Sunday") && !day.equals("Saturday")) {
-                            caldroidFragment.setBackgroundResourceForDate(R.drawable.calendar_date_selected_trainer, date);
+                            if(found) {
+                                caldroidFragment.setBackgroundResourceForDate(R.drawable.calendar_date_selected_both, date);
+                            } else {
+                                caldroidFragment.setBackgroundResourceForDate(R.drawable.calendar_trainer_day, date);
+                            }
                         } else {
                             caldroidFragment.setBackgroundResourceForDate(R.drawable.calendar_date_selected, date);
                         }
@@ -271,6 +292,132 @@ public class CalendarViewFragment extends Fragment {
             t.commit();
         }
     }
+
+    private class completedWorkoutChecker extends AsyncTask<DateTime, Void, Boolean> {
+        private Boolean completed = false;
+        private Boolean foundCompleted = false;
+
+        @Override
+        protected Boolean doInBackground(DateTime... date) {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+            String dateString = dateFormat.format(date[0].toDate()).substring(1);
+
+            System.out.println("Selected Date: " + dateString);
+
+            for (HashMap<String, String> fav : completedList) {
+                System.out.println("Database Date: " + fav.get("type"));
+                if(fav.get("type").equals(dateString)) {
+                    completed = true;
+                    return true;
+                }
+            }
+
+            completed = true;
+            return false;
+        }
+
+        @Override
+        protected void onPostExecute(Boolean aBoolean) {
+            foundCompleted = aBoolean;
+        }
+
+        private Boolean getResult() {
+            return foundCompleted;
+        }
+
+        private Boolean isCompleted() {
+            return completed;
+        }
+    }
+
+
+    public class setCalendarBackgrounds extends AsyncTask<String, Void, Void> {
+
+        @Override
+        protected Void doInBackground(String... type) {
+
+            ArrayList<Date> completedDates = new ArrayList<Date>();
+            SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+            Date completedDate = new Date();
+
+            for (HashMap<String, String> fav : completedList) {
+                try {
+                    completedDate = dateFormat.parse(fav.get("type"));
+                    System.out.println("Date: " + fav.get("type"));
+                    completedDates.add(completedDate);
+                } catch (Exception e){
+                }
+            }
+
+
+            SimpleDateFormat sdf = new SimpleDateFormat("EEEE");
+            Calendar cal = Calendar.getInstance();
+            DateTime today = DateTime.now();
+
+            Date nextDate = firstTrainerDay.toDate();
+            String day = "";
+            int i = 0;
+            int j = 0;
+
+            boolean completed = false;
+            ArrayList<Integer> positions = new ArrayList<Integer>();
+
+            while(i < 84) {
+                i++;
+
+                for(int l = 0; l < completedDates.size(); l++) {
+                    System.out.println("Current: " + nextDate.toString() + "   Completed" + completedDates.get(l).toString());
+                    if(nextDate.compareTo(completedDates.get(l)) == 0) {
+                        System.out.println("equal");
+                        completed = true;
+                        completedDates.remove(l);
+                        continue;
+                    }
+                }
+
+                day = sdf.format(nextDate);
+
+                if(type[0].equals("Beginner")) {
+                    if (!day.equals("Saturday") && !day.equals("Sunday")) {
+                        if(completed) {
+                            caldroidFragment.setBackgroundResourceForDate(R.drawable.calendar_workout_and_trainer_day, nextDate);
+                            completed = false;
+                        } else {
+                            caldroidFragment.setBackgroundResourceForDate(R.drawable.calendar_trainer_day, nextDate);
+                        }
+                    }
+                } else if(type[0].equals("Int")) {
+                    if (!day.equals("Sunday")) {
+                        if(completed) {
+                            caldroidFragment.setBackgroundResourceForDate(R.drawable.calendar_workout_and_trainer_day, nextDate);
+                            completed = false;
+                        } else {
+                            caldroidFragment.setBackgroundResourceForDate(R.drawable.calendar_trainer_day, nextDate);
+                        }
+                    }
+                }
+
+                if(completed) {
+                    caldroidFragment.setBackgroundResourceForDate(R.drawable.calendar_completed_workout_day, nextDate);
+                    completed = false;
+                }
+
+
+                cal.setTime(nextDate);
+                cal.add(Calendar.DATE, 1);
+                nextDate = cal.getTime();
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            caldroidFragment.refreshView();
+        }
+    }
+
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -372,48 +519,7 @@ public class CalendarViewFragment extends Fragment {
         caldroidFragment.setBackgroundResourceForDate(R.drawable.calendar_trainer_day, firstTrainerDay.toDate());
     }
 
-    public class setCalendarBackgrounds extends AsyncTask<String, Void, Void> {
 
-        @Override
-        protected Void doInBackground(String... type) {
-            SimpleDateFormat sdf = new SimpleDateFormat("EEEE");
-            Calendar cal = Calendar.getInstance();
-            DateTime today = DateTime.now();
-
-            Date nextDate = firstTrainerDay.toDate();
-            String day = "";
-            int i = 0;
-            int j = 0;
-
-            while(i < 84) {
-                i++;
-                day = sdf.format(nextDate);
-
-                if(type[0].equals("Beginner")) {
-                    if (!day.equals("Saturday") && !day.equals("Sunday")) {
-                        caldroidFragment.setBackgroundResourceForDate(R.drawable.calendar_trainer_day, nextDate);
-                    }
-                } else if(type[0].equals("Int")) {
-                    if (!day.equals("Sunday")) {
-                        caldroidFragment.setBackgroundResourceForDate(R.drawable.calendar_trainer_day, nextDate);
-                    }
-                }
-
-
-                cal.setTime(nextDate);
-                cal.add(Calendar.DATE, 1);
-                nextDate = cal.getTime();
-            }
-
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void aVoid) {
-            super.onPostExecute(aVoid);
-            caldroidFragment.refreshView();
-        }
-    }
 }
 
 

@@ -12,13 +12,13 @@
     <application
         android:hardwareAccelerated="true"
         android:allowBackup="true"
-        android:icon="@drawable/workoutanywherebyrundlefit"
+        android:icon="@drawable/action_bar_icon"
         android:theme="@style/AppTheme" >
         <activity
             android:name=".HomeScreen"
-            android:label=""
+            android:label="Workout Anywhere"
             android:theme="@style/AppTheme"
-            android:icon="@drawable/workoutanywherebyrundlefit" >
+            android:icon="@drawable/action_bar_icon">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,16 +26,26 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="profile.UserProfile"></activity>
-        <activity android:name="workouts.Workouts"></activity>
-        <activity android:name="stream.Stream"></activity>
-        <activity android:name="calendar.CalendarView"></activity>
-        <activity android:name="blog.BlogActivity"></activity>
-        <activity android:name="blog.BlogPostActivity"></activity>
-        <activity android:name="workouts.WorkoutPostActivity"></activity>
-        <activity android:name="profile.UserProfileWorkoutsList"></activity>
-        <activity android:name="trainer.TrainerDay"></activity>
-        <activity android:name="calendar.ChooseATrainerFragment"></activity>
+        <activity android:name="profile.UserProfile"
+            android:label="Profile"></activity>
+        <activity android:name="workouts.Workouts"
+            android:label="Workouts"></activity>
+        <activity android:name="stream.StreamActivity"
+            android:label="Stream"></activity>
+        <activity android:name="calendar.CalendarView"
+            android:label="Calendar"></activity>
+        <activity android:name="blog.BlogActivity"
+            android:label="Blog"></activity>
+        <activity android:name="blog.BlogPostActivity"
+            android:label=""></activity>
+        <activity android:name="workouts.WorkoutPostActivity"
+            android:label=""></activity>
+        <activity android:name="profile.UserProfileWorkoutsList"
+            android:label=""></activity>
+        <activity android:name="trainer.TrainerDay"
+            android:label="Trainer"></activity>
+        <activity android:name="calendar.ChooseATrainerFragment"
+            android:label="Choose a Trainer"></activity>
 
     </application>
 

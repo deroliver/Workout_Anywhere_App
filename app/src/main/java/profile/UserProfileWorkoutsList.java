@@ -11,6 +11,9 @@ import android.os.Bundle;
 
 import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
@@ -32,6 +35,7 @@ import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 import com.nostra13.universalimageloader.core.decode.BaseImageDecoder;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import com.nostra13.universalimageloader.core.listener.PauseOnScrollListener;
+import com.practice.derikpc.workoutanywhere.HomeScreen;
 import com.practice.derikpc.workoutanywhere.R;
 
 import org.apache.http.HttpEntity;
@@ -52,7 +56,9 @@ import blog.BlogPost;
 import blog.BlogPostActivity;
 import databasetools.CompletedDatabaseTools;
 import databasetools.FavoritesDatabaseTools;
+import databasetools.UserInfoDatabaseTools;
 import stream.StreamObject;
+import user.User;
 
 public class UserProfileWorkoutsList extends ListActivity {
 
@@ -77,6 +83,8 @@ public class UserProfileWorkoutsList extends ListActivity {
 
     private CompletedDatabaseTools fDBtools;
     private ArrayList<HashMap<String, String>> completedList;
+
+    private UserInfoDatabaseTools uDBTools;
 
     private int numFavs = 0;
     private int numCompleted = 0;
@@ -103,6 +111,7 @@ public class UserProfileWorkoutsList extends ListActivity {
 
         dbTools = new FavoritesDatabaseTools(getApplicationContext());
         fDBtools = new CompletedDatabaseTools(getApplicationContext());
+        uDBTools = new UserInfoDatabaseTools(this);
 
         listView = (ListView) findViewById(android.R.id.list);
 
@@ -674,6 +683,51 @@ public class UserProfileWorkoutsList extends ListActivity {
         super.onPause();
         imageLoader.clearMemoryCache();
         imageLoader.clearDiskCache();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch(item.getItemId()) {
+            case R.id.sign_out: {
+                signOut();
+                return true;
+            }
+
+            case R.id.exit_the_app: {
+                System.exit(0);
+                return true;
+            }
+
+            case R.id.home_screen: {
+                homeScreen();
+                return true;
+            }
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
+    private void signOut() {
+        String username = User.getUserName();
+        uDBTools.updateSignedInByUsername(username, "false");
+
+        Intent intent = new Intent(this, HomeScreen.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
+
+    private void homeScreen() {
+        finish();
     }
 }
 

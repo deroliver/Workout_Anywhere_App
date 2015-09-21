@@ -88,6 +88,9 @@ public class SpecificWorkout extends Fragment implements TabListener {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(data == null) {
+            getActivity().finish();
+        }
         List<Fragment> fragments = getChildFragmentManager().getFragments();
         if (fragments == null) {
             return;

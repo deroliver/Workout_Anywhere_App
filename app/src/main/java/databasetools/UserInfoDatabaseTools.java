@@ -123,6 +123,29 @@ public class UserInfoDatabaseTools extends SQLiteOpenHelper {
         return i;
     }
 
+    public int updateSignedInByUsername(String userName, String signedIn) {
+
+        SQLiteDatabase database = this.getWritableDatabase();
+
+        HashMap<String, String> queryValues = getUserInfoByUserName(userName);
+
+        ContentValues values = new ContentValues();
+
+        values.put("name", queryValues.get("name"));
+        values.put("userName", queryValues.get("userName"));
+        values.put("password", queryValues.get("password"));
+        values.put("firstTrainerDay", queryValues.get("firstTrainerDay"));
+        values.put("signedIn", signedIn);
+        values.put("avatarURL", queryValues.get("avatarURL"));
+        values.put("paidOrFree", queryValues.get("paidOrFree"));
+        values.put("trainerType", queryValues.get("trainerType"));
+
+
+        int i  = database.update("users", values, "ID" + " =?", new String[] {queryValues.get("ID")});
+
+        return i;
+    }
+
 
     public void deleteUser(String ID) {
         numFavorites--;

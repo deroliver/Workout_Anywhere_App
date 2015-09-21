@@ -50,7 +50,7 @@
                 android:gravity="left|center"
                 android:textColor="@color/rundle_blue_hex"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Favorited Videos"
+                android:text="Favorited Workouts"
                 android:id="@+id/textView3" />
 
             <Button
@@ -291,7 +291,7 @@
                 android:gravity="left|center"
                 android:textColor="@color/rundle_blue_hex"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Recently Commented"
+                android:text="Favorited Blog Posts"
                 android:id="@+id/textView5" />
 
             <Button

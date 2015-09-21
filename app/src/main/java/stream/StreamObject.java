@@ -3,6 +3,8 @@ package stream;
 
 import android.graphics.drawable.Drawable;
 
+import java.util.ArrayList;
+
 public class StreamObject {
 
     private String usersName = "";
@@ -14,7 +16,24 @@ public class StreamObject {
     private String activityID = "";
     private String activityUserID = "";
     private String dateTime = "";
+    private Boolean liked = false;
+    private ArrayList<UserComment> comments;
 
+    public ArrayList<UserComment> getComments() {
+        return comments;
+    }
+
+    public void setComments(ArrayList<UserComment> comments) {
+        this.comments = comments;
+    }
+
+    public Boolean getLiked() {
+        return liked;
+    }
+
+    public void setLiked(Boolean liked) {
+        this.liked = liked;
+    }
 
     public String getDateTime() {
         return dateTime;

@@ -40,8 +40,10 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 
 import databasetools.UserInfoDatabaseTools;
+import user.User;
 
 
 public class LogInScreenFragment extends Fragment {
@@ -162,15 +164,13 @@ public class LogInScreenFragment extends Fragment {
                                     userDBTools.insertUser(data[1], username, password, "NA", "true", data[3], data[4], "NA");
                                 }
 
-                                Bundle cookie = new Bundle();
+                                userDBTools.updateSignedInByUsername(username, "true");
+                                User user = User.getInstance();
+                                user.initUser(data[1], data[5], username, data[2], data[3], data[4]);
 
-                                data[0] = username;
-                                System.out.println(data[0] + data[1] + data[2] + data[3] + data[4]);
-                                cookie.putStringArray("USER", data);
 
                                 Fragment fragment = new HomeScreenButtonsFragment();
 
-                                fragment.setArguments(cookie);
                                 FragmentManager fM = getFragmentManager();
                                 FragmentTransaction fT = fM.beginTransaction();
                                 fT.replace(R.id.home_screen_activity, fragment);
@@ -215,7 +215,7 @@ public class LogInScreenFragment extends Fragment {
         public void setDataDownloadListener(CookieDownloadListener listener) {
             httpClientClass = new HttpClientClass();
             this.listener = listener;
-            USER = new String[5];
+            USER = new String[6];
         }
 
         @Override
@@ -269,12 +269,23 @@ public class LogInScreenFragment extends Fragment {
 
                 USER[0] = jsonObject.getString("cookie");
                 USER[1] = user.getString("firstname");
-                USER[2] = user.getString("lastname");
+                USER[2] = user.getString("id");
                 USER[3] = user.getString("avatar");
-                if(status.getString("subscriber") == null) {
+                USER[5] = user.getString("lastname");
+
+                Iterator<String> keys = status.keys();
+                String userStatus = "";
+
+                while(keys.hasNext()) {
+                    userStatus = (String)keys.next();
+                }
+
+                if(userStatus.equals("administrator") || userStatus.equals("optimizemember_level1")) {
+                    System.out.println("Paid");
                     USER[4] = "Paid";
                 }
                 else {
+                    System.out.println("Free");
                     USER[4] = "Free";
                 }
 
@@ -286,8 +297,10 @@ public class LogInScreenFragment extends Fragment {
         }
 
         protected void onPostExecute(String result[]) {
-            if(result[0] != null)
+            if(result[0] != null) {
                 listener.dataDownloadedSuccessfully(result);
+
+            }
             else
                 listener.dataDownloadFailed();
 

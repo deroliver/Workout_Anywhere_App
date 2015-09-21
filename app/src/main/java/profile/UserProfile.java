@@ -11,6 +11,7 @@ import android.net.ParseException;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -24,6 +25,7 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
+import com.practice.derikpc.workoutanywhere.HomeScreen;
 import com.practice.derikpc.workoutanywhere.R;
 
 import org.apache.http.HttpEntity;
@@ -43,6 +45,8 @@ import java.util.HashMap;
 import blog.BlogPostActivity;
 import databasetools.CompletedDatabaseTools;
 import databasetools.FavoritesDatabaseTools;
+import databasetools.UserInfoDatabaseTools;
+import user.User;
 
 public class UserProfile extends FragmentActivity {
     private String USER[] = null;
@@ -51,7 +55,6 @@ public class UserProfile extends FragmentActivity {
     private int DIALOG_ID = 0;
 
     private static String FNAME = "";
-    private static String LNAME = "";
     private static String STATUS = "";
     private static String AVATARURL = "";
 
@@ -102,6 +105,7 @@ public class UserProfile extends FragmentActivity {
 
     CompletedDatabaseTools cDBTools;
     FavoritesDatabaseTools fDBTools;
+    UserInfoDatabaseTools uDBTools;
 
     private String asyncParams[];
 
@@ -125,6 +129,7 @@ public class UserProfile extends FragmentActivity {
 
         cDBTools = new CompletedDatabaseTools(this);
         fDBTools = new FavoritesDatabaseTools(this);
+        uDBTools = new UserInfoDatabaseTools(this);
 
         viewAllFavoritedWorkoutVideos = (Button) findViewById(R.id.view_all_favorited_videos_button);
         viewAllCompletedWorkoutVideos = (Button) findViewById(R.id.view_all_completed_videos_button);
@@ -212,22 +217,12 @@ public class UserProfile extends FragmentActivity {
 
             imageLoader = ImageLoader.getInstance();
 
-            if(first) {
-                USER = new String[4];
 
-                Intent intent = getIntent();
-                USER = intent.getStringArrayExtra("USER");
+            FNAME = User.getFirstName();
+            AVATARURL = User.getUserAvatarUrl();
+            STATUS = User.getUserStatus();
 
-                FNAME = USER[1];
-                LNAME = USER[2];
-                AVATARURL = USER[3];
-                STATUS = USER[4];
-
-                first = false;
-            }
-
-
-            System.out.println(FNAME + LNAME + AVATARURL + STATUS);
+            System.out.println(FNAME + AVATARURL + STATUS + User.getUserID());
 
             return null;
         }
@@ -385,22 +380,70 @@ public class UserProfile extends FragmentActivity {
         @Override
         protected void onPostExecute(Boolean[] successful) {
             if (successful[0]) {
+                favoritedImage.setClickable(true);
+                viewAllFavoritedWorkoutVideos.setClickable(true);
+                completedFavoritedButton.setClickable(true);
+                likeFavoritedButton.setClickable(true);
+                favoritedBar.setVisibility(View.VISIBLE);
+
                 favoritedTitle.setText(recentFavoriteTitle);
                 display(favoritedImage, recentFavoriteImageURL, favoritedBar);
-            } else
+
+            } else {
+                completedFavoritedButton.setClickable(false);
+                likeFavoritedButton.setClickable(false);
+
+                favoritedImage.setImageDrawable(null);
+                favoritedBar.setVisibility(View.INVISIBLE);
                 favoritedTitle.setText("Could not Load");
+                favoritedImage.setClickable(false);
+                viewAllFavoritedWorkoutVideos.setClickable(false);
+            }
+
 
             if (successful[1]) {
+                completedImage.setClickable(true);
+                viewAllCompletedWorkoutVideos.setClickable(true);
+                completedCompletedButton.setClickable(true);
+                likeCompletedButton.setClickable(false);
+                completedBar.setVisibility(View.VISIBLE);
+
                 completedTitle.setText(recentCompletedTitle);
                 display(completedImage, recentCompletedImageURL, completedBar);
-            } else
+
+            } else {
+                completedCompletedButton.setClickable(false);
+                likeCompletedButton.setClickable(false);
+
+                completedImage.setImageDrawable(null);
+                completedBar.setVisibility(View.INVISIBLE);
                 completedTitle.setText("Could not Load");
+                completedImage.setClickable(false);
+                viewAllCompletedWorkoutVideos.setClickable(false);
+            }
+
 
             if (successful[2]) {
+                commentedImage.setClickable(true);
+                viewAllCommentedWorkoutVideos.setClickable(true);
+                completedCommentedButton.setClickable(true);
+                likeCommentedButton.setClickable(true);
+                commentedBar.setVisibility(View.VISIBLE);
+
                 commentedTitle.setText(recentCommentedTitle);
                 display(commentedImage, recentCommentedImageURL, commentedBar);
-            } else
+
+            } else {
+                completedCommentedButton.setClickable(false);
+                likeCommentedButton.setClickable(false);
+
+                commentedImage.setImageDrawable(null);
+                commentedBar.setVisibility(View.INVISIBLE);
                 commentedTitle.setText("Could not Load");
+                commentedImage.setClickable(false);
+                viewAllCommentedWorkoutVideos.setClickable(false);
+            }
+
         }
     }
 
@@ -459,30 +502,6 @@ public class UserProfile extends FragmentActivity {
                 .build();
 
         return options;
-    }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -650,6 +669,10 @@ public class UserProfile extends FragmentActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(data == null) {
+            finish();
+        }
+
         System.out.println(requestCode);
         final Intent intent = data;
         if (requestCode == 1) {
@@ -781,4 +804,50 @@ public class UserProfile extends FragmentActivity {
             }
         }
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch(item.getItemId()) {
+            case R.id.sign_out: {
+                signOut();
+                return true;
+            }
+
+            case R.id.exit_the_app: {
+                System.exit(0);
+                return true;
+            }
+
+            case R.id.home_screen: {
+                homeScreen();
+                return true;
+            }
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
+    private void signOut() {
+        String username = User.getUserName();
+        uDBTools.updateSignedInByUsername(username, "false");
+
+        Intent intent = new Intent(this, HomeScreen.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
+
+    private void homeScreen() {
+        finish();
+    }
+
 }

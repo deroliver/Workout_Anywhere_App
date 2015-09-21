@@ -9,15 +9,22 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.practice.derikpc.workoutanywhere.HomeScreen;
 import com.practice.derikpc.workoutanywhere.R;
 import com.roomorama.caldroid.CaldroidFragment;
 import com.roomorama.caldroid.CaldroidListener;
 
 import java.util.Calendar;
 import java.util.Date;
+
+import databasetools.UserInfoDatabaseTools;
+import user.User;
 
 
 public class CalendarView extends FragmentActivity implements ActionBar.TabListener, SeekChangeListener {
@@ -32,6 +39,8 @@ public class CalendarView extends FragmentActivity implements ActionBar.TabListe
     private String trainerType = "";
 
     private String userName = "";
+
+    private UserInfoDatabaseTools uDBTools;
 
     @Override
     public String getTrainerType() { return trainerType; }
@@ -69,6 +78,8 @@ public class CalendarView extends FragmentActivity implements ActionBar.TabListe
 
         Intent intent = getIntent();
         userName = intent.getStringExtra("userName");
+
+        uDBTools = new UserInfoDatabaseTools(this);
 
         viewPager = (ViewPager) findViewById(R.id.calendar_view_pager);
         MyAdapter myAdapter = new MyAdapter(getSupportFragmentManager());
@@ -128,6 +139,51 @@ public class CalendarView extends FragmentActivity implements ActionBar.TabListe
     @Override
     public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch(item.getItemId()) {
+            case R.id.sign_out: {
+                signOut();
+                return true;
+            }
+
+            case R.id.exit_the_app: {
+                System.exit(0);
+                return true;
+            }
+
+            case R.id.home_screen: {
+                homeScreen();
+                return true;
+            }
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
+    private void signOut() {
+        String username = User.getUserName();
+        uDBTools.updateSignedInByUsername(username, "false");
+
+        Intent intent = new Intent(this, HomeScreen.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
+
+    private void homeScreen() {
+        finish();
     }
 
 }

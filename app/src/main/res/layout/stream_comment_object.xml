@@ -5,7 +5,7 @@
 
     <LinearLayout
         android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/round_rect_shape"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -21,21 +21,21 @@
             <FrameLayout
                 android:padding="5dp"
                 android:layout_marginTop="5dp"
-                android:layout_gravity="left"
+                android:layout_gravity="start"
                 android:orientation="vertical"
                 android:layout_width="0dp"
                 android:layout_weight="4"
-                android:layout_height="75dp">
+                android:layout_height="65dp">
 
                 <imageview.RoundedImageView
                     android:layout_gravity="center"
                     android:src="@drawable/profile_button"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:id="@+id/stream_object_picture" />
+                    android:id="@+id/stream_comment_image" />
 
                 <ProgressBar
-                    android:id="@+id/activity_object_progress_bar"
+                    android:id="@+id/stream_comment_progress_bar"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"/>
@@ -51,7 +51,7 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/person_name"
+                    android:id="@+id/stream_comment_name"
                     android:textStyle="bold"
                     android:textColor="@color/rundle_blue_hex"
                     android:textSize="15sp"
@@ -60,32 +60,18 @@
                     android:text="Stephanie Bunn"/>
 
                 <TextView
-                    android:textSize="11sp"
-                    android:textColor="@color/secondary_grey"
+                    android:textSize="12sp"
+                    android:textColor="@color/text_grey"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:text="Posted an update in the group Group Back to School Fitness Challenge:"
-                    android:id="@+id/stream_object_action" />
-
-                <TextView
-                    android:visibility="gone"
-                    android:layout_marginTop="15dp"
-                    android:textSize="12dp"
-                    android:textColor="@color/text_grey"
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:layout_weight="4"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="Hello guys!!! This is Stephanie and I am really looking forward to the next 30 days!!!!"
-                    android:id="@+id/stream_object_content" />
-
+                    android:id="@+id/stream_comment_text" />
             </LinearLayout>
-
         </LinearLayout>
 
         <LinearLayout
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="5dp"
             android:orientation="horizontal"
             android:layout_weight="1"
             android:layout_width="fill_parent"
@@ -104,48 +90,7 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:layout_marginLeft="5dp"
-                    android:id="@+id/stream_object_ncomments"
-                    android:textStyle="italic"
-                    android:textColor="@color/light_rundle_blue_hex"
-                    android:textSize="11sp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="216"/>
-
-                <TextView
-                    android:textSize="11sp"
-                    android:id="@+id/see_comments_button"
-                    android:textColor="@color/light_rundle_blue_hex"
-                    android:textStyle="italic"
-                    android:layout_marginLeft="8dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="comments"/>
-
-                <TextView
-                    android:layout_marginLeft="30dp"
-                    android:id="@+id/stream_object_nlikes"
-                    android:textStyle="italic"
-                    android:textColor="@color/secondary_grey"
-                    android:textSize="11sp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="34"/>
-
-                <TextView
-                    android:textSize="11sp"
-                    android:id="@+id/like_post_button"
-                    android:textColor="@color/secondary_grey"
-                    android:textStyle="italic"
-                    android:layout_marginLeft="8dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="likes"/>
-
-
-                <TextView
-                    android:id="@+id/stream_object_time"
+                    android:id="@+id/stream_comment_time"
                     android:gravity="end"
                     android:textSize="8sp"
                     android:textColor="@color/secondary_grey"
@@ -163,6 +108,9 @@
                 android:layout_weight="2" >
             </View>
 
-            </LinearLayout>
+        </LinearLayout>
+
+
+
     </LinearLayout>
 </TableRow>

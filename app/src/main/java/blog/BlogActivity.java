@@ -11,6 +11,9 @@ import android.net.ParseException;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
@@ -21,6 +24,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import com.nostra13.universalimageloader.core.listener.PauseOnScrollListener;
+import com.practice.derikpc.workoutanywhere.HomeScreen;
 import com.practice.derikpc.workoutanywhere.R;
 import com.squareup.picasso.Picasso;
 
@@ -30,6 +34,7 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
+import org.joda.time.DateTime;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -42,6 +47,8 @@ import java.util.List;
 
 import databasetools.CompletedDatabaseTools;
 import databasetools.FavoritesDatabaseTools;
+import databasetools.UserInfoDatabaseTools;
+import user.User;
 
 
 public class BlogActivity extends Activity {
@@ -78,6 +85,8 @@ public class BlogActivity extends Activity {
 
     private CompletedDatabaseTools fDBTools;
 
+    private UserInfoDatabaseTools uDBTools;
+
     private MultiScrollListener scrolls;
 
 
@@ -89,6 +98,7 @@ public class BlogActivity extends Activity {
 
         dbTools = new FavoritesDatabaseTools(this);
         fDBTools = new CompletedDatabaseTools(this);
+        uDBTools = new UserInfoDatabaseTools(this);
 
         listView = (ListView) findViewById(R.id.list);
         blogActivityObjects = new ArrayList<BlogPost>();
@@ -158,6 +168,10 @@ public class BlogActivity extends Activity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         final Intent intent = data;
+        if(data == null) {
+            finish();
+        }
+
         if (requestCode == 1) {
             if (resultCode == RESULT_OK) {
                 String position = intent.getStringExtra("Position");
@@ -447,7 +461,8 @@ public class BlogActivity extends Activity {
                     else if (!allBlogPosts.get(position).isCompleted()) {
                         showDialog(DIALOG_ID);
                         Picasso.with(getApplicationContext()).load(R.drawable.completed_check_mark_button_full).into(vH.completed);
-                        fDBTools.insertCompletion(allBlogPosts.get(position).getUrl(), day_x + ":" + month_x + ":" + year_x);
+                        DateTime now = DateTime.now();
+                        fDBTools.insertCompletion(allBlogPosts.get(position).getUrl(), month_x + "/" + day_x + "/" + year_x);
                         numCompleted++;
                         allBlogPosts.get(position).setCompleted(true);
                     }
@@ -575,6 +590,51 @@ public class BlogActivity extends Activity {
         @Override
         public void onScrollStateChanged(AbsListView view, int scrollState) {
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch(item.getItemId()) {
+            case R.id.sign_out: {
+                signOut();
+                return true;
+            }
+
+            case R.id.exit_the_app: {
+                System.exit(0);
+                return true;
+            }
+
+            case R.id.home_screen: {
+                homeScreen();
+                return true;
+            }
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
+    private void signOut() {
+        String username = User.getUserName();
+        uDBTools.updateSignedInByUsername(username, "false");
+
+        Intent intent = new Intent(this, HomeScreen.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
+
+    private void homeScreen() {
+        finish();
     }
 }
 

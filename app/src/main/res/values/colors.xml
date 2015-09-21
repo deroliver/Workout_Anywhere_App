@@ -12,7 +12,9 @@
     <color name="light_rundle_blue_hex">#D90088cc</color>
     <color name="text_grey">#666666</color>
     <color name="background_rundle_blue">#260088cc</color>
-    <color name="stream_object_gray">#f2f2f2</color>
+    <color name="stream_background_gray">#f2f2f2</color>
+    <color name="very_light_blue">#260088cc</color>
+
 
 
 </resources>

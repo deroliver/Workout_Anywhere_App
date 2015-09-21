@@ -7,6 +7,9 @@ import android.content.Intent;
 import android.net.ParseException;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
@@ -17,6 +20,7 @@ import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.practice.derikpc.workoutanywhere.HomeScreen;
 import com.practice.derikpc.workoutanywhere.R;
 
 import org.apache.http.HttpEntity;
@@ -38,6 +42,8 @@ import java.util.HashMap;
 
 import databasetools.CompletedDatabaseTools;
 import databasetools.FavoritesDatabaseTools;
+import databasetools.UserInfoDatabaseTools;
+import user.User;
 
 public class BlogPostActivity extends YouTubeBaseActivity implements YouTubePlayer.OnInitializedListener {
 
@@ -71,11 +77,15 @@ public class BlogPostActivity extends YouTubeBaseActivity implements YouTubePlay
     private boolean likedWorkout = false;
     private boolean completedWorkout = false;
 
+    private UserInfoDatabaseTools uDBTools;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.blog_post_activity);
         imageLoader = ImageLoader.getInstance();
+
+        uDBTools = new UserInfoDatabaseTools(this);
 
         final Calendar cal = Calendar.getInstance();
         year_x = cal.get(Calendar.YEAR);
@@ -215,7 +225,7 @@ public class BlogPostActivity extends YouTubeBaseActivity implements YouTubePlay
         intent.putExtra("Liked", likedWorkout);
         intent.putExtra("Completed", completedWorkout);
         intent.putExtra("Position", position.toString());
-        intent.putExtra("Date", day_x + ":" + month_x + ":" + year_x);
+        intent.putExtra("Date", month_x + "/" + day_x + "/" + year_x);
         setResult(RESULT_OK, intent);
         finish();
     }
@@ -392,6 +402,50 @@ public class BlogPostActivity extends YouTubeBaseActivity implements YouTubePlay
         super.onDestroy();
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch(item.getItemId()) {
+            case R.id.sign_out: {
+                signOut();
+                return true;
+            }
+
+            case R.id.exit_the_app: {
+                System.exit(0);
+                return true;
+            }
+
+            case R.id.home_screen: {
+                homeScreen();
+                return true;
+            }
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
+    private void signOut() {
+        String username = User.getUserName();
+        uDBTools.updateSignedInByUsername(username, "false");
+
+        Intent intent = new Intent(this, HomeScreen.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
+
+    private void homeScreen() {
+        finish();
+    }
 
 }
 
