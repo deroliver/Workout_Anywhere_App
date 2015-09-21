@@ -1,4 +1,5 @@
-# Workout_Anywhere_App
+# WorkoutAnywhere Android App
+
 An android app for Workout Anywhere by RundleFit
 
 This is one of my first attempts at a full fledged Android app.
