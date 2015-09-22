@@ -6,8 +6,9 @@ Prior to this project, I had no experience with Android.
 
 ---
 
-WorkoutAnywhere is a health and fitness company in Spokane Washington that was looking for a developer
+WorkoutAnywhere was looking for a developer
 to write a mobile app.
+
 They wanted an app that could simulate the experience their users have on their website.
 
 ---
